@@ -38,6 +38,7 @@ function Badge({ icon, text }: { icon: React.ReactNode; text: string }) {
 export default function LandingPage() {
   const [activeCard, setActiveCard] = useState(0)
   const [progress, setProgress] = useState(0)
+  const [heroVideoPlaying, setHeroVideoPlaying] = useState(false)
   const mountedRef = useRef(true)
 
   useEffect(() => {
@@ -194,55 +195,71 @@ export default function LandingPage() {
                 />
               </div>
 
-              <div className="w-full max-w-[960px] lg:w-[960px] pt-2 sm:pt-4 pb-6 sm:pb-8 md:pb-10 px-2 sm:px-4 md:px-6 lg:px-11 flex flex-col justify-center items-center gap-2 relative z-5 my-8 sm:my-12 md:my-16 lg:my-16 mb-0 lg:pb-0">
-                <div className="w-full max-w-[960px] lg:w-[960px] h-[200px] sm:h-[280px] md:h-[450px] lg:h-[695.55px] bg-white shadow-[0px_0px_0px_0.9056603908538818px_rgba(0,0,0,0.08)] overflow-hidden rounded-[6px] sm:rounded-[8px] lg:rounded-[9.06px] flex flex-col justify-start items-start">
-                  {/* Dashboard Content */}
-                  <div className="self-stretch flex-1 flex justify-start items-start">
-                    {/* Main Content */}
-                    <div className="w-full h-full flex items-center justify-center">
-                      <div className="relative w-full h-full overflow-hidden">
-                        {/* Product Image 1 - Plan your schedules */}
-                        <div
-                          className={`absolute inset-0 transition-all duration-500 ease-in-out ${
-                            activeCard === 0 ? "opacity-100 scale-100 blur-0" : "opacity-0 scale-95 blur-sm"
-                          }`}
-                        >
-                          <img
-                            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/dsadsadsa.jpg-xTHS4hGwCWp2H5bTj8np6DXZUyrxX7.jpeg"
-                            alt="Schedules Dashboard - Customer Subscription Management"
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
+              <div className="w-full max-w-[960px] lg:w-[960px] pt-2 sm:pt-4 px-2 sm:px-4 md:px-6 lg:px-11 flex flex-col justify-center items-center gap-2 relative z-5 my-8 sm:my-12 md:my-16 lg:my-16 mb-0 lg:pb-0">
+                {!heroVideoPlaying ? (
+                  <button
+                    onClick={() => setHeroVideoPlaying(true)}
+                    className="w-full aspect-video rounded-[6px] sm:rounded-[8px] lg:rounded-[12px] overflow-hidden relative group cursor-pointer shadow-[0px_0px_0px_0.9px_rgba(0,0,0,0.08),0px_8px_32px_rgba(55,50,47,0.12)] bg-[#0F2744] flex items-center justify-center"
+                    aria-label="Смотреть демо Alashed"
+                  >
+                    {/* Gradient background */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#1A6FA8] via-[#0F2744] to-[#37322F]" />
 
-                        {/* Product Image 2 - Data to insights */}
-                        <div
-                          className={`absolute inset-0 transition-all duration-500 ease-in-out ${
-                            activeCard === 1 ? "opacity-100 scale-100 blur-0" : "opacity-0 scale-95 blur-sm"
-                          }`}
-                        >
-                          <img
-                            src="/analytics-dashboard-with-charts-graphs-and-data-vi.jpg"
-                            alt="Analytics Dashboard"
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
+                    {/* Animated glow */}
+                    <div className="absolute inset-0 opacity-20">
+                      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-[#5BB8F5] rounded-full blur-[80px]" />
+                      <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-[#2E9DE0] rounded-full blur-[60px]" />
+                    </div>
 
-                        {/* Product Image 3 - Data visualization */}
-                        <div
-                          className={`absolute inset-0 transition-all duration-500 ease-in-out ${
-                            activeCard === 2 ? "opacity-100 scale-100 blur-0" : "opacity-0 scale-95 blur-sm"
-                          }`}
-                        >
-                          <img
-                            src="/data-visualization-dashboard-with-interactive-char.jpg"
-                            alt="Data Visualization Dashboard"
-                            className="w-full h-full object-contain" // Changed from object-cover to object-contain to preserve landscape aspect ratio
-                          />
-                        </div>
+                    {/* Grid pattern overlay */}
+                    <div className="absolute inset-0 opacity-10" style={{backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)", backgroundSize: "40px 40px"}} />
+
+                    {/* Center content */}
+                    <div className="relative z-10 flex flex-col items-center gap-4 sm:gap-5">
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-white/15 backdrop-blur-sm border border-white/25 flex items-center justify-center group-hover:bg-white/25 group-hover:scale-105 transition-all duration-300 shadow-[0px_0px_40px_rgba(91,184,245,0.4)]">
+                        <svg className="ml-1" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                          <path d="M8 5l18 9-18 9V5z" fill="white"/>
+                        </svg>
+                      </div>
+                      <div className="flex flex-col items-center gap-1">
+                        <span className="text-white text-sm sm:text-base md:text-lg font-semibold font-sans">Смотреть как работает Alashed</span>
+                        <span className="text-white/60 text-xs sm:text-sm font-normal font-sans">3 минуты · AI-документы, CodeStudio, журнал</span>
                       </div>
                     </div>
+
+                    {/* Top left badge */}
+                    <div className="absolute top-3 left-3 sm:top-4 sm:left-4 px-3 py-1.5 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 flex items-center gap-1.5">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#5BB8F5] animate-pulse" />
+                      <span className="text-white text-[11px] font-semibold font-sans">Alashed EDU · Demo</span>
+                    </div>
+
+                    {/* Bottom stats */}
+                    <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 flex justify-center gap-3 sm:gap-6">
+                      {[
+                        { label: "50+ школ", icon: "🏫" },
+                        { label: "ГОСО 2026 ✓", icon: "📋" },
+                        { label: "2 мин на КМЖ", icon: "⚡" },
+                      ].map((stat, i) => (
+                        <div key={i} className="px-2.5 py-1.5 bg-white/10 backdrop-blur-sm rounded-lg border border-white/15 flex items-center gap-1.5">
+                          <span className="text-xs">{stat.icon}</span>
+                          <span className="text-white/80 text-[11px] font-medium font-sans hidden sm:block">{stat.label}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </button>
+                ) : (
+                  <div className="w-full aspect-video rounded-[6px] sm:rounded-[8px] lg:rounded-[12px] overflow-hidden shadow-[0px_0px_0px_0.9px_rgba(0,0,0,0.08),0px_8px_32px_rgba(55,50,47,0.12)]">
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+                      title="Alashed EDU Demo"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full"
+                    />
                   </div>
-                </div>
+                )}
               </div>
 
               <div className="self-stretch border-t border-[#E0DEDB] border-b border-[#E0DEDB] flex justify-center items-start">
