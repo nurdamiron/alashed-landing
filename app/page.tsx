@@ -15,6 +15,13 @@ import CTASection from "../components/cta-section"
 import FooterSection from "../components/footer-section"
 import StatsSection from "../components/stats-section"
 import HowItWorksSection from "../components/how-it-works-section"
+import BeforeAfterSection from "../components/before-after-section"
+import VideoSection from "../components/video-section"
+import ROICalculatorSection from "../components/roi-calculator-section"
+import ComparisonTableSection from "../components/comparison-table-section"
+import TeamSection from "../components/team-section"
+import AwardsSection from "../components/awards-section"
+import ContactFormSection from "../components/contact-form-section"
 
 // Reusable Badge Component
 function Badge({ icon, text }: { icon: React.ReactNode; text: string }) {
@@ -545,22 +552,41 @@ export default function LandingPage() {
                 </div>
               </div>
 
+              {/* Before / After Section */}
+              <BeforeAfterSection />
+
+              {/* Video Demo Section */}
+              <VideoSection />
+
               {/* Documentation Section */}
               <DocumentationSection />
 
               {/* Testimonials Section */}
               <TestimonialsSection />
 
+              {/* ROI Calculator */}
+              <ROICalculatorSection />
+
+              {/* Comparison Table */}
+              <ComparisonTableSection />
+
               {/* Pricing Section */}
               <PricingSection />
+
+              {/* Awards & Partners */}
+              <AwardsSection />
+
+              {/* Team */}
+              <TeamSection />
 
               {/* FAQ Section */}
               <FAQSection />
 
+              {/* Contact Form */}
+              <ContactFormSection />
+
               {/* CTA Section */}
-              <div id="contact">
-                <CTASection />
-              </div>
+              <CTASection />
 
               {/* Footer Section */}
               <FooterSection />
