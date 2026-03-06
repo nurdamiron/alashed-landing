@@ -1,17 +1,17 @@
 const features = [
-  { name: "AI-генерация КМЖ, БЖБ, ТЖБ", alashed: true, kundelik: false, manual: false },
-  { name: "Привязка к ОМ-кодам ГОСО 2026", alashed: true, kundelik: false, manual: false },
-  { name: "Электронный журнал", alashed: true, kundelik: true, manual: false },
-  { name: "Браузерное IDE для робототехники", alashed: true, kundelik: false, manual: false },
-  { name: "Официальный импорт оборудования", alashed: true, kundelik: false, manual: false },
-  { name: "Аналитика для директора", alashed: true, kundelik: "partial", manual: false },
-  { name: "Геймификация для учеников", alashed: true, kundelik: false, manual: false },
-  { name: "Подготовка к соревнованиям", alashed: true, kundelik: false, manual: false },
-  { name: "B2B тендеры и госзакупки", alashed: true, kundelik: true, manual: false },
-  { name: "Бесплатный тариф", alashed: true, kundelik: false, manual: true },
+  { name: "AI-генерация КМЖ, БЖБ, ТЖБ", alashed: true, foreign: false, manual: false },
+  { name: "Привязка к ОМ-кодам ГОСО 2026", alashed: true, foreign: false, manual: false },
+  { name: "Браузерное IDE для робототехники", alashed: true, foreign: "partial", manual: false },
+  { name: "Официальный импорт оборудования (КЗ)", alashed: true, foreign: false, manual: false },
+  { name: "Аналитика для директора", alashed: true, foreign: "partial", manual: false },
+  { name: "Геймификация для учеников", alashed: true, foreign: false, manual: false },
+  { name: "Подготовка к соревнованиям КЗ", alashed: true, foreign: false, manual: false },
+  { name: "B2B тендеры и госзакупки КЗ", alashed: true, foreign: false, manual: false },
+  { name: "Поддержка на казахском/русском", alashed: true, foreign: false, manual: true },
+  { name: "Единая STEM-экосистема", alashed: true, foreign: false, manual: false },
 ]
 
-function Cell({ value }: { value: boolean | string }) {
+function Cell({ value }: { value: boolean | string | undefined }) {
   if (value === true) {
     return (
       <div className="flex justify-center">
@@ -62,7 +62,7 @@ export default function ComparisonTableSection() {
             Alashed vs альтернативы
           </div>
           <div className="self-stretch text-center text-[#605A57] text-base font-normal leading-7 font-sans">
-            Почему просто Кунделік или ручной подход уже не достаточно.
+            Зарубежные платформы не знают ГОСО, не поставляют железо в Казахстан и не говорят на вашем языке.
           </div>
         </div>
       </div>
@@ -88,8 +88,8 @@ export default function ComparisonTableSection() {
               <div className="text-[#2E9DE0] text-[10px] font-semibold font-sans">полная платформа</div>
             </div>
             <div className="px-4 py-4 text-center border-r border-[rgba(55,50,47,0.12)]">
-              <div className="text-[#37322F] text-sm font-semibold font-sans">Кунделік</div>
-              <div className="text-[rgba(55,50,47,0.50)] text-[10px] font-normal font-sans">журнал</div>
+              <div className="text-[#37322F] text-sm font-semibold font-sans">Зарубежные платформы</div>
+              <div className="text-[rgba(55,50,47,0.50)] text-[10px] font-normal font-sans">не адаптированы под КЗ</div>
             </div>
             <div className="px-4 py-4 text-center">
               <div className="text-[#37322F] text-sm font-semibold font-sans">Вручную</div>
@@ -109,7 +109,7 @@ export default function ComparisonTableSection() {
                 <Cell value={feature.alashed} />
               </div>
               <div className="px-4 py-3.5 border-r border-[rgba(55,50,47,0.08)]">
-                <Cell value={feature.kundelik} />
+                <Cell value={feature.foreign} />
               </div>
               <div className="px-4 py-3.5">
                 <Cell value={feature.manual} />

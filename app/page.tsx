@@ -10,18 +10,16 @@ import NumbersThatSpeak from "../components/numbers-that-speak"
 import DocumentationSection from "../components/documentation-section"
 import TestimonialsSection from "../components/testimonials-section"
 import FAQSection from "../components/faq-section"
-import PricingSection from "../components/pricing-section"
 import CTASection from "../components/cta-section"
 import FooterSection from "../components/footer-section"
 import StatsSection from "../components/stats-section"
 import HowItWorksSection from "../components/how-it-works-section"
 import BeforeAfterSection from "../components/before-after-section"
-import VideoSection from "../components/video-section"
 import ROICalculatorSection from "../components/roi-calculator-section"
 import ComparisonTableSection from "../components/comparison-table-section"
-import TeamSection from "../components/team-section"
 import AwardsSection from "../components/awards-section"
 import ContactFormSection from "../components/contact-form-section"
+import PlatformShowcaseSection from "../components/platform-showcase-section"
 
 // Reusable Badge Component
 function Badge({ icon, text }: { icon: React.ReactNode; text: string }) {
@@ -106,19 +104,12 @@ export default function LandingPage() {
               <div className="w-full max-w-[calc(100%-32px)] sm:max-w-[calc(100%-48px)] md:max-w-[calc(100%-64px)] lg:max-w-[700px] lg:w-[700px] h-10 sm:h-11 md:h-12 py-1.5 sm:py-2 px-3 sm:px-4 md:px-4 pr-2 sm:pr-3 bg-[#F7F5F3] backdrop-blur-sm shadow-[0px_0px_0px_2px_white] overflow-hidden rounded-[50px] flex justify-between items-center relative z-30">
                 <div className="flex justify-center items-center">
                   <div className="flex justify-start items-center">
-                    <div className="flex flex-col justify-center text-[#2F3037] text-sm sm:text-base md:text-lg lg:text-xl font-medium leading-5 font-sans">
-                      Alashed
-                    </div>
+                    <img src="/alashed-wide-logo.svg" alt="Alashed" className="h-6 w-auto" />
                   </div>
                   <div className="pl-3 sm:pl-4 md:pl-5 lg:pl-5 flex justify-start items-start hidden sm:flex flex-row gap-2 sm:gap-3 md:gap-4 lg:gap-4">
                     <div className="flex justify-start items-center">
                       <div className="flex flex-col justify-center text-[rgba(49,45,43,0.80)] text-xs md:text-[13px] font-medium leading-[14px] font-sans">
                         Продукты
-                      </div>
-                    </div>
-                    <div className="flex justify-start items-center">
-                      <div className="flex flex-col justify-center text-[rgba(49,45,43,0.80)] text-xs md:text-[13px] font-medium leading-[14px] font-sans">
-                        Тарифы
                       </div>
                     </div>
                     <div className="flex justify-start items-center">
@@ -162,12 +153,11 @@ export default function LandingPage() {
 
               <div className="w-full max-w-[497px] lg:w-[497px] flex flex-col justify-center items-center gap-6 sm:gap-8 md:gap-10 lg:gap-12 relative z-10 mt-6 sm:mt-8 md:mt-10 lg:mt-12">
                 <div className="backdrop-blur-[8.25px] flex justify-start items-center gap-4">
-                  <a href="https://edu.alashed.kz/login" className="h-10 sm:h-11 md:h-12 px-6 sm:px-8 md:px-10 lg:px-12 py-2 sm:py-[6px] relative bg-[#5BB8F5] shadow-[0px_0px_0px_2.5px_rgba(255,255,255,0.20)_inset] overflow-hidden rounded-full flex justify-center items-center gap-2 hover:bg-[#2E9DE0] transition-colors">
-                    <div className="w-20 sm:w-24 md:w-28 lg:w-44 h-[41px] absolute left-0 top-[-0.5px] bg-gradient-to-b from-[rgba(255,255,255,0.15)] to-[rgba(0,0,0,0.08)] mix-blend-multiply"></div>
-                    <div className="flex flex-col justify-center text-white text-sm sm:text-base md:text-[15px] font-semibold leading-5 font-sans relative z-10">
+                  <a href="https://edu.alashed.kz/login" className="h-10 sm:h-11 px-6 sm:px-8 md:px-10 lg:px-12 bg-[#5BB8F5] hover:bg-[#2E9DE0] transition-colors rounded-full flex items-center gap-2 shadow-[0px_1px_3px_rgba(91,184,245,0.40)]">
+                    <span className="text-white text-sm font-semibold font-sans">
                       Попробовать бесплатно
-                    </div>
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" className="relative z-10">
+                    </span>
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M2.5 7H11.5M11.5 7L8 3.5M11.5 7L8 10.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </a>
@@ -176,11 +166,10 @@ export default function LandingPage() {
                   </a>
                 </div>
                 <div className="flex items-center gap-2 text-[rgba(55,50,47,0.60)] text-sm font-medium">
-                  <span className="inline-flex items-center px-2 py-0.5 rounded bg-[#EBF7FF] text-[#2E9DE0] text-xs font-semibold border border-[#5BB8F5]/30">ГОСО 2026 ✓</span>
-                  <span className="w-1 h-1 rounded-full bg-[rgba(55,50,47,0.30)]"></span>
-                  <span>50+ школ</span>
-                  <span className="w-1 h-1 rounded-full bg-[rgba(55,50,47,0.30)]"></span>
-                  <span>Казахстан</span>
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-[#EBF7FF] text-[#2E9DE0] text-xs font-semibold border border-[#5BB8F5]/30">
+                    ГОСО 2026
+                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  </span>
                 </div>
               </div>
 
@@ -233,19 +222,6 @@ export default function LandingPage() {
                       <span className="text-white text-[11px] font-semibold font-sans">Alashed EDU · Demo</span>
                     </div>
 
-                    {/* Bottom stats */}
-                    <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 flex justify-center gap-3 sm:gap-6">
-                      {[
-                        { label: "50+ школ", icon: "🏫" },
-                        { label: "ГОСО 2026 ✓", icon: "📋" },
-                        { label: "2 мин на КМЖ", icon: "⚡" },
-                      ].map((stat, i) => (
-                        <div key={i} className="px-2.5 py-1.5 bg-white/10 backdrop-blur-sm rounded-lg border border-white/15 flex items-center gap-1.5">
-                          <span className="text-xs">{stat.icon}</span>
-                          <span className="text-white/80 text-[11px] font-medium font-sans hidden sm:block">{stat.label}</span>
-                        </div>
-                      ))}
-                    </div>
                   </button>
                 ) : (
                   <div className="w-full aspect-video rounded-[6px] sm:rounded-[8px] lg:rounded-[12px] overflow-hidden shadow-[0px_0px_0px_0.9px_rgba(0,0,0,0.08),0px_8px_32px_rgba(55,50,47,0.12)]">
@@ -347,80 +323,6 @@ export default function LandingPage() {
                   </div>
                 </div>
 
-                {/* Logo Grid */}
-                <div className="self-stretch border-[rgba(55,50,47,0.12)] flex justify-center items-start border-t border-b-0">
-                  <div className="w-4 sm:w-6 md:w-8 lg:w-12 self-stretch relative overflow-hidden">
-                    {/* Left decorative pattern */}
-                    <div className="w-[120px] sm:w-[140px] md:w-[162px] left-[-40px] sm:left-[-50px] md:left-[-58px] top-[-120px] absolute flex flex-col justify-start items-start">
-                      {Array.from({ length: 50 }).map((_, i) => (
-                        <div
-                          key={i}
-                          className="self-stretch h-3 sm:h-4 rotate-[-45deg] origin-top-left outline outline-[0.5px] outline-[rgba(3,7,18,0.08)] outline-offset-[-0.25px]"
-                        />
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="flex-1 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 gap-0 border-l border-r border-[rgba(55,50,47,0.12)]">
-                    {[
-                      { name: "МОН РК", abbr: "МОН", sub: "Министерство образования" },
-                      { name: "НИШ", abbr: "НИШ", sub: "Назарбаев Интел. Школы" },
-                      { name: "НОБД", abbr: "НОБД", sub: "Нац. база данных" },
-                      { name: "Кунделік", abbr: "Кун.", sub: "Электронный журнал" },
-                      { name: "Bilim Land", abbr: "BL", sub: "Онлайн-платформа" },
-                      { name: "РНМЦ", abbr: "РНМ", sub: "Респ. научно-метод. центр" },
-                      { name: "КТЖ", abbr: "КТЖ", sub: "Учебный центр" },
-                      { name: "Arduino", abbr: "ARD", sub: "Official Partner" },
-                    ].map((partner, index) => {
-                      const isMobileFirstColumn = index % 2 === 0
-                      const isDesktopFirstColumn = index % 4 === 0
-                      const isDesktopLastColumn = index % 4 === 3
-                      const isDesktopTopRow = index < 4
-                      const isDesktopBottomRow = index >= 4
-
-                      return (
-                        <div
-                          key={index}
-                          className={`
-                            h-24 xs:h-28 sm:h-32 md:h-36 lg:h-40 flex flex-col justify-center items-center gap-1
-                            border-b border-[rgba(227,226,225,0.5)]
-                            ${index < 6 ? "sm:border-b-[0.5px]" : "sm:border-b"}
-                            ${index >= 6 ? "border-b" : ""}
-                            ${isMobileFirstColumn ? "border-r-[0.5px]" : ""}
-                            sm:border-r-[0.5px] sm:border-l-0
-                            ${isDesktopFirstColumn ? "md:border-l" : "md:border-l-[0.5px]"}
-                            ${isDesktopLastColumn ? "md:border-r" : "md:border-r-[0.5px]"}
-                            ${isDesktopTopRow ? "md:border-b-[0.5px]" : ""}
-                            ${isDesktopBottomRow ? "md:border-t-[0.5px] md:border-b" : ""}
-                            border-[#E3E2E1] group
-                          `}
-                        >
-                          <div className="w-10 h-10 rounded-full bg-[#EBF7FF] border border-[#5BB8F5]/20 flex items-center justify-center mb-1">
-                            <span className="text-[#2E9DE0] text-[10px] font-bold leading-none">{partner.abbr}</span>
-                          </div>
-                          <div className="text-center text-[#37322F] text-xs sm:text-sm font-semibold leading-tight font-sans">
-                            {partner.name}
-                          </div>
-                          <div className="text-center text-[rgba(55,50,47,0.45)] text-[10px] sm:text-[11px] font-normal leading-tight font-sans hidden sm:block px-2">
-                            {partner.sub}
-                          </div>
-                        </div>
-                      )
-                    })}
-                  </div>
-
-                  <div className="w-4 sm:w-6 md:w-8 lg:w-12 self-stretch relative overflow-hidden">
-                    {/* Right decorative pattern */}
-                    <div className="w-[120px] sm:w-[140px] md:w-[162px] left-[-40px] sm:left-[-50px] md:left-[-58px] top-[-120px] absolute flex flex-col justify-start items-start">
-                      {Array.from({ length: 50 }).map((_, i) => (
-                        <div
-                          key={i}
-                          className="self-stretch h-3 sm:h-4 rotate-[-45deg] origin-top-left outline outline-[0.5px] outline-[rgba(3,7,18,0.08)] outline-offset-[-0.25px]"
-                        />
-                      ))}
-                    </div>
-                  </div>
-                </div>
               </div>
 
               {/* Stats Section */}
@@ -572,8 +474,8 @@ export default function LandingPage() {
               {/* Before / After Section */}
               <BeforeAfterSection />
 
-              {/* Video Demo Section */}
-              <VideoSection />
+              {/* Platform Showcase */}
+              <PlatformShowcaseSection />
 
               {/* Documentation Section */}
               <DocumentationSection />
@@ -587,14 +489,8 @@ export default function LandingPage() {
               {/* Comparison Table */}
               <ComparisonTableSection />
 
-              {/* Pricing Section */}
-              <PricingSection />
-
               {/* Awards & Partners */}
               <AwardsSection />
-
-              {/* Team */}
-              <TeamSection />
 
               {/* FAQ Section */}
               <FAQSection />

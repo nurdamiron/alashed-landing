@@ -104,7 +104,9 @@ export default function BeforeAfterSection() {
               {/* Before */}
               <div className="px-6 py-5 border-r border-[rgba(55,50,47,0.12)] flex items-center gap-4">
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${hovered === index ? "bg-[#FEF3C7]" : "bg-[rgba(55,50,47,0.06)]"}`}>
-                  <span className="text-[#D97706] text-base">✕</span>
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                    <path d="M2 2l6 6M8 2L2 8" stroke="#D97706" strokeWidth="1.5" strokeLinecap="round"/>
+                  </svg>
                 </div>
                 <div>
                   <div className="text-[#847971] text-sm font-medium leading-5 font-sans line-through decoration-[#D97706]/40">

@@ -20,7 +20,7 @@ export function HeroSection() {
 
           {/* Trust bar */}
           <div className="flex items-center gap-2 text-[rgba(55,50,47,0.60)] text-sm font-medium">
-            <span>ГОСО 2026 ✓</span>
+            <span className="inline-flex items-center gap-1">ГОСО 2026 <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg></span>
             <span className="w-1 h-1 rounded-full bg-[rgba(55,50,47,0.30)]"></span>
             <span>50+ школ</span>
             <span className="w-1 h-1 rounded-full bg-[rgba(55,50,47,0.30)]"></span>

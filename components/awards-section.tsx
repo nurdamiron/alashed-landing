@@ -1,6 +1,6 @@
 const awards = [
   {
-    icon: "🏆",
+    iconPath: "M6 1l1.2 2.4 2.7.4-1.95 1.9.46 2.7L6 7.25 3.57 8.44l.46-2.7L2.1 3.84l2.7-.4L6 1z",
     title: "Infomatrix Asia",
     subtitle: "Партнёр соревнования",
     desc: "Помогаем школам готовить команды к международному уровню",
@@ -8,7 +8,7 @@ const awards = [
     bg: "#FEF3C7",
   },
   {
-    icon: "🤖",
+    iconPath: "M2 10V7a4 4 0 018 0v3M1 10h10M6 10v2",
     title: "KazRobotics",
     subtitle: "Соорганизатор",
     desc: "Национальные соревнования по робототехнике среди школьников",
@@ -16,7 +16,7 @@ const awards = [
     bg: "#ECFDF5",
   },
   {
-    icon: "💻",
+    iconPath: "M2 2h8v6H2zM4 8v2M8 8v2M3 11h6",
     title: "ITFest Kazakhstan",
     subtitle: "Технический партнёр",
     desc: "Ежегодный IT-фестиваль для молодёжи Казахстана",
@@ -24,7 +24,7 @@ const awards = [
     bg: "#EBF7FF",
   },
   {
-    icon: "🌍",
+    iconPath: "M6 1C3.2 1 1 3.2 1 6s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zM6 3v3l2 1",
     title: "WRO",
     subtitle: "World Robot Olympiad",
     desc: "Поддержка участия казахстанских школ в мировых соревнованиях",
@@ -32,7 +32,7 @@ const awards = [
     bg: "#F5F3FF",
   },
   {
-    icon: "📚",
+    iconPath: "M1 9V3a1 1 0 011-1h8a1 1 0 011 1v6M1 6h10M4 2v4M7 2v4",
     title: "ГОСО 2026",
     subtitle: "Полное соответствие",
     desc: "Платформа проверена на соответствие новым государственным стандартам",
@@ -40,7 +40,7 @@ const awards = [
     bg: "#FEF2F2",
   },
   {
-    icon: "🔧",
+    iconPath: "M3 5h6M3 7h4M1 1h10v10H1zM8 5v4",
     title: "Arduino",
     subtitle: "Official Partner",
     desc: "Официальный авторизованный партнёр в Казахстане",
@@ -92,10 +92,12 @@ export default function AwardsSection() {
                 className={`px-8 py-8 flex flex-col gap-3 ${!isLastRow ? "border-b" : ""} ${!isLastCol ? "border-r" : ""} border-[rgba(55,50,47,0.12)]`}
               >
                 <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0"
+                  className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
                   style={{ background: award.bg }}
                 >
-                  {award.icon}
+                  <svg width="20" height="20" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d={award.iconPath} stroke={award.color} strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
                 </div>
                 <div>
                   <div className="text-[#37322F] text-base font-semibold leading-5 font-sans">{award.title}</div>

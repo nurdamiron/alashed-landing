@@ -1,21 +1,14 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter, Instrument_Serif } from "next/font/google"
+import { Libre_Baskerville } from "next/font/google"
 import "./globals.css"
 import AnnouncementBanner from "../components/announcement-banner"
 import StickyMobileCTA from "../components/sticky-mobile-cta"
 
-const inter = Inter({
+const libreBaskerville = Libre_Baskerville({
   subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-  preload: true,
-})
-
-const instrumentSerif = Instrument_Serif({
-  subsets: ["latin"],
-  variable: "--font-instrument-serif",
-  weight: ["400"],
+  variable: "--font-libre-baskerville",
+  weight: ["400", "700"],
   display: "swap",
   preload: true,
 })
@@ -24,7 +17,10 @@ export const metadata: Metadata = {
   title: "Alashed - STEM-экосистема для школ Казахстана",
   description:
     "AI-помощник для учителей, браузерное IDE для информатики и робототехники, официальный импорт оборудования — всё в одной платформе.",
-    generator: 'v0.app'
+  icons: {
+    icon: "/alashed-logo.svg",
+    apple: "/alashed-logo.svg",
+  },
 }
 
 export default function RootLayout({
@@ -33,16 +29,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ru" className={`${inter.variable} ${instrumentSerif.variable} antialiased`}>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-        />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400&display=swap" />
-      </head>
+    <html lang="ru" className={`${libreBaskerville.variable} antialiased`}>
+      <head />
       <body className="font-sans antialiased">
         <AnnouncementBanner />
         {children}

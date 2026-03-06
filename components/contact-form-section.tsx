@@ -59,15 +59,17 @@ export default function ContactFormSection() {
 
           <div className="flex flex-col gap-4 mt-2">
             {[
-              { icon: "✓", text: "Бесплатный онбординг и обучение учителей" },
-              { icon: "✓", text: "Пробный доступ без привязки карты" },
-              { icon: "✓", text: "B2B оплата через тендеры и госзакупки" },
-            ].map((item, i) => (
+              "Бесплатный онбординг и обучение учителей",
+              "Пробный доступ без привязки карты",
+              "B2B оплата через тендеры и госзакупки",
+            ].map((text, i) => (
               <div key={i} className="flex items-center gap-3">
                 <div className="w-5 h-5 rounded-full bg-[#EBF7FF] flex items-center justify-center flex-shrink-0">
-                  <span className="text-[#2E9DE0] text-[10px] font-bold">{item.icon}</span>
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                    <path d="M2 5l2 2 4-4" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
                 </div>
-                <span className="text-[rgba(55,50,47,0.80)] text-sm font-normal leading-5 font-sans">{item.text}</span>
+                <span className="text-[rgba(55,50,47,0.80)] text-sm font-normal leading-5 font-sans">{text}</span>
               </div>
             ))}
           </div>
