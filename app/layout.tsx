@@ -2,7 +2,6 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Libre_Baskerville } from "next/font/google"
 import "./globals.css"
-import AnnouncementBanner from "../components/announcement-banner"
 import StickyMobileCTA from "../components/sticky-mobile-cta"
 
 const libreBaskerville = Libre_Baskerville({
@@ -32,7 +31,6 @@ export default function RootLayout({
     <html lang="ru" className={`${libreBaskerville.variable} antialiased`}>
       <head />
       <body className="font-sans antialiased">
-        <AnnouncementBanner />
         {children}
         <StickyMobileCTA />
       </body>
