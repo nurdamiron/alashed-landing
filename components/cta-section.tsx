@@ -33,16 +33,19 @@ export default function CTASection() {
             </div>
           </div>
           <div className="w-full max-w-[497px] flex flex-col justify-center items-center gap-12">
-            <div className="flex justify-start items-center gap-4">
-              <div className="h-10 px-12 py-[6px] relative bg-[#5BB8F5] shadow-[0px_0px_0px_2.5px_rgba(255,255,255,0.20)_inset] overflow-hidden rounded-full flex justify-center items-center gap-2 cursor-pointer hover:bg-[#2E9DE0] transition-colors">
+            <div className="flex flex-wrap justify-center items-center gap-4">
+              <a href="https://edu.alashed.kz/login" className="h-10 px-12 py-[6px] relative bg-[#5BB8F5] shadow-[0px_0px_0px_2.5px_rgba(255,255,255,0.20)_inset] overflow-hidden rounded-full flex justify-center items-center gap-2 hover:bg-[#2E9DE0] transition-colors">
                 <div className="w-44 h-[41px] absolute left-0 top-0 bg-gradient-to-b from-[rgba(255,255,255,0.15)] to-[rgba(0,0,0,0.08)] mix-blend-multiply"></div>
                 <div className="flex flex-col justify-center text-white text-[13px] font-semibold leading-5 font-sans relative z-10">
-                  Подать заявку на пилот
+                  Попробовать бесплатно
                 </div>
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" className="relative z-10 flex-shrink-0">
                   <path d="M2.5 7H11.5M11.5 7L8 3.5M11.5 7L8 10.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-              </div>
+              </a>
+              <a href="mailto:dias@alashed.kz" className="h-10 px-8 bg-white hover:bg-[#F7F5F3] text-[#37322F] rounded-full font-medium text-[13px] flex items-center shadow-[0px_1px_2px_rgba(55,50,47,0.12)] transition-colors">
+                Связаться с командой
+              </a>
             </div>
           </div>
         </div>

@@ -121,16 +121,16 @@ export default function LandingPage() {
                   </div>
                 </div>
                 <div className="h-6 sm:h-7 md:h-8 flex justify-start items-start gap-2 sm:gap-3">
-                  <div className="px-2 sm:px-3 md:px-[14px] py-1 sm:py-[6px] bg-white shadow-[0px_1px_2px_rgba(55,50,47,0.12)] overflow-hidden rounded-full flex justify-center items-center">
+                  <a href="https://edu.alashed.kz/login" className="px-2 sm:px-3 md:px-[14px] py-1 sm:py-[6px] bg-white shadow-[0px_1px_2px_rgba(55,50,47,0.12)] overflow-hidden rounded-full flex justify-center items-center hover:bg-[#F7F5F3] transition-colors">
                     <div className="flex flex-col justify-center text-[#37322F] text-xs md:text-[13px] font-medium leading-5 font-sans">
                       Войти
                     </div>
-                  </div>
-                  <div className="px-2 sm:px-3 md:px-[14px] py-1 sm:py-[6px] bg-[#5BB8F5] overflow-hidden rounded-full flex justify-center items-center">
+                  </a>
+                  <a href="https://edu.alashed.kz/login" className="px-2 sm:px-3 md:px-[14px] py-1 sm:py-[6px] bg-[#5BB8F5] overflow-hidden rounded-full flex justify-center items-center hover:bg-[#2E9DE0] transition-colors">
                     <div className="flex flex-col justify-center text-white text-xs md:text-[13px] font-medium leading-5 font-sans">
-                      Подать заявку
+                      Попробовать бесплатно
                     </div>
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>
@@ -154,22 +154,25 @@ export default function LandingPage() {
 
               <div className="w-full max-w-[497px] lg:w-[497px] flex flex-col justify-center items-center gap-6 sm:gap-8 md:gap-10 lg:gap-12 relative z-10 mt-6 sm:mt-8 md:mt-10 lg:mt-12">
                 <div className="backdrop-blur-[8.25px] flex justify-start items-center gap-4">
-                  <div className="h-10 sm:h-11 md:h-12 px-6 sm:px-8 md:px-10 lg:px-12 py-2 sm:py-[6px] relative bg-[#5BB8F5] shadow-[0px_0px_0px_2.5px_rgba(255,255,255,0.20)_inset] overflow-hidden rounded-full flex justify-center items-center gap-2">
+                  <a href="https://edu.alashed.kz/login" className="h-10 sm:h-11 md:h-12 px-6 sm:px-8 md:px-10 lg:px-12 py-2 sm:py-[6px] relative bg-[#5BB8F5] shadow-[0px_0px_0px_2.5px_rgba(255,255,255,0.20)_inset] overflow-hidden rounded-full flex justify-center items-center gap-2 hover:bg-[#2E9DE0] transition-colors">
                     <div className="w-20 sm:w-24 md:w-28 lg:w-44 h-[41px] absolute left-0 top-[-0.5px] bg-gradient-to-b from-[rgba(255,255,255,0.15)] to-[rgba(0,0,0,0.08)] mix-blend-multiply"></div>
-                    <div className="flex flex-col justify-center text-white text-sm sm:text-base md:text-[15px] font-semibold leading-5 font-sans">
-                      Пилот 2025–2026
+                    <div className="flex flex-col justify-center text-white text-sm sm:text-base md:text-[15px] font-semibold leading-5 font-sans relative z-10">
+                      Попробовать бесплатно
                     </div>
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" className="relative z-10">
                       <path d="M2.5 7H11.5M11.5 7L8 3.5M11.5 7L8 10.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
-                  </div>
+                  </a>
+                  <a href="#contact" className="h-10 px-6 bg-white hover:bg-[#F7F5F3] text-[#37322F] rounded-full font-medium text-sm transition-colors flex items-center shadow-[0px_1px_2px_rgba(55,50,47,0.12)]">
+                    Запросить демо
+                  </a>
                 </div>
                 <div className="flex items-center gap-2 text-[rgba(55,50,47,0.60)] text-sm font-medium">
-                  <span>ГОСО 2026</span>
+                  <span className="inline-flex items-center px-2 py-0.5 rounded bg-[#EBF7FF] text-[#2E9DE0] text-xs font-semibold border border-[#5BB8F5]/30">ГОСО 2026 ✓</span>
                   <span className="w-1 h-1 rounded-full bg-[rgba(55,50,47,0.30)]"></span>
-                  <span>Реальное железо</span>
+                  <span>50+ школ</span>
                   <span className="w-1 h-1 rounded-full bg-[rgba(55,50,47,0.30)]"></span>
-                  <span>Всё в одном</span>
+                  <span>Казахстан</span>
                 </div>
               </div>
 
@@ -555,7 +558,9 @@ export default function LandingPage() {
               <FAQSection />
 
               {/* CTA Section */}
-              <CTASection />
+              <div id="contact">
+                <CTASection />
+              </div>
 
               {/* Footer Section */}
               <FooterSection />
