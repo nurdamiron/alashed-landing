@@ -40,6 +40,16 @@
   /* Updated font variables with explicit fallbacks for deployment */
   --font-inter: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-instrument-serif: "Instrument Serif", ui-serif, serif;
+
+  /* Alashed Brand Colors */
+  --brand-blue: #5BB8F5;
+  --brand-blue-dark: #2E9DE0;
+  --brand-blue-light: #D6EFFE;
+  --brand-blue-muted: #EBF7FF;
+  --brand-surface: #F7F5F3;
+  --brand-ink: #37322F;
+  --brand-ink-muted: rgba(55,50,47,0.60);
+  --brand-border: rgba(55,50,47,0.12);
 }
 
 @theme inline {

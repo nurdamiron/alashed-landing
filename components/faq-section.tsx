@@ -67,6 +67,9 @@ export default function FAQSection() {
       <div className="flex-1 px-4 md:px-12 py-16 md:py-20 flex flex-col lg:flex-row justify-start items-start gap-6 lg:gap-12">
         {/* Left Column - Header */}
         <div className="w-full lg:flex-1 flex flex-col justify-center items-start gap-4 lg:py-5">
+          <div className="px-[14px] py-[6px] bg-[#EBF7FF] overflow-hidden rounded-[90px] flex items-center gap-[8px] border border-[#5BB8F5]/30 self-start">
+            <span className="text-[#2E9DE0] text-xs font-semibold leading-3 font-sans tracking-wide uppercase">FAQ</span>
+          </div>
           <div className="w-full flex flex-col justify-center text-[#49423D] font-semibold leading-tight md:leading-[44px] font-sans text-4xl tracking-tight">
             Частые вопросы
           </div>
@@ -95,8 +98,8 @@ export default function FAQSection() {
                     </div>
                     <div className="flex justify-center items-center">
                       <ChevronDownIcon
-                        className={`w-6 h-6 text-[rgba(73,66,61,0.60)] transition-transform duration-300 ease-in-out ${
-                          isOpen ? "rotate-180" : "rotate-0"
+                        className={`w-6 h-6 transition-transform duration-300 ease-in-out ${
+                          isOpen ? "rotate-180 text-[#5BB8F5]" : "rotate-0 text-[rgba(73,66,61,0.50)]"
                         }`}
                       />
                     </div>

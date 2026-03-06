@@ -13,13 +13,15 @@ import FAQSection from "../components/faq-section"
 import PricingSection from "../components/pricing-section"
 import CTASection from "../components/cta-section"
 import FooterSection from "../components/footer-section"
+import StatsSection from "../components/stats-section"
+import HowItWorksSection from "../components/how-it-works-section"
 
 // Reusable Badge Component
 function Badge({ icon, text }: { icon: React.ReactNode; text: string }) {
   return (
-    <div className="px-[14px] py-[6px] bg-white shadow-[0px_0px_0px_4px_rgba(55,50,47,0.05)] overflow-hidden rounded-[90px] flex justify-start items-center gap-[8px] border border-[rgba(2,6,23,0.08)] shadow-xs">
+    <div className="px-[14px] py-[6px] bg-[#EBF7FF] overflow-hidden rounded-[90px] flex justify-start items-center gap-[8px] border border-[#5BB8F5]/30">
       <div className="w-[14px] h-[14px] relative overflow-hidden flex items-center justify-center">{icon}</div>
-      <div className="text-center flex justify-center flex-col text-[#37322F] text-xs font-medium leading-3 font-sans">
+      <div className="text-center flex justify-center flex-col text-[#2E9DE0] text-xs font-semibold leading-3 font-sans tracking-wide uppercase">
         {text}
       </div>
     </div>
@@ -124,6 +126,11 @@ export default function LandingPage() {
                       Войти
                     </div>
                   </div>
+                  <div className="px-2 sm:px-3 md:px-[14px] py-1 sm:py-[6px] bg-[#5BB8F5] overflow-hidden rounded-full flex justify-center items-center">
+                    <div className="flex flex-col justify-center text-white text-xs md:text-[13px] font-medium leading-5 font-sans">
+                      Подать заявку
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -147,11 +154,14 @@ export default function LandingPage() {
 
               <div className="w-full max-w-[497px] lg:w-[497px] flex flex-col justify-center items-center gap-6 sm:gap-8 md:gap-10 lg:gap-12 relative z-10 mt-6 sm:mt-8 md:mt-10 lg:mt-12">
                 <div className="backdrop-blur-[8.25px] flex justify-start items-center gap-4">
-                  <div className="h-10 sm:h-11 md:h-12 px-6 sm:px-8 md:px-10 lg:px-12 py-2 sm:py-[6px] relative bg-[#37322F] shadow-[0px_0px_0px_2.5px_rgba(255,255,255,0.08)_inset] overflow-hidden rounded-full flex justify-center items-center">
-                    <div className="w-20 sm:w-24 md:w-28 lg:w-44 h-[41px] absolute left-0 top-[-0.5px] bg-gradient-to-b from-[rgba(255,255,255,0)] to-[rgba(0,0,0,0.10)] mix-blend-multiply"></div>
-                    <div className="flex flex-col justify-center text-white text-sm sm:text-base md:text-[15px] font-medium leading-5 font-sans">
+                  <div className="h-10 sm:h-11 md:h-12 px-6 sm:px-8 md:px-10 lg:px-12 py-2 sm:py-[6px] relative bg-[#5BB8F5] shadow-[0px_0px_0px_2.5px_rgba(255,255,255,0.20)_inset] overflow-hidden rounded-full flex justify-center items-center gap-2">
+                    <div className="w-20 sm:w-24 md:w-28 lg:w-44 h-[41px] absolute left-0 top-[-0.5px] bg-gradient-to-b from-[rgba(255,255,255,0.15)] to-[rgba(0,0,0,0.08)] mix-blend-multiply"></div>
+                    <div className="flex flex-col justify-center text-white text-sm sm:text-base md:text-[15px] font-semibold leading-5 font-sans">
                       Пилот 2025–2026
                     </div>
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" className="relative z-10">
+                      <path d="M2.5 7H11.5M11.5 7L8 3.5M11.5 7L8 10.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 text-[rgba(55,50,47,0.60)] text-sm font-medium">
@@ -283,18 +293,18 @@ export default function LandingPage() {
                     <Badge
                       icon={
                         <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="1" y="3" width="4" height="6" stroke="#37322F" strokeWidth="1" fill="none" />
-                          <rect x="7" y="1" width="4" height="8" stroke="#37322F" strokeWidth="1" fill="none" />
-                          <rect x="2" y="4" width="1" height="1" fill="#37322F" />
-                          <rect x="3.5" y="4" width="1" height="1" fill="#37322F" />
-                          <rect x="2" y="5.5" width="1" height="1" fill="#37322F" />
-                          <rect x="3.5" y="5.5" width="1" height="1" fill="#37322F" />
-                          <rect x="8" y="2" width="1" height="1" fill="#37322F" />
-                          <rect x="9.5" y="2" width="1" height="1" fill="#37322F" />
-                          <rect x="8" y="3.5" width="1" height="1" fill="#37322F" />
-                          <rect x="9.5" y="3.5" width="1" height="1" fill="#37322F" />
-                          <rect x="8" y="5" width="1" height="1" fill="#37322F" />
-                          <rect x="9.5" y="5" width="1" height="1" fill="#37322F" />
+                          <rect x="1" y="3" width="4" height="6" stroke="#2E9DE0" strokeWidth="1" fill="none" />
+                          <rect x="7" y="1" width="4" height="8" stroke="#2E9DE0" strokeWidth="1" fill="none" />
+                          <rect x="2" y="4" width="1" height="1" fill="#2E9DE0" />
+                          <rect x="3.5" y="4" width="1" height="1" fill="#2E9DE0" />
+                          <rect x="2" y="5.5" width="1" height="1" fill="#2E9DE0" />
+                          <rect x="3.5" y="5.5" width="1" height="1" fill="#2E9DE0" />
+                          <rect x="8" y="2" width="1" height="1" fill="#2E9DE0" />
+                          <rect x="9.5" y="2" width="1" height="1" fill="#2E9DE0" />
+                          <rect x="8" y="3.5" width="1" height="1" fill="#2E9DE0" />
+                          <rect x="9.5" y="3.5" width="1" height="1" fill="#2E9DE0" />
+                          <rect x="8" y="5" width="1" height="1" fill="#2E9DE0" />
+                          <rect x="9.5" y="5" width="1" height="1" fill="#2E9DE0" />
                         </svg>
                       }
                       text="Для кого"
@@ -325,13 +335,19 @@ export default function LandingPage() {
                   </div>
 
                   <div className="flex-1 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 gap-0 border-l border-r border-[rgba(55,50,47,0.12)]">
-                    {/* Logo Grid - Responsive grid */}
-                    {Array.from({ length: 8 }).map((_, index) => {
+                    {[
+                      { name: "МОН РК", abbr: "МОН", sub: "Министерство образования" },
+                      { name: "НИШ", abbr: "НИШ", sub: "Назарбаев Интел. Школы" },
+                      { name: "НОБД", abbr: "НОБД", sub: "Нац. база данных" },
+                      { name: "Кунделік", abbr: "Кун.", sub: "Электронный журнал" },
+                      { name: "Bilim Land", abbr: "BL", sub: "Онлайн-платформа" },
+                      { name: "РНМЦ", abbr: "РНМ", sub: "Респ. научно-метод. центр" },
+                      { name: "КТЖ", abbr: "КТЖ", sub: "Учебный центр" },
+                      { name: "Arduino", abbr: "ARD", sub: "Official Partner" },
+                    ].map((partner, index) => {
                       const isMobileFirstColumn = index % 2 === 0
-                      const isMobileLastColumn = index % 2 === 1
                       const isDesktopFirstColumn = index % 4 === 0
                       const isDesktopLastColumn = index % 4 === 3
-                      const isMobileBottomRow = index >= 6
                       const isDesktopTopRow = index < 4
                       const isDesktopBottomRow = index >= 4
 
@@ -339,7 +355,7 @@ export default function LandingPage() {
                         <div
                           key={index}
                           className={`
-                            h-24 xs:h-28 sm:h-32 md:h-36 lg:h-40 flex justify-center items-center gap-1 xs:gap-2 sm:gap-3
+                            h-24 xs:h-28 sm:h-32 md:h-36 lg:h-40 flex flex-col justify-center items-center gap-1
                             border-b border-[rgba(227,226,225,0.5)]
                             ${index < 6 ? "sm:border-b-[0.5px]" : "sm:border-b"}
                             ${index >= 6 ? "border-b" : ""}
@@ -349,14 +365,17 @@ export default function LandingPage() {
                             ${isDesktopLastColumn ? "md:border-r" : "md:border-r-[0.5px]"}
                             ${isDesktopTopRow ? "md:border-b-[0.5px]" : ""}
                             ${isDesktopBottomRow ? "md:border-t-[0.5px] md:border-b" : ""}
-                            border-[#E3E2E1]
+                            border-[#E3E2E1] group
                           `}
                         >
-                          <div className="w-6 h-6 xs:w-7 xs:h-7 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 relative shadow-[0px_-4px_8px_rgba(255,255,255,0.64)_inset] overflow-hidden rounded-full">
-                            <img src="/horizon-icon.svg" alt="Horizon" className="w-full h-full object-contain" />
+                          <div className="w-10 h-10 rounded-full bg-[#EBF7FF] border border-[#5BB8F5]/20 flex items-center justify-center mb-1">
+                            <span className="text-[#2E9DE0] text-[10px] font-bold leading-none">{partner.abbr}</span>
                           </div>
-                          <div className="text-center flex justify-center flex-col text-[#37322F] text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl font-medium leading-tight md:leading-9 font-sans">
-                            Acute
+                          <div className="text-center text-[#37322F] text-xs sm:text-sm font-semibold leading-tight font-sans">
+                            {partner.name}
+                          </div>
+                          <div className="text-center text-[rgba(55,50,47,0.45)] text-[10px] sm:text-[11px] font-normal leading-tight font-sans hidden sm:block px-2">
+                            {partner.sub}
                           </div>
                         </div>
                       )
@@ -377,6 +396,12 @@ export default function LandingPage() {
                 </div>
               </div>
 
+              {/* Stats Section */}
+              <StatsSection />
+
+              {/* How It Works Section */}
+              <HowItWorksSection />
+
               {/* Bento Grid Section */}
               <div className="w-full border-b border-[rgba(55,50,47,0.12)] flex flex-col justify-center items-center">
                 {/* Header Section */}
@@ -385,10 +410,10 @@ export default function LandingPage() {
                     <Badge
                       icon={
                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="1" y="1" width="4" height="4" stroke="#37322F" strokeWidth="1" fill="none" />
-                          <rect x="7" y="1" width="4" height="4" stroke="#37322F" strokeWidth="1" fill="none" />
-                          <rect x="1" y="7" width="4" height="4" stroke="#37322F" strokeWidth="1" fill="none" />
-                          <rect x="7" y="7" width="4" height="4" stroke="#37322F" strokeWidth="1" fill="none" />
+                          <rect x="1" y="1" width="4" height="4" stroke="#2E9DE0" strokeWidth="1" fill="none" />
+                          <rect x="7" y="1" width="4" height="4" stroke="#2E9DE0" strokeWidth="1" fill="none" />
+                          <rect x="1" y="7" width="4" height="4" stroke="#2E9DE0" strokeWidth="1" fill="none" />
+                          <rect x="7" y="7" width="4" height="4" stroke="#2E9DE0" strokeWidth="1" fill="none" />
                         </svg>
                       }
                       text="Продукты"
@@ -558,17 +583,17 @@ function FeatureCard({
 }) {
   return (
     <div
-      className={`w-full md:flex-1 self-stretch px-6 py-5 overflow-hidden flex flex-col justify-start items-start gap-2 cursor-pointer relative border-b md:border-b-0 last:border-b-0 ${
+      className={`w-full md:flex-1 self-stretch px-6 py-5 overflow-hidden flex flex-col justify-start items-start gap-2 cursor-pointer relative border-b md:border-b-0 last:border-b-0 transition-colors duration-200 ${
         isActive
-          ? "bg-white shadow-[0px_0px_0px_0.75px_#E0DEDB_inset]"
-          : "border-l-0 border-r-0 md:border border-[#E0DEDB]/80"
+          ? "bg-white shadow-[0px_0px_0px_0.75px_#D6EFFE_inset]"
+          : "border-l-0 border-r-0 md:border border-[#E0DEDB]/80 hover:bg-[#F0FAFF]/40"
       }`}
       onClick={onClick}
     >
       {isActive && (
-        <div className="absolute top-0 left-0 w-full h-0.5 bg-[rgba(50,45,43,0.08)]">
+        <div className="absolute top-0 left-0 w-full h-0.5 bg-[#D6EFFE]">
           <div
-            className="h-full bg-[#322D2B] transition-all duration-100 ease-linear"
+            className="h-full bg-[#5BB8F5] transition-all duration-100 ease-linear"
             style={{ width: `${progress}%` }}
           />
         </div>

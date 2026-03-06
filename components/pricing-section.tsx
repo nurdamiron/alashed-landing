@@ -26,19 +26,19 @@ export default function PricingSection() {
       <div className="self-stretch px-6 md:px-24 py-12 md:py-16 border-b border-[rgba(55,50,47,0.12)] flex justify-center items-center gap-6">
         <div className="w-full max-w-[586px] px-6 py-5 shadow-[0px_2px_4px_rgba(50,45,43,0.06)] overflow-hidden rounded-lg flex flex-col justify-start items-center gap-4 shadow-none">
           {/* Pricing Badge */}
-          <div className="px-[14px] py-[6px] bg-white shadow-[0px_0px_0px_4px_rgba(55,50,47,0.05)] overflow-hidden rounded-[90px] flex justify-start items-center gap-[8px] border border-[rgba(2,6,23,0.08)] shadow-xs">
+          <div className="px-[14px] py-[6px] bg-[#EBF7FF] overflow-hidden rounded-[90px] flex justify-start items-center gap-[8px] border border-[#5BB8F5]/30">
             <div className="w-[14px] h-[14px] relative overflow-hidden flex items-center justify-center">
               <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M6 1V11M8.5 3H4.75C4.28587 3 3.84075 3.18437 3.51256 3.51256C3.18437 3.84075 3 4.28587 3 4.75C3 5.21413 3.18437 5.65925 3.51256 5.98744C3.84075 6.31563 4.28587 6.5 4.75 6.5H7.25C7.71413 6.5 8.15925 6.68437 8.48744 7.01256C8.81563 7.34075 9 7.78587 9 8.25C9 8.71413 8.81563 9.15925 8.48744 9.48744C8.15925 9.81563 7.71413 10 7.25 10H3.5"
-                  stroke="#37322F"
+                  stroke="#2E9DE0"
                   strokeWidth="1"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
               </svg>
             </div>
-            <div className="text-center flex justify-center flex-col text-[#37322F] text-xs font-medium leading-3 font-sans">
+            <div className="text-center flex justify-center flex-col text-[#2E9DE0] text-xs font-semibold leading-3 font-sans tracking-wide uppercase">
               Тарифы
             </div>
           </div>
@@ -145,9 +145,8 @@ export default function PricingSection() {
                   </div>
                 </div>
 
-                <div className="self-stretch px-4 py-[10px] relative bg-[#37322F] shadow-[0px_2px_4px_rgba(55,50,47,0.12)] overflow-hidden rounded-[99px] flex justify-center items-center">
-                  <div className="w-full h-[41px] absolute left-0 top-[-0.5px] bg-gradient-to-b from-[rgba(255,255,255,0.20)] to-[rgba(0,0,0,0.10)] mix-blend-multiply"></div>
-                  <div className="max-w-[108px] flex justify-center flex-col text-[#FBFAF9] text-[13px] font-medium leading-5 font-sans">
+                <div className="self-stretch px-4 py-[10px] relative bg-[#5BB8F5] shadow-[0px_2px_4px_rgba(91,184,245,0.30)] overflow-hidden rounded-[99px] flex justify-center items-center cursor-pointer hover:bg-[#2E9DE0] transition-colors">
+                  <div className="max-w-[108px] flex justify-center flex-col text-white text-[13px] font-semibold leading-5 font-sans">
                     Подать заявку
                   </div>
                 </div>
@@ -182,31 +181,33 @@ export default function PricingSection() {
             </div>
 
             {/* Pro Plan (Featured) */}
-            <div className="flex-1 max-w-full md:max-w-none self-stretch px-6 py-5 bg-[#37322F] border border-[rgba(50,45,43,0.12)] border-[rgba(55,50,47,0.12)] overflow-hidden flex flex-col justify-start items-start gap-12">
+            <div className="flex-1 max-w-full md:max-w-none self-stretch px-6 py-5 bg-[#1A6FA8] border border-[#1565A0] overflow-hidden flex flex-col justify-start items-start gap-12">
               {/* Plan Header */}
               <div className="self-stretch flex flex-col justify-start items-center gap-9">
                 <div className="self-stretch flex flex-col justify-start items-start gap-2">
-                  <div className="text-[#FBFAF9] text-lg font-medium leading-7 font-sans">Pro</div>
-                  <div className="w-full max-w-[242px] text-[#B2AEA9] text-sm font-normal leading-5 font-sans">
+                  <div className="flex items-center gap-2">
+                    <div className="text-white text-lg font-medium leading-7 font-sans">Pro</div>
+                    <div className="px-2 py-0.5 bg-[#5BB8F5]/30 rounded text-[#D6EFFE] text-[11px] font-semibold font-sans">Популярный</div>
+                  </div>
+                  <div className="w-full max-w-[242px] text-[#A8D8F5] text-sm font-normal leading-5 font-sans">
                     Полный доступ ко всем функциям платформы Alashed.
                   </div>
                 </div>
 
                 <div className="self-stretch flex flex-col justify-start items-start gap-2">
                   <div className="flex flex-col justify-start items-start gap-1">
-                    <div className="relative h-[60px] flex items-center text-[#F0EFEE] text-4xl font-medium leading-[60px] font-serif">
+                    <div className="relative h-[60px] flex items-center text-white text-4xl font-medium leading-[60px] font-serif">
                       По запросу
                     </div>
-                    <div className="text-[#D2C6BF] text-sm font-medium font-sans">
+                    <div className="text-[#A8D8F5] text-sm font-medium font-sans">
                       B2B подписка для школ
                     </div>
                   </div>
                 </div>
 
                 {/* CTA Button */}
-                <div className="self-stretch px-4 py-[10px] relative bg-[#FBFAF9] shadow-[0px_2px_4px_rgba(55,50,47,0.12)] overflow-hidden rounded-[99px] flex justify-center items-center">
-                  <div className="w-full h-[41px] absolute left-0 top-[-0.5px] bg-gradient-to-b from-[rgba(255,255,255,0)] to-[rgba(0,0,0,0.10)] mix-blend-multiply"></div>
-                  <div className="max-w-[140px] flex justify-center flex-col text-[#37322F] text-[13px] font-medium leading-5 font-sans">
+                <div className="self-stretch px-4 py-[10px] relative bg-white shadow-[0px_2px_4px_rgba(0,0,0,0.12)] overflow-hidden rounded-[99px] flex justify-center items-center cursor-pointer hover:bg-[#EBF7FF] transition-colors">
+                  <div className="max-w-[140px] flex justify-center flex-col text-[#1A6FA8] text-[13px] font-semibold leading-5 font-sans">
                     Связаться с нами
                   </div>
                 </div>
