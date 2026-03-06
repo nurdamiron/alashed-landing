@@ -9,34 +9,34 @@ interface FAQItem {
 
 const faqData: FAQItem[] = [
   {
-    question: "What is Brillance and who is it for?",
+    question: "Что такое Alashed и для кого это?",
     answer:
-      "Brillance is a comprehensive billing automation platform designed for businesses that need custom contract management. It's perfect for SaaS companies, service providers, and enterprises looking to streamline their billing processes.",
+      "Alashed — это полная STEM-экосистема для школ Казахстана. Мы объединяем AI-помощника для учителей, браузерное IDE для информатики и робототехники, официальный импорт оборудования и помощь в соревнованиях.",
   },
   {
-    question: "How does the custom contract billing work?",
+    question: "Как работает генерация документов AI?",
     answer:
-      "Our platform automatically processes your custom contracts, calculates billing amounts based on your specific terms, and generates invoices. You can set up complex pricing structures, usage-based billing, and custom billing cycles.",
+      "AI знает профиль учителя, его классы, текущую неделю и успеваемость каждого ученика. Он автоматически генерирует КМЖ, ФО, БЖБ, ТЖБ с привязкой к ОМ-кодам ГОСО 2026 за 2 минуты вместо 2 часов.",
   },
   {
-    question: "Can I integrate Brillance with my existing tools?",
+    question: "Чем CodeStudio отличается от других IDE?",
     answer:
-      "Yes! Brillance integrates seamlessly with popular CRM systems, accounting software, and payment processors. We support APIs and webhooks for custom integrations with your existing workflow.",
+      "Ключевое отличие — деплой на реальное железо, а не симуляция. Ученики программируют на Python, JavaScript, Scratch и работают с Arduino, ESP32, Micro:bit. Wokwi/Tinkercad для практики, но цель — настоящее устройство.",
   },
   {
-    question: "What kind of support do you provide?",
+    question: "Как заказать оборудование?",
     answer:
-      "We offer 24/7 customer support, dedicated account managers for enterprise clients, comprehensive documentation, and onboarding assistance to help you get started quickly.",
+      "Мы — официальный импортёр Arduino, ESP32, Raspberry Pi, Micro:bit в Казахстан. Заказ прямо из дашборда директора, без посредников. Управление инвентарём школы тоже внутри платформы.",
   },
   {
-    question: "Is my data secure with Brillance?",
+    question: "Какие соревнования вы поддерживаете?",
     answer:
-      "Absolutely. We use enterprise-grade security measures including end-to-end encryption, SOC 2 compliance, and regular security audits. Your data is stored in secure, redundant data centers.",
+      "Мы соорганизуем и помогаем школам участвовать в Infomatrix (Азия), KazRobotics, ITFest, WRO. Подготовка команд, сопровождение и консультации включены в пакет.",
   },
   {
-    question: "How do I get started with Brillance?",
+    question: "Как начать работу с Alashed?",
     answer:
-      "Getting started is simple! Sign up for our free trial, connect your existing systems, and our onboarding team will help you set up your first custom billing workflow within 24 hours.",
+      "Подайте заявку на пилот 2025–2026. Мы подключим вашу школу, настроим платформу и проведём обучение учителей. B2B подписка — школы платят из бюджета через тендеры или прямые переговоры.",
   },
 ]
 
@@ -68,12 +68,12 @@ export default function FAQSection() {
         {/* Left Column - Header */}
         <div className="w-full lg:flex-1 flex flex-col justify-center items-start gap-4 lg:py-5">
           <div className="w-full flex flex-col justify-center text-[#49423D] font-semibold leading-tight md:leading-[44px] font-sans text-4xl tracking-tight">
-            Frequently Asked Questions
+            Частые вопросы
           </div>
           <div className="w-full text-[#605A57] text-base font-normal leading-7 font-sans">
-            Explore your data, build your dashboard,
+            Всё, что нужно знать о платформе Alashed
             <br className="hidden md:block" />
-            bring your team together.
+            для школ Казахстана.
           </div>
         </div>
 

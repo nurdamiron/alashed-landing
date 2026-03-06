@@ -22,25 +22,25 @@ export default function TestimonialsSection() {
   const testimonials = [
     {
       quote:
-        "In just a few minutes, we transformed our data into actionable insights. The process was seamless and incredibly efficient!",
-      name: "Jamie Marshall",
-      company: "Co-founder, Exponent",
+        "Раньше на подготовку КМЖ уходило 2 часа. Теперь AI делает это за 2 минуты, и всё сразу привязано к ГОСО 2026. Это революция для учителей информатики.",
+      name: "Айгуль Сериккызы",
+      company: "Учитель информатики, школа №45, Алматы",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT%20Image%20Sep%2011%2C%202025%2C%2011_35_19%20AM-z4zSRLsbOQDp7MJS1t8EXmGNB6Al9Z.png",
     },
     {
       quote:
-        "Brillance has revolutionized how we handle custom contracts. The automation saves us hours every week and eliminates errors completely.",
-      name: "Sarah Chen",
-      company: "VP Operations, TechFlow",
+        "CodeStudio — это то, чего не хватало нашей школе. Дети программируют на реальных Arduino, а не в симуляторе. Мотивация выросла в разы.",
+      name: "Нурлан Бекетов",
+      company: "Директор, лицей №15, Астана",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT%20Image%20Sep%2011%2C%202025%2C%2010_54_18%20AM-nbiecp92QNdTudmCrHr97uekrIPzCP.png",
     },
     {
       quote:
-        "The billing automation is a game-changer. What used to take our team days now happens automatically with perfect accuracy.",
-      name: "Marcus Rodriguez",
-      company: "Finance Director, InnovateCorp",
+        "Наконец-то можем заказывать оборудование напрямую без посредников. Цены прозрачные, доставка быстрая, всё в одном дашборде.",
+      name: "Динара Омарова",
+      company: "Завуч, гимназия №7, Шымкент",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT%20Image%20Sep%2011%2C%202025%2C%2011_01_05%20AM-TBOe92trRxKn4G5So1m9D2h7LRH4PG.png",
     },

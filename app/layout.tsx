@@ -19,9 +19,9 @@ const instrumentSerif = Instrument_Serif({
 })
 
 export const metadata: Metadata = {
-  title: "Brillance - Effortless Custom Contract Billing",
+  title: "Alashed - STEM-экосистема для школ Казахстана",
   description:
-    "Streamline your billing process with seamless automation for every custom contract, tailored by Brillance.",
+    "AI-помощник для учителей, браузерное IDE для информатики и робототехники, официальный импорт оборудования — всё в одной платформе.",
     generator: 'v0.app'
 }
 
@@ -31,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${instrumentSerif.variable} antialiased`}>
+    <html lang="ru" className={`${inter.variable} ${instrumentSerif.variable} antialiased`}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

@@ -21,18 +21,18 @@ export default function DocumentationSection() {
 
   const cards = [
     {
-      title: "Plan your schedules",
-      description: "Explore your data, build your dashboard,\nbring your team together.",
+      title: "Для учителя информатики",
+      description: "AI генерирует КМЖ, ФО, БЖБ за 2 минуты.\nПолная программа по информатике 5-11 класс.",
       image: "/modern-dashboard-interface-with-data-visualization.jpg",
     },
     {
-      title: "Data to insights in minutes",
-      description: "Transform raw data into actionable insights\nwith powerful analytics tools.",
+      title: "Для директора школы",
+      description: "Дашборд с аналитикой, журнал, расписание.\nАвтоматическое соответствие ГОСО 2026.",
       image: "/analytics-dashboard.png",
     },
     {
-      title: "Collaborate seamlessly",
-      description: "Work together in real-time with your team\nand share insights instantly.",
+      title: "Для ученика",
+      description: "Реальные проекты на настоящем железе.\nГеймификация: XP, уровни, достижения.",
       image: "/team-collaboration-interface-with-shared-workspace.jpg",
     },
   ]
@@ -60,15 +60,15 @@ export default function DocumentationSection() {
             icon={
               <div className="w-[10.50px] h-[10.50px] outline outline-[1.17px] outline-[#37322F] outline-offset-[-0.58px] rounded-full"></div>
             }
-            text="Platform Features"
+            text="Для кого"
           />
           <div className="self-stretch text-center flex justify-center flex-col text-[#49423D] text-3xl md:text-5xl font-semibold leading-tight md:leading-[60px] font-sans tracking-tight">
-            Streamline your business operations
+            Закрываем боли каждого участника
           </div>
           <div className="self-stretch text-center text-[#605A57] text-base font-normal leading-7 font-sans">
-            Manage schedules, analyze data, and collaborate with your team
+            Учитель экономит 40% времени, директор получает аналитику,
             <br />
-            all in one powerful platform.
+            ученик — мотивацию через реальные проекты.
           </div>
         </div>
       </div>
