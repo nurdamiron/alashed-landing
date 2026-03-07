@@ -1,0 +1,117 @@
+---
+title: "Салют на TFT дисплее и Arduino Uno"
+description: "Как сделать праздничный салют на цветном TFT дисплее с контроллером ST7735 и Arduino Uno. Скетч, схема подключения и демонстрация."
+category: "Hardware"
+date: "2025-06-25"
+readTime: 8
+author: "beksultan-aiten"
+tags: ["Arduino", "TFT", "дисплей", "анимация", "ST7735", "проекты"]
+image: "/blog/tft-fireworks-1.webp"
+---
+
+![Превьюшка для видео про этот проект](/blog/tft-fireworks-1.webp)
+
+Всем привет!
+
+В этой статье я расскажу, как сделать интересный проект на Arduino — праздничный салют, отображающийся на цветном TFT дисплее с контроллером ST7735.
+
+Скетч для проекта скопируйте ниже. Вставьте этот код в новый файл в Arduino IDE, сохраните в формате INO, загрузите в плату. Подойдёт любая плата с как минимум одним интерфейсом SPI (самые популярные ардуинки — Uno, Nano, Mega и ESP платы).
+
+Дополнительные библиотеки устанавливать не потребуется — библиотеки для TFT дисплея 1.8 дюйма и интерфейса SPI уже встроены в IDE.
+
+Код для Arduino IDE:
+
+```cpp
+#include <TFT.h>  // Подключаем библиотеку TFT
+#include <SPI.h>  // Библиотека для работы с SPI
+
+// Настройки для экрана
+#define CS 10
+#define DC 9
+#define RST 8
+
+// Пин для пищалки. Если не хотите, можете не подключать пищалку, не обязательно подключать
+#define BUZZ 3
+
+TFT myScreen = TFT(CS, DC, RST); // Создаём объект экрана
+
+// Цвета
+int R;
+int G;
+int B;
+
+void setup() {
+  pinMode(BUZZ, OUTPUT);
+
+  // Инициализация экрана
+  myScreen.begin();
+  myScreen.background(0, 0, 0); // Чёрный фон
+}
+
+void loop() {
+  // Запускаем анимацию салюта
+  for (int i = 0; i < 10; i++) { // 10 "залпов" салюта
+    drawFirework(random(20, 108), random(20, 80)); // Случайные координаты и цвет
+    delay(500); // Пауза между залпами
+  }
+  myScreen.background(0, 0, 0); // Очищаем экран после салюта
+  delay(1000); // Пауза перед следующим салютом
+}
+
+// Функция для рисования одного "залпа" салюта
+void drawFirework(int x, int y) {
+  // Генерируем цвет салюта
+  R = random(0, 255);
+  G = random(0, 255);
+  B = random(0, 255);
+
+  // Взлёт снаряда
+  for (int flight = 128; flight > y; flight = flight - 10){
+    myScreen.fill(R, G, B);
+    myScreen.stroke(R, G, B);
+    myScreen.circle(x, flight, 2);
+    delay(1);
+    myScreen.background(0, 0, 0);
+  }
+
+  // Звук взрыва
+  tone(BUZZ, 100, 100);
+
+  // Взрыв
+  for (int r = 1; r < random(30, 40); r++) {
+    R = R - 10;
+    G = G - 10;
+    B = B - 10;
+    myScreen.stroke(R, G, B);
+    myScreen.noFill();
+    myScreen.circle(x, y, r); // Рисуем расширяющийся круг
+    delay(10);
+  }
+
+  // Исчезающие частицы
+  myScreen.fill(0, 0, 0);
+  for (int i = 0; i < 400; i++) {
+    int px = x + random(-40, 40);
+    int py = y + random(-40, 40);
+    int px2 = x + random(-40, 40);
+    int py2 = y + random(-40, 128);
+    myScreen.stroke(0, 0, 0);
+    myScreen.circle(px, py, 1); // Рисуем случайные точки
+    myScreen.stroke(55, 155, 255);
+    myScreen.circle(px2, py2, 1); // Рисуем случайные точки
+  }
+  delay(100);
+  // Очистка экрана
+  myScreen.background(0, 0, 0);
+}
+```
+
+Схема подключения такая:
+
+![Схема подключения TFT к Arduino](/blog/tft-fireworks-2.webp)
+
+Если будете подключать пищалку-зуммер, тогда вот такая схема:
+
+![Схема подключения TFT к Arduino с пищалкой](/blog/tft-fireworks-3.webp)
+
+Проект проверен на практике.

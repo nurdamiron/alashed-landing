@@ -1,0 +1,326 @@
+---
+title: "Сенсорный калькулятор на Arduino с TFT-дисплеем"
+description: "Собираем полнофункциональный калькулятор с поддержкой скобок и приоритета операций на Arduino Uno и 2.4-дюймовом TFT сенсорном экране."
+category: "Hardware"
+date: "2025-06-11"
+readTime: 10
+author: "beksultan-aiten"
+tags: ["Arduino", "проекты", "TFT", "сенсорный экран", "калькулятор", "дисплей"]
+image: "/blog/arduino-touch-calculator-cover.jpg"
+---
+
+## Почему стоит сделать калькулятор на Arduino
+
+Калькулятор есть в каждом телефоне, но собрать его с нуля на микроконтроллере -- совсем другое дело. В этом проекте ученик создаёт устройство с графическим интерфейсом, сенсорным вводом и математическим движком, который правильно обрабатывает приоритет операций и скобки. Это не простое сложение двух чисел -- здесь реализован настоящий парсер выражений, как в компиляторах.
+
+Проект охватывает сразу несколько тем: рисование графических элементов на экране, обработка касаний, работа со стеками и алгоритм вычисления арифметических выражений.
+
+**Целевая аудитория:** ученики 8-11 классов.
+
+**Время на проект:** 2-3 занятия по 45 минут.
+
+## Необходимые компоненты
+
+- Arduino Uno
+- 2.4" TFT LCD сенсорный дисплей-шилд (резистивный тачскрин)
+- USB-кабель для подключения к компьютеру
+- Arduino IDE с установленными библиотеками
+
+Шилд вставляется поверх Arduino Uno без дополнительных проводов -- все контакты совпадают. Это большое преимущество для начинающих: ошибки подключения исключены.
+
+## Установка библиотек
+
+Через менеджер библиотек Arduino IDE (меню Скетч -> Подключить библиотеку -> Управление библиотеками) установите:
+
+1. **MCUFRIEND_kbv** -- универсальный драйвер для TFT-шилдов, автоматически определяет контроллер дисплея
+2. **Adafruit TouchScreen** -- библиотека для чтения координат нажатия на резистивный сенсорный экран
+3. **Adafruit GFX Library** -- базовая графическая библиотека (устанавливается автоматически как зависимость)
+
+![Калибровка сенсорного экрана TFT-дисплея на Arduino](/blog/arduino-touch-calculator-build.jpg)
+
+## Подключение дисплея
+
+Шилд устанавливается на Arduino Uno сверху. Убедитесь, что все штырьки вошли в разъёмы. Шилд использует цифровые пины D0-D13 и аналоговые A0-A5. Тачскрин работает через аналоговые пины.
+
+После установки шилда подключите Arduino к компьютеру по USB. Экран должен на мгновение засветиться -- значит, питание идёт.
+
+**Важный шаг -- калибровка тачскрина.** Загрузите пример TouchScreen_Calibr_native из библиотеки MCUFRIEND_kbv. Нажимайте на крестики в углах экрана и запишите полученные значения. Их нужно подставить в константы TS_LEFT, TS_RT, TS_TOP и TS_BOT в коде калькулятора.
+
+![Схема подключения TFT-дисплея к Arduino Uno на макетной плате](/blog/arduino-touch-calculator-circuit.png)
+
+## Полный код калькулятора
+
+```cpp
+#include <MCUFRIEND_kbv.h>
+#include <TouchScreen.h>
+
+// Определения цветов
+#define BLACK   0x0000
+#define WHITE   0xFFFF
+#define RED     0xF800
+#define GREEN   0x07E0
+#define BLUE    0x001F
+#define GRAY    0x8410
+#define ORANGE  0xFD20
+
+// Пины тачскрина (подставьте свои после калибровки)
+const int XP = 8, XM = A2, YP = A3, YM = 9;
+const int TS_LEFT = 115, TS_RT = 938, TS_TOP = 74, TS_BOT = 909;
+
+MCUFRIEND_kbv tft;
+TouchScreen ts = TouchScreen(XP, YP, XM, YM, 300);
+
+// Массив для выражения и его длина
+int maxLength = 15;
+int currentLength = 0;
+char expression[24] = "\0";
+
+// Структура кнопки экрана
+struct Button {
+  int x, y, w, h;
+  bool alreadyTouched;
+  const char* buttonLabel;   // Текст на кнопке
+  const char* displayLabel;  // Символ для выражения
+};
+
+#define NUM_BUTTONS 22
+int sz = 48; // Размер кнопки
+
+// Расположение кнопок: цифры, операции, скобки, ANS, =, AC, CE
+Button buttons[NUM_BUTTONS] = {
+  {0, 224, sz, sz, false, "0", "0"},
+  {0, 80, sz, sz, false, "1", "1"},
+  {48, 80, sz, sz, false, "2", "2"},
+  {96, 80, sz, sz, false, "3", "3"},
+  {0, 128, sz, sz, false, "4", "4"},
+  {48, 128, sz, sz, false, "5", "5"},
+  {96, 128, sz, sz, false, "6", "6"},
+  {0, 176, sz, sz, false, "7", "7"},
+  {48, 176, sz, sz, false, "8", "8"},
+  {96, 176, sz, sz, false, "9", "9"},
+  {144, 128, sz, sz, false, "+", "+"},
+  {192, 128, sz, sz, false, "-", "-"},
+  {144, 176, sz, sz, false, "x", "x"},
+  {192, 176, sz, sz, false, "/", "/"},
+  {48, 224, sz, sz, false, "^", "^"},
+  {96, 224, sz, sz, false, ".", "."},
+  {144, 224, sz, sz, false, "(", "("},
+  {192, 224, sz, sz, false, ")", ")"},
+  {0, 272, sz*2, sz, false, "ANS", "A"},
+  {96, 272, sz*3, sz, false, "=", "="},
+  {144, 80, sz, sz, false, "AC", "AC"},
+  {192, 80, sz, sz, false, "CE", "CE"},
+};
+
+// Шаблонный класс стека для чисел и операторов
+template <typename T, int SIZE>
+class Stack {
+  T data[SIZE];
+  int top = -1;
+public:
+  bool push(T val) { if (top >= SIZE-1) return false; data[++top] = val; return true; }
+  T pop() { return data[top--]; }
+  T peek() { return data[top]; }
+  bool isEmpty() { return top < 0; }
+};
+
+Stack<float, 64> numbers;    // Стек чисел
+Stack<char, 64> operators;   // Стек операторов
+
+float answer = 0.0f;  // Последний результат (для ANS)
+int errorCode = 0;
+
+// Приоритет операций
+int precedence(char op) {
+  if (op == '~') return 4;  // Унарный минус
+  if (op == '^') return 3;  // Степень
+  if (op == 'x' || op == '/') return 2;
+  if (op == '+' || op == '-') return 1;
+  return 0;
+}
+
+// Применяем одну операцию со стеков
+bool applyOp() {
+  if (operators.isEmpty()) return false;
+  char op = operators.pop();
+
+  // Унарный минус -- работает с одним числом
+  if (op == '~') {
+    if (numbers.isEmpty()) return false;
+    numbers.push(-numbers.pop());
+    return true;
+  }
+
+  if (numbers.isEmpty()) return false;
+  float b = numbers.pop();
+  if (numbers.isEmpty()) return false;
+  float a = numbers.pop();
+
+  switch (op) {
+    case '+': numbers.push(a + b); break;
+    case '-': numbers.push(a - b); break;
+    case 'x': numbers.push(a * b); break;
+    case '/':
+      if (b == 0) { errorCode = 1; return false; }
+      numbers.push(a / b); break;
+    case '^': numbers.push(pow(a, b)); break;
+    default: errorCode = 4; return false;
+  }
+  return true;
+}
+
+// Парсер выражения с учётом приоритетов и скобок
+bool computeResult(char* expr) {
+  while (!numbers.isEmpty()) numbers.pop();
+  while (!operators.isEmpty()) operators.pop();
+
+  int i = 0;
+  char numBuf[24] = "";
+  int ni = 0;
+  bool lastNum = false, lastANS = false, lastOp = true;
+
+  while (expr[i] != '\0') {
+    char c = expr[i];
+    if (c == 'A') {
+      if (lastNum) { errorCode = 3; return false; }
+      numbers.push(answer);
+      lastANS = true; lastNum = false; lastOp = false;
+    } else if ((c >= '0' && c <= '9') || c == '.') {
+      if (lastANS) { errorCode = 3; return false; }
+      numBuf[ni++] = c;
+      lastNum = true; lastANS = false; lastOp = false;
+    } else if (c == '(') {
+      operators.push('(');
+      lastOp = true; lastNum = false; lastANS = false;
+    } else if (c == ')') {
+      if (lastNum) { numBuf[ni] = '\0'; numbers.push(atof(numBuf)); ni = 0; numBuf[0] = '\0'; lastNum = false; }
+      while (!operators.isEmpty() && operators.peek() != '(') { if (!applyOp()) return false; }
+      if (operators.isEmpty()) { errorCode = 2; return false; }
+      operators.pop();
+      lastOp = false;
+    } else {
+      // Проверяем, не унарный ли это минус
+      if (c == '-' && lastOp) {
+        if (lastNum) { numBuf[ni] = '\0'; numbers.push(atof(numBuf)); ni = 0; numBuf[0] = '\0'; }
+        operators.push('~');
+        lastOp = true; lastNum = false; i++; continue;
+      }
+      if (lastNum) { numBuf[ni] = '\0'; numbers.push(atof(numBuf)); ni = 0; numBuf[0] = '\0'; lastNum = false; }
+      while (!operators.isEmpty() && precedence(operators.peek()) >= precedence(c)) { if (!applyOp()) return false; }
+      operators.push(c);
+      lastOp = true; lastANS = false;
+    }
+    i++;
+  }
+
+  if (lastNum) { numBuf[ni] = '\0'; numbers.push(atof(numBuf)); }
+  while (!operators.isEmpty()) { if (!applyOp()) return false; }
+  if (numbers.isEmpty()) return false;
+  answer = numbers.pop();
+  return true;
+}
+
+// Усреднение давления тачскрина
+int avgPressure(int samples) {
+  long sum = 0;
+  for (int i = 0; i < samples; i++) { sum += ts.getPoint().z; delay(1); }
+  return sum / samples;
+}
+
+// Рисуем одну кнопку
+void drawButton(const Button &b) {
+  tft.fillRect(b.x, b.y, b.w, b.h, RED);
+  tft.drawRect(b.x, b.y, b.w, b.h, BLACK);
+  tft.setTextSize(2);
+  tft.setTextColor(WHITE);
+  int16_t x1, y1; uint16_t w, h;
+  tft.getTextBounds(b.buttonLabel, 0, 0, &x1, &y1, &w, &h);
+  tft.setCursor(b.x + (b.w - w)/2, b.y + (b.h - h)/2);
+  tft.print(b.buttonLabel);
+}
+
+// Обновляем дисплей выражения
+void refreshDisplay() {
+  tft.fillRect(0, 0, 240, 80, BLACK);
+  tft.setTextSize(2);
+  tft.setTextColor(WHITE);
+  int16_t x1, y1; uint16_t w, h;
+  tft.getTextBounds(expression, 0, 0, &x1, &y1, &w, &h);
+  int cx = 240 - w - 10;
+  if (cx < 5) cx = 5;
+  tft.setCursor(cx, (80 - h) / 2);
+  tft.print(expression);
+}
+
+void setup() {
+  Serial.begin(9600);
+  tft.begin();
+  tft.fillScreen(BLACK);
+  tft.setRotation(0);
+  for (int i = 0; i < NUM_BUTTONS; i++) drawButton(buttons[i]);
+}
+
+void loop() {
+  TSPoint p = ts.getPoint();
+  int z = avgPressure(20);
+  pinMode(XM, OUTPUT);
+  pinMode(YP, OUTPUT);
+
+  if (z > ts.pressureThreshhold) {
+    int x = map(p.x, TS_LEFT, TS_RT, 0, tft.width());
+    int y = map(p.y, TS_TOP, TS_BOT, 0, tft.height());
+
+    for (int i = 0; i < NUM_BUTTONS; i++) {
+      Button &b = buttons[i];
+      bool inside = x >= b.x+7 && x <= b.x+b.w-7 && y >= b.y+7 && y <= b.y+b.h-7;
+
+      if (inside && !b.alreadyTouched) {
+        b.alreadyTouched = true;
+
+        if (i <= 18 && currentLength < maxLength - 1) {
+          strcat(expression, b.displayLabel);
+          currentLength++;
+        } else if (i == 19) { // Кнопка "="
+          if (computeResult(expression)) {
+            dtostrf(answer, -6, 4, expression);
+            currentLength = strlen(expression);
+          } else {
+            strcpy(expression, errorCode==1 ? "E1:DIV/0" : errorCode==2 ? "E2:()" : "ERR");
+            currentLength = 1;
+          }
+        } else if (i == 20) { // AC -- очистить всё
+          expression[0] = '\0'; currentLength = 0;
+        } else if (i == 21 && currentLength > 0) { // CE -- стереть символ
+          expression[--currentLength] = '\0';
+        }
+        refreshDisplay();
+      } else if (!inside) {
+        b.alreadyTouched = false;
+      }
+    }
+  }
+  delay(33);
+}
+```
+
+## Разбор ключевых элементов кода
+
+**Двухстековый парсер.** Это сердце проекта. Один стек хранит числа, другой -- операторы. Когда парсер встречает новый оператор, он сначала выполняет все операции с более высоким приоритетом, уже лежащие в стеке. Скобки обрабатываются отдельно: открывающая скобка помещается в стек, а при закрывающей все операции до неё выполняются. Унарный минус обозначен символом '~' и имеет наивысший приоритет.
+
+**Структура Button.** Каждая кнопка хранит свои экранные координаты, текст для отображения и символ, который добавляется в строку выражения. Флаг alreadyTouched предотвращает повторное срабатывание, пока палец не отпущен.
+
+**Калибровка тачскрина.** Константы TS_LEFT, TS_RT, TS_TOP, TS_BOT задают соответствие между «сырыми» значениями сенсора и пикселями экрана. Без правильной калибровки нажатия будут попадать не на те кнопки.
+
+**Обработка ошибок.** Код обнаруживает деление на ноль (E1), несбалансированные скобки (E2) и неверное использование ANS (E3), выводя понятное сообщение вместо зависания.
+
+## Советы для занятий
+
+- Начните с калибровки тачскрина -- без неё ничего не заработает
+- Попросите учеников сначала нарисовать на бумаге, как работает стековый парсер на примере выражения (2+3)*4
+- Предложите добавить кнопку десятичной точки с защитой от двойного нажатия
+- Более сильным ученикам -- реализовать функции sin, cos, sqrt
+- Обсудите, почему приоритет умножения выше сложения и как это отражено в коде
+
+## Как Alashed помогает
+
+Платформа **Alashed Hardware** включает тренажёры для работы с TFT-дисплеями и сенсорным вводом, а в **Alashed CodeStudio** можно отлаживать логику парсера выражений до загрузки на реальную плату. Это экономит время на занятиях и позволяет ученикам сосредоточиться на понимании алгоритма.
