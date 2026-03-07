@@ -205,6 +205,9 @@ export default function Navbar() {
                 </div>
               </div>
 
+              <a href="/blog" className="px-3 py-1.5 text-[13px] font-medium font-sans text-[rgba(49,45,43,0.70)] hover:text-[#37322F] transition-colors rounded-full">
+                Блог
+              </a>
               <a href="#contact" className="px-3 py-1.5 text-[13px] font-medium font-sans text-[rgba(49,45,43,0.70)] hover:text-[#37322F] transition-colors rounded-full">
                 О нас
               </a>
@@ -278,6 +281,29 @@ export default function Navbar() {
                 <span className="text-[#37322F] text-sm font-medium font-sans">{item.name}</span>
               </a>
             ))}
+          </div>
+
+          <div className="h-px bg-[rgba(55,50,47,0.08)] mx-4" />
+
+          {/* Blog + About */}
+          <div className="px-4 py-3 flex flex-col gap-1">
+            <a href="/blog" onClick={() => setMobileOpen(false)} className="flex items-center gap-3 py-2.5 hover:bg-[#F7F5F3] rounded-xl px-2 -mx-2 transition-colors">
+              <div className="w-7 h-7 rounded-lg bg-[#EBF7FF] flex items-center justify-center flex-shrink-0">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M2 3h10M2 6.5h7M2 10h5" stroke="#2E9DE0" strokeWidth="1.25" strokeLinecap="round"/>
+                </svg>
+              </div>
+              <span className="text-[#37322F] text-sm font-medium font-sans">Блог</span>
+            </a>
+            <a href="#contact" onClick={() => setMobileOpen(false)} className="flex items-center gap-3 py-2.5 hover:bg-[#F7F5F3] rounded-xl px-2 -mx-2 transition-colors">
+              <div className="w-7 h-7 rounded-lg bg-[#EBF7FF] flex items-center justify-center flex-shrink-0">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <circle cx="7" cy="5" r="2.5" stroke="#2E9DE0" strokeWidth="1.25"/>
+                  <path d="M2 13c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="#2E9DE0" strokeWidth="1.25" strokeLinecap="round"/>
+                </svg>
+              </div>
+              <span className="text-[#37322F] text-sm font-medium font-sans">О нас</span>
+            </a>
           </div>
 
           <div className="h-px bg-[rgba(55,50,47,0.08)] mx-4" />

@@ -17,7 +17,6 @@ import StatsSection from "../components/stats-section"
 import HowItWorksSection from "../components/how-it-works-section"
 import BeforeAfterSection from "../components/before-after-section"
 import ROICalculatorSection from "../components/roi-calculator-section"
-import ComparisonTableSection from "../components/comparison-table-section"
 import AwardsSection from "../components/awards-section"
 import ContactFormSection from "../components/contact-form-section"
 import PlatformShowcaseSection from "../components/platform-showcase-section"
@@ -454,9 +453,6 @@ export default function LandingPage() {
 
               {/* ROI Calculator */}
               <ROICalculatorSection />
-
-              {/* Comparison Table */}
-              <ComparisonTableSection />
 
               {/* Awards & Partners */}
               <AwardsSection />
