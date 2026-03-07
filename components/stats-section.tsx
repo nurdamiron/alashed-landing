@@ -49,10 +49,10 @@ function StatCard({ value, suffix, label, sublabel, index }: StatItem & { index:
       className="flex-1 flex flex-col items-center justify-center py-8 sm:py-10 md:py-14 px-4 border-r border-[rgba(55,50,47,0.10)] last:border-r-0 first:border-l-0 gap-1"
     >
       <div className="flex items-end gap-0.5">
-        <span className="text-[#37322F] text-4xl sm:text-5xl md:text-6xl font-semibold leading-none font-sans tabular-nums">
+        <span className="text-[#37322F] text-3xl sm:text-4xl md:text-5xl font-semibold leading-none font-sans tabular-nums">
           {count.toLocaleString("ru")}
         </span>
-        <span className="text-[#5BB8F5] text-2xl sm:text-3xl md:text-4xl font-semibold leading-none pb-1 font-sans">
+        <span className="text-[#5BB8F5] text-xl sm:text-2xl md:text-3xl font-semibold leading-none pb-1 font-sans">
           {suffix}
         </span>
       </div>

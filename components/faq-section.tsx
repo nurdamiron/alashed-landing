@@ -70,7 +70,7 @@ export default function FAQSection() {
           <div className="px-[14px] py-[6px] bg-[#EBF7FF] overflow-hidden rounded-[90px] flex items-center gap-[8px] border border-[#5BB8F5]/30 self-start">
             <span className="text-[#2E9DE0] text-xs font-semibold leading-3 font-sans tracking-wide uppercase">FAQ</span>
           </div>
-          <div className="w-full flex flex-col justify-center text-[#49423D] font-semibold leading-tight md:leading-[44px] font-sans text-4xl tracking-tight">
+          <div className="w-full flex flex-col justify-center text-[#49423D] font-semibold leading-tight font-sans text-2xl md:text-[28px] tracking-tight">
             Частые вопросы
           </div>
           <div className="w-full text-[#605A57] text-base font-normal leading-7 font-sans">

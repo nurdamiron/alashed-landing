@@ -138,7 +138,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
         </span>
 
         {/* Title */}
-        <h1 className="text-[#37322F] text-2xl sm:text-3xl md:text-4xl font-semibold font-serif leading-tight tracking-tight mb-5">
+        <h1 className="text-[#37322F] text-xl sm:text-2xl md:text-[30px] font-semibold font-serif leading-tight tracking-tight mb-5">
           {post.title}
         </h1>
 

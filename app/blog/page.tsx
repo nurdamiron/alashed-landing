@@ -37,7 +37,7 @@ export default function BlogPage() {
             </svg>
             <span className="text-[#2E9DE0] text-xs font-semibold font-sans uppercase tracking-wide">Блог</span>
           </div>
-          <h1 className="text-[#37322F] text-3xl sm:text-4xl md:text-5xl font-semibold font-serif leading-tight tracking-tight">
+          <h1 className="text-[#37322F] text-2xl sm:text-3xl md:text-[36px] font-semibold font-serif leading-tight tracking-tight">
             STEM-образование<br className="hidden sm:block" /> в Казахстане
           </h1>
           <p className="text-[#605A57] text-base font-sans leading-7 mt-4 max-w-[520px]">

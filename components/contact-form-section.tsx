@@ -49,7 +49,7 @@ export default function ContactFormSection() {
             </div>
           </div>
 
-          <div className="text-[#49423D] text-3xl md:text-4xl font-semibold leading-tight font-sans tracking-tight">
+          <div className="text-[#49423D] text-2xl md:text-[28px] font-semibold leading-tight font-sans tracking-tight">
             Подключите школу к пилоту 2025–2026
           </div>
 

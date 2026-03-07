@@ -107,7 +107,7 @@ export default function LandingPage() {
             <div className="pt-16 sm:pt-20 md:pt-24 lg:pt-[216px] pb-8 sm:pb-12 md:pb-16 flex flex-col justify-start items-center px-2 sm:px-4 md:px-8 lg:px-0 w-full sm:pl-0 sm:pr-0 pl-0 pr-0">
                 <div className="w-full max-w-[937px] lg:w-[937px] flex flex-col justify-center items-center gap-3 sm:gap-4 md:gap-5 lg:gap-6">
                 <div className="self-stretch rounded-[3px] flex flex-col justify-center items-center gap-4 sm:gap-5 md:gap-6 lg:gap-8">
-                  <div className="w-full max-w-[800px] lg:w-[800px] text-center flex justify-center flex-col text-[#37322F] text-[24px] xs:text-[28px] sm:text-[36px] md:text-[52px] lg:text-[72px] font-normal leading-[1.1] sm:leading-[1.15] md:leading-[1.2] lg:leading-[1.1] font-serif px-2 sm:px-4 md:px-0">
+                  <div className="w-full max-w-[800px] lg:w-[800px] text-center flex justify-center flex-col text-[#37322F] text-[26px] sm:text-[34px] md:text-[44px] lg:text-[54px] font-normal leading-[1.15] font-serif px-2 sm:px-4 md:px-0">
                     Полная STEM-экосистема
                     <br />
                     для школ Казахстана
@@ -281,7 +281,7 @@ export default function LandingPage() {
                       }
                       text="Для кого"
                     />
-                    <div className="w-full max-w-[472.55px] text-center flex justify-center flex-col text-[#49423D] text-xl sm:text-2xl md:text-3xl lg:text-5xl font-semibold leading-tight md:leading-[60px] font-sans tracking-tight">
+                    <div className="w-full max-w-[472.55px] text-center flex justify-center flex-col text-[#49423D] text-xl sm:text-2xl md:text-[28px] font-semibold leading-tight font-sans tracking-tight">
                       Закрываем боли всех участников
                     </div>
                     <div className="self-stretch text-center text-[#605A57] text-sm sm:text-base font-normal leading-6 sm:leading-7 font-sans">
@@ -316,7 +316,7 @@ export default function LandingPage() {
                       }
                       text="Продукты"
                     />
-                    <div className="w-full max-w-[598.06px] lg:w-[598.06px] text-center flex justify-center flex-col text-[#49423D] text-xl sm:text-2xl md:text-3xl lg:text-5xl font-semibold leading-tight md:leading-[60px] font-sans tracking-tight">
+                    <div className="w-full max-w-[598.06px] lg:w-[598.06px] text-center flex justify-center flex-col text-[#49423D] text-xl sm:text-2xl md:text-[28px] font-semibold leading-tight font-sans tracking-tight">
                       Единая платформа для всей школы
                     </div>
                     <div className="self-stretch text-center text-[#605A57] text-sm sm:text-base font-normal leading-6 sm:leading-7 font-sans">

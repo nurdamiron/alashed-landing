@@ -62,7 +62,7 @@ export default function BeforeAfterSection() {
               До / После
             </div>
           </div>
-          <div className="self-stretch text-center text-[#49423D] text-3xl md:text-5xl font-semibold leading-tight md:leading-[60px] font-sans tracking-tight">
+          <div className="self-stretch text-center text-[#49423D] text-2xl md:text-[28px] font-semibold leading-tight font-sans tracking-tight">
             Как меняется школа с Alashed
           </div>
           <div className="self-stretch text-center text-[#605A57] text-base font-normal leading-7 font-sans">

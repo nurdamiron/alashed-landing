@@ -43,7 +43,7 @@ export default function HowItWorksSection() {
             Как это работает
           </span>
         </div>
-        <h2 className="text-[#49423D] text-2xl sm:text-3xl md:text-5xl font-semibold leading-tight font-sans tracking-tight text-balance">
+        <h2 className="text-[#49423D] text-xl sm:text-2xl md:text-[28px] font-semibold leading-tight font-sans tracking-tight text-balance">
           От заявки до первого урока за 48 часов
         </h2>
         <p className="text-[#605A57] text-sm sm:text-base font-normal leading-7 font-sans max-w-[520px]">

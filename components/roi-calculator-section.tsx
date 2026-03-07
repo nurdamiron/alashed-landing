@@ -27,7 +27,7 @@ export default function ROICalculatorSection() {
               Калькулятор
             </div>
           </div>
-          <div className="self-stretch text-center text-[#49423D] text-3xl md:text-5xl font-semibold leading-tight md:leading-[60px] font-sans tracking-tight">
+          <div className="self-stretch text-center text-[#49423D] text-2xl md:text-[28px] font-semibold leading-tight font-sans tracking-tight">
             Сколько времени сэкономит ваша школа?
           </div>
           <div className="self-stretch text-center text-[#605A57] text-base font-normal leading-7 font-sans">
@@ -102,7 +102,7 @@ export default function ROICalculatorSection() {
 
             <div className="flex flex-col gap-4">
               <div className="p-5 bg-[#EBF7FF] rounded-xl border border-[#5BB8F5]/20 flex flex-col gap-1">
-                <div className="text-[#37322F] text-4xl font-semibold font-sans">
+                <div className="text-[#37322F] text-3xl font-semibold font-sans">
                   {hoursSaved.toLocaleString("ru")} ч
                 </div>
                 <div className="text-[#605A57] text-sm font-normal font-sans">рабочего времени учителей</div>
