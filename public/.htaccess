@@ -1,9 +1,0 @@
-RewriteEngine On
-RewriteBase /
-
-# Serve .html file if URL without extension exists as a file
-RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}.html -f
-RewriteRule ^(.+[^/])$ $1.html [L]
-
-# Custom 404
-ErrorDocument 404 /404.html
