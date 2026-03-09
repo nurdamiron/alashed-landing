@@ -28,7 +28,7 @@ const products = [
   {
     name: "Hardware",
     desc: "Официальный импорт Arduino, ESP32, Raspberry Pi в КЗ",
-    href: "#contact",
+    href: "/hardware",
     icon: (
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
         <rect x="2" y="5" width="12" height="7" rx="1" stroke="#2E9DE0" strokeWidth="1.25"/>
@@ -40,7 +40,7 @@ const products = [
   {
     name: "Соревнования",
     desc: "Подготовка к Infomatrix, KazRobotics, WRO",
-    href: "#contact",
+    href: "/competitions",
     icon: (
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
         <path d="M8 2l1.5 3 3.5.5-2.5 2.5.5 3.5L8 10l-3 1.5.5-3.5L3 5.5l3.5-.5L8 2z" stroke="#2E9DE0" strokeWidth="1.25" strokeLinejoin="round"/>
