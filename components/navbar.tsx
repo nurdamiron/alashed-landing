@@ -120,6 +120,16 @@ export default function Navbar() {
   const [openMenu, setOpenMenu] = useState<"products" | "solutions" | null>(null)
   const [mobileOpen, setMobileOpen] = useState(false)
   const navRef = useRef<HTMLDivElement>(null)
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const openDropdown = (menu: "products" | "solutions") => {
+    if (closeTimer.current) clearTimeout(closeTimer.current)
+    setOpenMenu(menu)
+  }
+
+  const closeDropdown = () => {
+    closeTimer.current = setTimeout(() => setOpenMenu(null), 150)
+  }
 
   // Close on outside click
   useEffect(() => {
@@ -160,8 +170,8 @@ export default function Navbar() {
               {/* Products */}
               <div
                 className="relative"
-                onMouseEnter={() => setOpenMenu("products")}
-                onMouseLeave={() => setOpenMenu(null)}
+                onMouseEnter={() => openDropdown("products")}
+                onMouseLeave={closeDropdown}
               >
                 <button
                   className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-[13px] font-medium font-sans transition-colors ${
@@ -174,16 +184,16 @@ export default function Navbar() {
                     <ChevronDown />
                   </span>
                 </button>
-                <div className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 transition-all duration-200 ${openMenu === "products" ? "opacity-100 pointer-events-auto translate-y-0" : "opacity-0 pointer-events-none -translate-y-1"}`}>
-                  <DropdownMenu items={products} />
+                <div className={`transition-all duration-200 ${openMenu === "products" ? "opacity-100 pointer-events-auto translate-y-0" : "opacity-0 pointer-events-none -translate-y-1"}`}>
+                  {openMenu === "products" && <DropdownMenu items={products} />}
                 </div>
               </div>
 
               {/* Solutions */}
               <div
                 className="relative"
-                onMouseEnter={() => setOpenMenu("solutions")}
-                onMouseLeave={() => setOpenMenu(null)}
+                onMouseEnter={() => openDropdown("solutions")}
+                onMouseLeave={closeDropdown}
               >
                 <button
                   className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-[13px] font-medium font-sans transition-colors ${
@@ -196,8 +206,8 @@ export default function Navbar() {
                     <ChevronDown />
                   </span>
                 </button>
-                <div className={`absolute top-full left-1/2 -translate-x-1/2 pt-3 transition-all duration-200 ${openMenu === "solutions" ? "opacity-100 pointer-events-auto translate-y-0" : "opacity-0 pointer-events-none -translate-y-1"}`}>
-                  <DropdownMenu items={solutions} />
+                <div className={`transition-all duration-200 ${openMenu === "solutions" ? "opacity-100 pointer-events-auto translate-y-0" : "opacity-0 pointer-events-none -translate-y-1"}`}>
+                  {openMenu === "solutions" && <DropdownMenu items={solutions} />}
                 </div>
               </div>
 
