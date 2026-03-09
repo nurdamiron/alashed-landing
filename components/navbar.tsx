@@ -53,7 +53,7 @@ const solutions = [
   {
     name: "Для учителей",
     desc: "AI-ассистент, который знает ГОСО и ваш класс",
-    href: "#",
+    href: "/for-teachers",
     icon: (
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
         <circle cx="8" cy="5" r="3" stroke="#2E9DE0" strokeWidth="1.25"/>
@@ -64,7 +64,7 @@ const solutions = [
   {
     name: "Для директоров",
     desc: "Аналитика школы, инвентарь и отчётность в одном дашборде",
-    href: "#",
+    href: "/for-directors",
     icon: (
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
         <rect x="2" y="2" width="5" height="5" rx="1" stroke="#2E9DE0" strokeWidth="1.25"/>
@@ -77,7 +77,7 @@ const solutions = [
   {
     name: "Для учеников",
     desc: "CodeStudio, геймификация и соревнования",
-    href: "#",
+    href: "/for-students",
     icon: (
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
         <path d="M4 5L2 8l2 3M12 5l2 3-2 3M7 4l-1.5 8" stroke="#2E9DE0" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"/>
