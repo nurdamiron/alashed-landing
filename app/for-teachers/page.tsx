@@ -136,7 +136,7 @@ export default function ForTeachersPage() {
               className="px-6 py-3 bg-[#5BB8F5] hover:bg-[#2E9DE0] transition-colors rounded-full text-white text-sm font-semibold font-sans">
               Попробовать бесплатно
             </Link>
-            <Link href="#contact"
+            <Link href="/#contact"
               className="px-6 py-3 bg-white border border-[rgba(55,50,47,0.20)] hover:bg-[#F0EFEE] transition-colors rounded-full text-[#37322F] text-sm font-medium font-sans">
               Запросить демо
             </Link>
