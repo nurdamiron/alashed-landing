@@ -1,4 +1,4 @@
-name: Build and Deploy to dist branch
+name: Build and Deploy to ps.kz
 
 on:
   push:
@@ -30,10 +30,12 @@ jobs:
       - name: Build static export
         run: pnpm run build
 
-      - name: Deploy out/ to dist branch
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Deploy out/ to ps.kz via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out
-          publish_branch: dist
-          force_orphan: true
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./out/
+          server-dir: /alashed-main/
+          dangerous-clean-slate: true
