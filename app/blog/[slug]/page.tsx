@@ -294,7 +294,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
                 Подключите школу к пилоту. Генерируйте КМЖ за 2 минуты, ведите CodeStudio уроки, заказывайте оборудование — всё в одном месте.
               </p>
               <div className="flex flex-wrap gap-2">
-                <Link href="https://edu.alashed.kz/login"
+                <Link href="https://edu.alashed.kz"
                   className="px-5 py-2.5 bg-[#5BB8F5] hover:bg-[#2E9DE0] transition-colors rounded-full text-white text-sm font-semibold font-sans">
                   Начать бесплатно
                 </Link>

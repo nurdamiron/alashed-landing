@@ -132,7 +132,7 @@ export default function ForTeachersPage() {
           </p>
 
           <div className="flex flex-wrap gap-3">
-            <Link href="https://edu.alashed.kz/login"
+            <Link href="https://edu.alashed.kz"
               className="px-6 py-3 bg-[#5BB8F5] hover:bg-[#2E9DE0] transition-colors rounded-full text-white text-sm font-semibold font-sans">
               Попробовать бесплатно
             </Link>
@@ -236,7 +236,7 @@ export default function ForTeachersPage() {
             Бесплатный доступ на весь пилотный период. Подключение за 48 часов. Без кредитной карты.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
-            <Link href="https://edu.alashed.kz/login"
+            <Link href="https://edu.alashed.kz"
               className="px-6 py-3 bg-[#5BB8F5] hover:bg-[#2E9DE0] transition-colors rounded-full text-white text-sm font-semibold font-sans">
               Попробовать бесплатно
             </Link>

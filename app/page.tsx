@@ -121,7 +121,7 @@ export default function LandingPage() {
 
               <div className="w-full max-w-[497px] lg:w-[497px] flex flex-col justify-center items-center gap-6 sm:gap-8 md:gap-10 lg:gap-12 relative z-10 mt-6 sm:mt-8 md:mt-10 lg:mt-12">
                 <div className="backdrop-blur-[8.25px] flex justify-start items-center gap-4">
-                  <a href="https://edu.alashed.kz/login" className="h-10 sm:h-11 px-6 sm:px-8 md:px-10 lg:px-12 bg-[#5BB8F5] hover:bg-[#2E9DE0] transition-colors rounded-full flex items-center gap-2 shadow-[0px_1px_3px_rgba(91,184,245,0.40)]">
+                  <a href="https://edu.alashed.kz" className="h-10 sm:h-11 px-6 sm:px-8 md:px-10 lg:px-12 bg-[#5BB8F5] hover:bg-[#2E9DE0] transition-colors rounded-full flex items-center gap-2 shadow-[0px_1px_3px_rgba(91,184,245,0.40)]">
                     <span className="text-white text-sm font-semibold font-sans">
                       Попробовать бесплатно
                     </span>

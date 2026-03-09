@@ -6,7 +6,7 @@ const products = [
   {
     name: "Alashed EDU",
     desc: "AI-генерация КМЖ, БЖБ, ТЖБ с привязкой к ГОСО 2026",
-    href: "https://edu.alashed.kz/login",
+    href: "https://edu.alashed.kz",
     icon: (
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
         <path d="M2 4h12M2 8h8M2 12h5" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round"/>
@@ -224,16 +224,16 @@ export default function Navbar() {
           <div className="flex items-center gap-2">
             {/* Desktop CTAs */}
             <div className="hidden sm:flex items-center gap-2">
-              <a href="https://edu.alashed.kz/login" className="px-3 md:px-[14px] py-[6px] bg-white shadow-[0px_1px_2px_rgba(55,50,47,0.12)] rounded-full text-[#37322F] text-[13px] font-medium font-sans hover:bg-[#F0EFEE] transition-colors">
+              <a href="https://edu.alashed.kz" className="px-3 md:px-[14px] py-[6px] bg-white shadow-[0px_1px_2px_rgba(55,50,47,0.12)] rounded-full text-[#37322F] text-[13px] font-medium font-sans hover:bg-[#F0EFEE] transition-colors">
                 Войти
               </a>
-              <a href="https://edu.alashed.kz/login" className="px-3 md:px-[14px] py-[6px] bg-[#5BB8F5] rounded-full text-white text-[13px] font-medium font-sans hover:bg-[#2E9DE0] transition-colors whitespace-nowrap">
+              <a href="https://edu.alashed.kz" className="px-3 md:px-[14px] py-[6px] bg-[#5BB8F5] rounded-full text-white text-[13px] font-medium font-sans hover:bg-[#2E9DE0] transition-colors whitespace-nowrap">
                 Попробовать бесплатно
               </a>
             </div>
 
             {/* Mobile: just "Войти" + burger */}
-            <a href="https://edu.alashed.kz/login" className="sm:hidden px-3 py-[6px] bg-white shadow-[0px_1px_2px_rgba(55,50,47,0.12)] rounded-full text-[#37322F] text-xs font-medium font-sans">
+            <a href="https://edu.alashed.kz" className="sm:hidden px-3 py-[6px] bg-white shadow-[0px_1px_2px_rgba(55,50,47,0.12)] rounded-full text-[#37322F] text-xs font-medium font-sans">
               Войти
             </a>
             <button
@@ -317,7 +317,7 @@ export default function Navbar() {
           {/* Bottom CTAs */}
           <div className="px-4 py-4 flex flex-col gap-2">
             <a
-              href="https://edu.alashed.kz/login"
+              href="https://edu.alashed.kz"
               onClick={() => setMobileOpen(false)}
               className="w-full py-3 bg-[#5BB8F5] hover:bg-[#2E9DE0] transition-colors rounded-full text-white text-sm font-semibold font-sans text-center"
             >

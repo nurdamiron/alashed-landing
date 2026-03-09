@@ -34,7 +34,7 @@ export default function CTASection() {
           </div>
           <div className="w-full max-w-[497px] flex flex-col justify-center items-center gap-12">
             <div className="flex flex-wrap justify-center items-center gap-4">
-              <a href="https://edu.alashed.kz/login" className="h-10 px-12 bg-[#5BB8F5] hover:bg-[#2E9DE0] transition-colors rounded-full flex items-center gap-2 shadow-[0px_1px_3px_rgba(91,184,245,0.40)]">
+              <a href="https://edu.alashed.kz" className="h-10 px-12 bg-[#5BB8F5] hover:bg-[#2E9DE0] transition-colors rounded-full flex items-center gap-2 shadow-[0px_1px_3px_rgba(91,184,245,0.40)]">
                 <span className="text-white text-[13px] font-semibold font-sans">Попробовать бесплатно</span>
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M2.5 7H11.5M11.5 7L8 3.5M11.5 7L8 10.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>

@@ -224,7 +224,7 @@ export default function CompetitionsPage() {
               className="px-6 py-3 bg-[#D97706] hover:bg-[#B45309] transition-colors rounded-full text-white text-sm font-semibold font-sans">
               Записаться на консультацию
             </Link>
-            <Link href="https://edu.alashed.kz/login"
+            <Link href="https://studio.alashed.kz"
               className="px-6 py-3 bg-white border border-[rgba(55,50,47,0.20)] hover:bg-[#F7F5F3] transition-colors rounded-full text-[#37322F] text-sm font-medium font-sans">
               Попробовать CodeStudio
             </Link>

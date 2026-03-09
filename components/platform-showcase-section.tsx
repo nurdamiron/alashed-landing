@@ -210,7 +210,7 @@ export default function PlatformShowcaseSection() {
               </div>
 
               <a
-                href="https://edu.alashed.kz/login"
+                href="https://edu.alashed.kz"
                 className="mt-auto self-start px-5 py-2 bg-[#5BB8F5] hover:bg-[#2E9DE0] text-white text-[13px] font-semibold font-sans rounded-full transition-colors flex items-center gap-2"
               >
                 Попробовать

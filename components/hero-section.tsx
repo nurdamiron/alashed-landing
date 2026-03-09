@@ -30,7 +30,7 @@ export function HeroSection() {
           {/* CTA Button */}
           <div className="flex justify-center gap-4">
             <a
-              href="https://edu.alashed.kz/login"
+              href="https://edu.alashed.kz"
               className="h-10 px-12 bg-[#5BB8F5] hover:bg-[#2E9DE0] text-white rounded-full font-semibold text-sm transition-colors flex items-center gap-2 shadow-[0px_0px_0px_2.5px_rgba(255,255,255,0.08)_inset]"
             >
               Попробовать бесплатно

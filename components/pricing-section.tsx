@@ -114,7 +114,7 @@ export default function PricingSection() {
                   </div>
                 </div>
                 <a
-                  href="https://edu.alashed.kz/login"
+                  href="https://edu.alashed.kz"
                   className="self-stretch px-4 py-[10px] bg-[#5BB8F5] shadow-[0px_2px_4px_rgba(91,184,245,0.30)] overflow-hidden rounded-[99px] flex justify-center items-center hover:bg-[#2E9DE0] transition-colors"
                 >
                   <div className="text-white text-[13px] font-semibold leading-5 font-sans">Начать бесплатно</div>
