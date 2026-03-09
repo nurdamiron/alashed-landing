@@ -18,7 +18,7 @@ const products = [
   {
     name: "CodeStudio",
     desc: "Браузерное IDE: Python, JS, Scratch — деплой на Arduino",
-    href: "https://edu.alashed.kz/login",
+    href: "https://studio.alashed.kz",
     icon: (
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
         <path d="M5 5L2 8l3 3M11 5l3 3-3 3M9 4l-2 8" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>

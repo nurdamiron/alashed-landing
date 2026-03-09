@@ -137,7 +137,7 @@ export default function ForStudentsPage() {
           </p>
 
           <div className="flex flex-wrap gap-3">
-            <Link href="https://edu.alashed.kz/login"
+            <Link href="https://studio.alashed.kz"
               className="px-6 py-3 bg-[#5BB8F5] hover:bg-[#2E9DE0] transition-colors rounded-full text-white text-sm font-semibold font-sans">
               Начать бесплатно
             </Link>
@@ -213,7 +213,7 @@ export default function ForStudentsPage() {
           <p className="text-[#605A57] text-sm font-sans leading-6 mb-8 max-w-md mx-auto">
             Бесплатная регистрация. Никаких установок. Открой браузер и напиши первую программу за 5 минут.
           </p>
-          <Link href="https://edu.alashed.kz/login"
+          <Link href="https://studio.alashed.kz"
             className="inline-flex px-8 py-3.5 bg-[#5BB8F5] hover:bg-[#2E9DE0] transition-colors rounded-full text-white text-sm font-semibold font-sans">
             Зарегистрироваться бесплатно
           </Link>
