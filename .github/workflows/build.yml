@@ -38,4 +38,3 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./out/
           server-dir: /alashed-main/
-          dangerous-clean-slate: true
