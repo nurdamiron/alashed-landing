@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Navbar from "@/components/navbar"
 import FooterSection from "@/components/footer-section"
+import CompetitionsCarousel from "@/components/competitions-carousel"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -145,6 +146,11 @@ export default function CompetitionsPage() {
             </Link>
           </div>
         </div>
+      </div>
+
+      {/* Photo Carousel */}
+      <div className="max-w-[1060px] mx-auto px-4 sm:px-6 pb-14 sm:pb-20">
+        <CompetitionsCarousel />
       </div>
 
       {/* Results */}
