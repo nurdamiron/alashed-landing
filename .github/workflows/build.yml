@@ -38,3 +38,6 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./out/
           server-dir: /alashed-main/
+          passive: true
+          timeout: 60000
+          retries: 5
