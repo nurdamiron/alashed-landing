@@ -3,11 +3,12 @@
 import { useState } from "react"
 
 const SERVICES = [
-  { id: "edu", label: "Alashed EDU", desc: "ИИ для учителей" },
-  { id: "codestudio", label: "CodeStudio", desc: "IDE для школ" },
-  { id: "hardware", label: "Hardware", desc: "Arduino, ESP32, RPi" },
-  { id: "competitions", label: "Соревнования", desc: "WRO, KazRobotics" },
-  { id: "it", label: "IT-разработка", desc: "Веб, мобайл, CRM" },
+  { id: "edu", label: "AI для учителей", desc: "КМЖ, БЖБ, ТЖБ за 2 мин" },
+  { id: "codestudio", label: "IDE для информатики", desc: "Python, Scratch, Arduino" },
+  { id: "hardware", label: "STEM-оборудование", desc: "Arduino, ESP32, Raspberry Pi" },
+  { id: "competitions", label: "Олимпиады и конкурсы", desc: "WRO, KazRobotics, Infomatrix" },
+  { id: "it", label: "Разработка под заказ", desc: "Сайт, мобайл, CRM, чатбот" },
+  { id: "other", label: "Другое", desc: "опишу в сообщении" },
 ]
 
 export default function ContactFormSection() {
