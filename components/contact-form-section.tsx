@@ -30,7 +30,7 @@ export default function ContactFormSection() {
       .filter(Boolean)
       .join(", ")
     try {
-      const res = await fetch("https://it.alashed.kz/api/contact", {
+      const res = await fetch("https://it.alashed.kz/api/contact/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...form, services: services || "Не выбрано" }),
