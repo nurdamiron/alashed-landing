@@ -131,7 +131,6 @@ export default function Navbar() {
     closeTimer.current = setTimeout(() => setOpenMenu(null), 150)
   }
 
-  // Close on outside click
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       if (navRef.current && !navRef.current.contains(e.target as Node)) {
@@ -143,7 +142,6 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handler)
   }, [])
 
-  // Close mobile menu on route scroll
   useEffect(() => {
     if (mobileOpen) document.body.style.overflow = "hidden"
     else document.body.style.overflow = ""
@@ -152,12 +150,10 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Horizontal divider line behind pill */}
       <div className="w-full h-0 absolute left-0 top-[42px] border-t border-[rgba(55,50,47,0.12)] shadow-[0px_1px_0px_white] z-10 hidden lg:block" />
 
       <div ref={navRef} className="w-full flex justify-center items-center z-30 relative">
-        {/* Pill */}
-        <div className="w-full max-w-[calc(100%-32px)] sm:max-w-[calc(100%-48px)] lg:max-w-[760px] h-10 sm:h-11 px-3 sm:px-4 pr-2 sm:pr-3 bg-[#F7F5F3] shadow-[0px_0px_0px_2px_white] rounded-[50px] flex justify-between items-center">
+        <div className="w-full max-w-[calc(100%-32px)] sm:max-w-[calc(100%-48px)] lg:max-w-[820px] h-10 sm:h-11 px-3 sm:px-4 pr-2 sm:pr-3 bg-[#F7F5F3] shadow-[0px_0px_0px_2px_white] rounded-[50px] flex justify-between items-center">
 
           {/* Left: logo + nav links */}
           <div className="flex items-center gap-1">
@@ -211,6 +207,16 @@ export default function Navbar() {
                 </div>
               </div>
 
+              {/* Услуги → it.alashed.kz */}
+              <a
+                href="https://it.alashed.kz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 py-1.5 text-[13px] font-medium font-sans text-[rgba(49,45,43,0.70)] hover:text-[#37322F] transition-colors rounded-full"
+              >
+                Услуги
+              </a>
+
               <a href="/blog" className="px-3 py-1.5 text-[13px] font-medium font-sans text-[rgba(49,45,43,0.70)] hover:text-[#37322F] transition-colors rounded-full">
                 Блог
               </a>
@@ -220,21 +226,24 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Right: CTA buttons + hamburger */}
+          {/* Right: CTA + hamburger */}
           <div className="flex items-center gap-2">
-            {/* Desktop CTAs */}
+            {/* Desktop CTA */}
             <div className="hidden sm:flex items-center gap-2">
-              <a href="https://edu.alashed.kz" className="px-3 md:px-[14px] py-[6px] bg-white shadow-[0px_1px_2px_rgba(55,50,47,0.12)] rounded-full text-[#37322F] text-[13px] font-medium font-sans hover:bg-[#F0EFEE] transition-colors">
-                Войти
-              </a>
-              <a href="https://edu.alashed.kz" className="px-3 md:px-[14px] py-[6px] bg-[#5BB8F5] rounded-full text-white text-[13px] font-medium font-sans hover:bg-[#2E9DE0] transition-colors whitespace-nowrap">
-                Попробовать бесплатно
+              <a
+                href="#contact"
+                className="px-3 md:px-[14px] py-[6px] bg-[#5BB8F5] rounded-full text-white text-[13px] font-medium font-sans hover:bg-[#2E9DE0] transition-colors whitespace-nowrap"
+              >
+                Оставить заявку
               </a>
             </div>
 
-            {/* Mobile: just "Войти" + burger */}
-            <a href="https://edu.alashed.kz" className="sm:hidden px-3 py-[6px] bg-white shadow-[0px_1px_2px_rgba(55,50,47,0.12)] rounded-full text-[#37322F] text-xs font-medium font-sans">
-              Войти
+            {/* Mobile: CTA + burger */}
+            <a
+              href="#contact"
+              className="sm:hidden px-3 py-[6px] bg-[#5BB8F5] rounded-full text-white text-xs font-medium font-sans whitespace-nowrap"
+            >
+              Заявка
             </a>
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
@@ -253,10 +262,8 @@ export default function Navbar() {
       <div
         className={`fixed inset-0 z-40 lg:hidden transition-all duration-300 ${mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
       >
-        {/* Backdrop */}
         <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" onClick={() => setMobileOpen(false)} />
 
-        {/* Drawer */}
         <div className={`absolute top-16 left-4 right-4 bg-white rounded-2xl shadow-[0px_8px_40px_rgba(55,50,47,0.16)] overflow-hidden transition-all duration-300 ${mobileOpen ? "translate-y-0 opacity-100" : "-translate-y-4 opacity-0"}`}>
           {/* Products */}
           <div className="px-4 pt-4 pb-2">
@@ -291,8 +298,21 @@ export default function Navbar() {
 
           <div className="h-px bg-[rgba(55,50,47,0.08)] mx-4" />
 
-          {/* Blog + About */}
+          {/* Links */}
           <div className="px-4 py-3 flex flex-col gap-1">
+            <a href="https://it.alashed.kz" target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)} className="flex items-center gap-3 py-2.5 hover:bg-[#F7F5F3] rounded-xl px-2 -mx-2 transition-colors">
+              <div className="w-7 h-7 rounded-lg bg-[#EBF7FF] flex items-center justify-center flex-shrink-0">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <rect x="1.5" y="3" width="11" height="8" rx="1" stroke="#2E9DE0" strokeWidth="1.25"/>
+                  <path d="M5 3V2.5a2 2 0 014 0V3" stroke="#2E9DE0" strokeWidth="1.25"/>
+                  <path d="M4.5 7h5M7 5.5v3" stroke="#2E9DE0" strokeWidth="1.25" strokeLinecap="round"/>
+                </svg>
+              </div>
+              <div>
+                <span className="text-[#37322F] text-sm font-medium font-sans block">Услуги</span>
+                <span className="text-[rgba(55,50,47,0.50)] text-xs font-sans">Веб, мобайл, CRM — it.alashed.kz</span>
+              </div>
+            </a>
             <a href="/blog" onClick={() => setMobileOpen(false)} className="flex items-center gap-3 py-2.5 hover:bg-[#F7F5F3] rounded-xl px-2 -mx-2 transition-colors">
               <div className="w-7 h-7 rounded-lg bg-[#EBF7FF] flex items-center justify-center flex-shrink-0">
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -314,21 +334,21 @@ export default function Navbar() {
 
           <div className="h-px bg-[rgba(55,50,47,0.08)] mx-4" />
 
-          {/* Bottom CTAs */}
+          {/* Bottom CTA */}
           <div className="px-4 py-4 flex flex-col gap-2">
-            <a
-              href="https://edu.alashed.kz"
-              onClick={() => setMobileOpen(false)}
-              className="w-full py-3 bg-[#5BB8F5] hover:bg-[#2E9DE0] transition-colors rounded-full text-white text-sm font-semibold font-sans text-center"
-            >
-              Попробовать бесплатно
-            </a>
             <a
               href="#contact"
               onClick={() => setMobileOpen(false)}
+              className="w-full py-3 bg-[#5BB8F5] hover:bg-[#2E9DE0] transition-colors rounded-full text-white text-sm font-semibold font-sans text-center"
+            >
+              Оставить заявку
+            </a>
+            <a
+              href="https://edu.alashed.kz"
+              onClick={() => setMobileOpen(false)}
               className="w-full py-3 bg-[rgba(55,50,47,0.05)] hover:bg-[rgba(55,50,47,0.08)] transition-colors rounded-full text-[#37322F] text-sm font-medium font-sans text-center"
             >
-              Запросить демо
+              Попробовать EDU →
             </a>
           </div>
         </div>
