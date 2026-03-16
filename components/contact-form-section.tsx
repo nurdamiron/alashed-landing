@@ -30,9 +30,9 @@ export default function ContactFormSection() {
       .filter(Boolean)
       .join(", ")
     try {
-      const res = await fetch("https://formspree.io/f/xwkgqnzn", {
+      const res = await fetch("https://it.alashed.kz/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...form, services: services || "Не выбрано" }),
       })
       if (res.ok) {
