@@ -2,22 +2,42 @@
 
 import { useState } from "react"
 
+const SERVICES = [
+  { id: "edu", label: "Alashed EDU", desc: "ИИ для учителей" },
+  { id: "codestudio", label: "CodeStudio", desc: "IDE для школ" },
+  { id: "hardware", label: "Hardware", desc: "Arduino, ESP32, RPi" },
+  { id: "competitions", label: "Соревнования", desc: "WRO, KazRobotics" },
+  { id: "it", label: "IT-разработка", desc: "Веб, мобайл, CRM" },
+]
+
 export default function ContactFormSection() {
-  const [form, setForm] = useState({ name: "", school: "", phone: "", message: "" })
+  const [form, setForm] = useState({ name: "", organization: "", phone: "", message: "" })
+  const [selectedServices, setSelectedServices] = useState<string[]>([])
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle")
+
+  const toggleService = (id: string) => {
+    setSelectedServices((prev) =>
+      prev.includes(id) ? prev.filter((s) => s !== id) : [...prev, id]
+    )
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setStatus("sending")
+    const services = selectedServices
+      .map((id) => SERVICES.find((s) => s.id === id)?.label)
+      .filter(Boolean)
+      .join(", ")
     try {
       const res = await fetch("https://formspree.io/f/xwkgqnzn", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, services: services || "Не выбрано" }),
       })
       if (res.ok) {
         setStatus("sent")
-        setForm({ name: "", school: "", phone: "", message: "" })
+        setForm({ name: "", organization: "", phone: "", message: "" })
+        setSelectedServices([])
       } else {
         setStatus("error")
       }
@@ -50,17 +70,17 @@ export default function ContactFormSection() {
           </div>
 
           <div className="text-[#49423D] text-2xl md:text-[28px] font-semibold leading-tight font-sans tracking-tight">
-            Подключите школу к пилоту 2025–2026
+            Оставьте заявку — мы найдём решение для вас
           </div>
 
           <div className="text-[#605A57] text-base font-normal leading-7 font-sans">
-            Заполните форму — мы свяжемся в течение 24 часов, расскажем о платформе и настроим бесплатный доступ.
+            Расскажите о задаче — свяжемся в течение 24 часов, подберём подходящий продукт и ответим на все вопросы.
           </div>
 
           <div className="flex flex-col gap-4 mt-2">
             {[
-              "Бесплатный онбординг и обучение учителей",
-              "Пробный доступ без привязки карты",
+              "Бесплатная консультация без обязательств",
+              "Пробный доступ к платформе",
               "B2B оплата через тендеры и госзакупки",
             ].map((text, i) => (
               <div key={i} className="flex items-center gap-3">
@@ -104,6 +124,35 @@ export default function ContactFormSection() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+              {/* Service selection */}
+              <div className="flex flex-col gap-2">
+                <label className="text-[#37322F] text-sm font-medium font-sans">
+                  Что вас интересует? <span className="text-[rgba(55,50,47,0.40)] font-normal">(выберите одно или несколько)</span>
+                </label>
+                <div className="flex flex-wrap gap-2">
+                  {SERVICES.map((service) => {
+                    const active = selectedServices.includes(service.id)
+                    return (
+                      <button
+                        key={service.id}
+                        type="button"
+                        onClick={() => toggleService(service.id)}
+                        className={`px-3 py-[7px] rounded-[99px] border text-xs font-medium font-sans transition-all flex items-center gap-1.5 ${
+                          active
+                            ? "bg-[#5BB8F5] border-[#5BB8F5] text-white shadow-[0px_1px_3px_rgba(91,184,245,0.35)]"
+                            : "bg-white border-[rgba(55,50,47,0.20)] text-[#37322F] hover:border-[#5BB8F5] hover:text-[#2E9DE0]"
+                        }`}
+                      >
+                        <span>{service.label}</span>
+                        <span className={`${active ? "text-white/70" : "text-[rgba(55,50,47,0.40)]"}`}>
+                          {service.desc}
+                        </span>
+                      </button>
+                    )
+                  })}
+                </div>
+              </div>
+
               <div className="flex flex-col gap-1.5">
                 <label className="text-[#37322F] text-sm font-medium font-sans">Ваше имя</label>
                 <input
@@ -117,13 +166,13 @@ export default function ContactFormSection() {
               </div>
 
               <div className="flex flex-col gap-1.5">
-                <label className="text-[#37322F] text-sm font-medium font-sans">Название школы</label>
+                <label className="text-[#37322F] text-sm font-medium font-sans">Организация</label>
                 <input
                   type="text"
                   required
-                  value={form.school}
-                  onChange={(e) => setForm({ ...form, school: e.target.value })}
-                  placeholder="КГУ «Школа №1», Алматы"
+                  value={form.organization}
+                  onChange={(e) => setForm({ ...form, organization: e.target.value })}
+                  placeholder="Школа, компания, учреждение"
                   className="w-full px-4 py-[10px] bg-white border border-[rgba(55,50,47,0.20)] rounded-lg text-[#37322F] text-sm font-normal font-sans placeholder-[rgba(55,50,47,0.35)] focus:outline-none focus:border-[#5BB8F5] focus:ring-1 focus:ring-[#5BB8F5]/20 transition-colors"
                 />
               </div>
@@ -148,7 +197,7 @@ export default function ContactFormSection() {
                   rows={3}
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  placeholder="Расскажите о вашей школе — сколько учителей, что интересует больше всего?"
+                  placeholder="Опишите задачу или вопрос..."
                   className="w-full px-4 py-[10px] bg-white border border-[rgba(55,50,47,0.20)] rounded-lg text-[#37322F] text-sm font-normal font-sans placeholder-[rgba(55,50,47,0.35)] focus:outline-none focus:border-[#5BB8F5] focus:ring-1 focus:ring-[#5BB8F5]/20 transition-colors resize-none"
                 />
               </div>
