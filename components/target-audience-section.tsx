@@ -1,48 +1,9 @@
 "use client"
 
-import { motion, useReducedMotion } from "framer-motion"
 import { useState } from "react"
 
 export default function TargetAudienceSection() {
   const [activeTab, setActiveTab] = useState(0)
-  const shouldReduceMotion = useReducedMotion()
-
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: shouldReduceMotion ? 0 : 0.15,
-        delayChildren: shouldReduceMotion ? 0 : 0.2
-      }
-    }
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: shouldReduceMotion ? 0.2 : 0.5,
-        ease: [0.25, 0.1, 0.25, 1]
-      }
-    }
-  }
-
-  const benefitVariants = {
-    hidden: { opacity: 0, x: shouldReduceMotion ? 0 : -30 },
-    visible: (custom: number) => ({
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: shouldReduceMotion ? 0.2 : 0.4,
-        delay: shouldReduceMotion ? 0 : custom * 0.12,
-        ease: [0.25, 0.1, 0.25, 1]
-      }
-    })
-  }
 
   const audiences = [
     {
@@ -118,7 +79,7 @@ export default function TargetAudienceSection() {
               <button
                 key={index}
                 onClick={() => setActiveTab(index)}
-                className={`flex-1 px-4 py-3 rounded-lg border transition-all ${
+                className={`flex-1 px-4 py-3 rounded-lg border transition-all duration-300 ${
                   activeTab === index
                     ? "bg-white border-[#5BB8F5] shadow-sm"
                     : "bg-[#F7F5F3] border-[rgba(55,50,47,0.12)] hover:border-[#5BB8F5]/50"
@@ -126,7 +87,7 @@ export default function TargetAudienceSection() {
               >
                 <div className="flex items-center justify-center gap-2">
                   <div
-                    className="w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0"
+                    className={`w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors duration-300`}
                     style={{ backgroundColor: activeTab === index ? audience.iconBg : "transparent" }}
                   >
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -139,7 +100,7 @@ export default function TargetAudienceSection() {
                       />
                     </svg>
                   </div>
-                  <span className={`text-sm font-semibold ${
+                  <span className={`text-sm font-semibold transition-colors duration-300 ${
                     activeTab === index ? "text-[#2E9DE0]" : "text-[#605A57]"
                   }`}>
                     {audience.title}
@@ -150,61 +111,87 @@ export default function TargetAudienceSection() {
           </div>
 
           {/* Content */}
-          <motion.div
+          <div
             key={activeTab}
-            initial="hidden"
-            animate="visible"
-            variants={containerVariants}
-            className="w-full max-w-[700px] bg-white rounded-xl border border-[rgba(55,50,47,0.12)] p-6 sm:p-8 shadow-sm"
+            className="w-full max-w-[700px] bg-white rounded-xl border border-[rgba(55,50,47,0.12)] p-6 sm:p-8 shadow-sm animate-fade-in"
           >
-            <motion.div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4">
               {audiences[activeTab].benefits.map((benefit, index) => (
-                <motion.div
+                <div
                   key={index}
-                  custom={index}
-                  variants={benefitVariants}
-                  whileHover={{
-                    scale: shouldReduceMotion ? 1 : 1.02,
-                    x: shouldReduceMotion ? 0 : 4,
-                    transition: { duration: 0.2 }
-                  }}
-                  className="flex items-center gap-4 p-4 bg-[#F7F5F3] rounded-lg cursor-default"
+                  className="flex items-center gap-4 p-4 bg-[#F7F5F3] rounded-lg transition-all duration-200 hover:scale-[1.02] hover:translate-x-1 animate-slide-in-benefit"
+                  style={{ animationDelay: `${index * 120}ms` }}
                 >
-                  <motion.div
-                    className="px-3 py-1 rounded-full text-white text-xs font-bold"
+                  <div
+                    className="px-3 py-1 rounded-full text-white text-xs font-bold transition-transform duration-200 hover:scale-110"
                     style={{ backgroundColor: benefit.color }}
-                    whileHover={{
-                      scale: shouldReduceMotion ? 1 : 1.1,
-                      transition: { type: "spring", stiffness: 400, damping: 10 }
-                    }}
                   >
                     {benefit.metric}
-                  </motion.div>
+                  </div>
                   <div className="flex-1 text-sm text-[#37322F] font-medium">
                     {benefit.text}
                   </div>
-                  <motion.svg
+                  <svg
                     width="16"
                     height="16"
                     viewBox="0 0 16 16"
                     fill="none"
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{
-                      delay: shouldReduceMotion ? 0 : index * 0.12 + 0.2,
-                      type: "spring",
-                      stiffness: 260,
-                      damping: 20
-                    }}
+                    className="animate-check-appear"
+                    style={{ animationDelay: `${index * 120 + 200}ms` }}
                   >
                     <path d="M4 8l2.5 2.5 5.5-5.5" stroke="#5BB8F5" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"/>
-                  </motion.svg>
-                </motion.div>
+                  </svg>
+                </div>
               ))}
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+
+        @keyframes slide-in-benefit {
+          from {
+            opacity: 0;
+            transform: translateX(-30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes check-appear {
+          from {
+            opacity: 0;
+            transform: scale(0);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        .animate-fade-in {
+          animation: fade-in 0.3s ease-out;
+        }
+
+        .animate-slide-in-benefit {
+          animation: slide-in-benefit 0.4s cubic-bezier(0.25, 0.1, 0.25, 1) backwards;
+        }
+
+        .animate-check-appear {
+          animation: check-appear 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+        }
+      `}</style>
     </div>
   )
 }

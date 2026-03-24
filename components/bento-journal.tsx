@@ -1,11 +1,9 @@
 "use client"
 
-import { motion, useReducedMotion } from "framer-motion"
 import { useState, useEffect } from "react"
 
 export default function BentoJournal() {
   const [activeRow, setActiveRow] = useState(0)
-  const shouldReduceMotion = useReducedMotion()
 
   const students = [
     { name: "Темирлан А.", grade: 5, color: "bg-green-500" },
@@ -27,47 +25,31 @@ export default function BentoJournal() {
           <h4 className="font-bold text-gray-900 text-sm">Электронный журнал</h4>
           <p className="text-xs text-gray-600">5 "А" • Информатика</p>
         </div>
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-          className="w-4 h-4 border-2 border-green-500 border-t-transparent rounded-full"
-        />
+        <div className="w-4 h-4 border-2 border-green-500 border-t-transparent rounded-full animate-spin" />
       </div>
 
       <div className="flex-1 space-y-2">
         {students.map((student, index) => (
-          <motion.div
+          <div
             key={index}
-            initial={{ opacity: 0, x: shouldReduceMotion ? 0 : -20 }}
-            animate={{
-              opacity: 1,
-              x: 0,
-              scale: activeRow === index ? (shouldReduceMotion ? 1 : 1.03) : 1,
-              backgroundColor: activeRow === index ? "#ffffff" : "#f0fdf4",
-            }}
-            transition={{
-              duration: shouldReduceMotion ? 0.15 : 0.3,
-              ease: [0.25, 0.1, 0.25, 1]
-            }}
-            className="p-3 rounded-lg border border-gray-200 shadow-sm"
+            className={`p-3 rounded-lg border border-gray-200 shadow-sm transition-all duration-300 ${
+              activeRow === index
+                ? "scale-[1.03] bg-white"
+                : "bg-[#f0fdf4]"
+            }`}
+            style={{ animationDelay: `${index * 150}ms` }}
           >
             <div className="flex items-center justify-between">
               <span className="text-xs font-semibold text-gray-900">{student.name}</span>
-              <motion.div
-                animate={{
-                  scale: activeRow === index ? (shouldReduceMotion ? 1 : 1.15) : 1,
-                }}
-                transition={{
-                  type: shouldReduceMotion ? "tween" : "spring",
-                  stiffness: 300,
-                  damping: 20
-                }}
-                className={`w-7 h-7 rounded-lg ${student.color} flex items-center justify-center text-white font-bold text-sm shadow-md`}
+              <div
+                className={`w-7 h-7 rounded-lg ${student.color} flex items-center justify-center text-white font-bold text-sm shadow-md transition-transform duration-300 ${
+                  activeRow === index ? "scale-115" : ""
+                }`}
               >
                 {student.grade}
-              </motion.div>
+              </div>
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
 
@@ -81,6 +63,12 @@ export default function BentoJournal() {
           <div className="text-xs text-gray-600">Ср. балл</div>
         </div>
       </div>
+
+      <style jsx>{`
+        .scale-115 {
+          transform: scale(1.15);
+        }
+      `}</style>
     </div>
   )
 }

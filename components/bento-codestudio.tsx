@@ -1,12 +1,10 @@
 "use client"
 
-import { motion, useReducedMotion } from "framer-motion"
 import { useState, useEffect } from "react"
 
 export default function BentoCodeStudio() {
   const [codeVisible, setCodeVisible] = useState(0)
   const [deployed, setDeployed] = useState(false)
-  const shouldReduceMotion = useReducedMotion()
 
   useEffect(() => {
     if (codeVisible < 3) {
@@ -30,69 +28,84 @@ export default function BentoCodeStudio() {
           <span className="text-gray-400 text-xs font-mono ml-2">led_blink.py</span>
         </div>
         {deployed && (
-          <motion.div
-            initial={{ scale: 0, rotate: -180 }}
-            animate={{ scale: 1, rotate: 0 }}
-            className="flex items-center gap-1.5"
-          >
+          <div className="flex items-center gap-1.5 animate-scale-rotate">
             <div className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
             <span className="text-green-400 text-xs font-semibold">Deployed</span>
-          </motion.div>
+          </div>
         )}
       </div>
 
       <div className="flex-1 font-mono text-xs space-y-1">
         {codeVisible >= 1 && (
-          <motion.div
-            initial={{ opacity: 0, x: shouldReduceMotion ? 0 : -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{
-              duration: shouldReduceMotion ? 0.15 : 0.3,
-              ease: [0.25, 0.1, 0.25, 1]
-            }}
-            className="text-purple-400"
-          >
+          <div className="text-purple-400 animate-slide-in" style={{ animationDelay: '0ms' }}>
             import machine
-          </motion.div>
+          </div>
         )}
         {codeVisible >= 2 && (
-          <motion.div
-            initial={{ opacity: 0, x: shouldReduceMotion ? 0 : -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{
-              delay: shouldReduceMotion ? 0 : 0.1,
-              duration: shouldReduceMotion ? 0.15 : 0.3,
-              ease: [0.25, 0.1, 0.25, 1]
-            }}
-            className="text-blue-400"
-          >
+          <div className="text-blue-400 animate-slide-in" style={{ animationDelay: '100ms' }}>
             led = machine.Pin(2)
-          </motion.div>
+          </div>
         )}
         {codeVisible >= 3 && (
-          <motion.div
-            initial={{ opacity: 0, x: shouldReduceMotion ? 0 : -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{
-              delay: shouldReduceMotion ? 0 : 0.2,
-              duration: shouldReduceMotion ? 0.15 : 0.3,
-              ease: [0.25, 0.1, 0.25, 1]
-            }}
-            className="text-green-400"
-          >
+          <div className="text-green-400 animate-slide-in" style={{ animationDelay: '200ms' }}>
             led.on()
-          </motion.div>
+          </div>
         )}
       </div>
 
       <div className="flex items-center gap-3">
-        <motion.div
-          animate={deployed ? { scale: [1, 1.2, 1] } : {}}
-          transition={{ repeat: Infinity, duration: 1.5 }}
-          className={`flex-1 h-2 rounded-full ${deployed ? "bg-gradient-to-r from-blue-500 to-purple-600" : "bg-gray-700"}`}
+        <div
+          className={`flex-1 h-2 rounded-full transition-all duration-500 ${
+            deployed ? "bg-gradient-to-r from-blue-500 to-purple-600 animate-pulse-gentle" : "bg-gray-700"
+          }`}
         />
         <span className="text-gray-500 text-xs">ESP32</span>
       </div>
+
+      <style jsx>{`
+        @keyframes slide-in {
+          from {
+            opacity: 0;
+            transform: translateX(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes scale-rotate {
+          from {
+            opacity: 0;
+            transform: scale(0) rotate(-180deg);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+          }
+        }
+
+        @keyframes pulse-gentle {
+          0%, 100% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.2);
+          }
+        }
+
+        .animate-slide-in {
+          animation: slide-in 0.3s ease-out backwards;
+        }
+
+        .animate-scale-rotate {
+          animation: scale-rotate 0.4s ease-out;
+        }
+
+        .animate-pulse-gentle {
+          animation: pulse-gentle 1.5s ease-in-out infinite;
+        }
+      `}</style>
     </div>
   )
 }

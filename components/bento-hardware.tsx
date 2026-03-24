@@ -1,11 +1,9 @@
 "use client"
 
-import { motion, useReducedMotion } from "framer-motion"
 import { useState, useEffect } from "react"
 
 export default function BentoHardware() {
   const [activeIndex, setActiveIndex] = useState(0)
-  const shouldReduceMotion = useReducedMotion()
 
   const items = [
     {
@@ -44,22 +42,11 @@ export default function BentoHardware() {
 
       <div className="flex-1 space-y-2">
         {items.map((item, index) => (
-          <motion.div
+          <div
             key={index}
-            initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 10 }}
-            animate={{
-              opacity: 1,
-              y: 0,
-              scale: activeIndex === index ? (shouldReduceMotion ? 1 : 1.03) : 1,
-              x: activeIndex === index ? (shouldReduceMotion ? 0 : 4) : 0,
-            }}
-            transition={{
-              duration: shouldReduceMotion ? 0.15 : 0.3,
-              ease: [0.25, 0.1, 0.25, 1]
-            }}
-            className={`p-3 rounded-lg border-2 transition-all ${
+            className={`p-3 rounded-lg border-2 transition-all duration-300 ${
               activeIndex === index
-                ? "border-orange-500 bg-white shadow-lg"
+                ? "border-orange-500 bg-white shadow-lg scale-[1.03] translate-x-1"
                 : "border-gray-200 bg-white/50"
             }`}
           >
@@ -83,20 +70,31 @@ export default function BentoHardware() {
                 <div className="text-xs text-gray-600">{item.price}</div>
               </div>
               {activeIndex === index && (
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  className="w-6 h-6 rounded-full bg-orange-500 flex items-center justify-center"
-                >
+                <div className="w-6 h-6 rounded-full bg-orange-500 flex items-center justify-center animate-scale-in">
                   <svg width="14" height="14" fill="none">
                     <path d="M7 3v8M3 7h8" strokeWidth="1.5" stroke="white" strokeLinecap="round" />
                   </svg>
-                </motion.div>
+                </div>
               )}
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
+
+      <style jsx>{`
+        @keyframes scale-in {
+          from {
+            transform: scale(0);
+          }
+          to {
+            transform: scale(1);
+          }
+        }
+
+        .animate-scale-in {
+          animation: scale-in 0.3s ease-out;
+        }
+      `}</style>
     </div>
   )
 }
