@@ -1,19 +1,8 @@
 "use client"
 
 import type React from "react"
-
-import { useState, useEffect, useRef } from "react"
-import Navbar from "../components/navbar"
-import PainSection from "../components/pain-section"
+import { useState } from "react"
 import HowItWorksSection from "../components/how-it-works-section"
-import BeforeAfterSection from "../components/before-after-section"
-import TargetAudienceSection from "../components/target-audience-section"
-import SocialProofSection from "../components/social-proof-section"
-import ROICalculatorSection from "../components/roi-calculator-section"
-import FAQSection from "../components/faq-section"
-import ContactFormSection from "../components/contact-form-section"
-import CTASection from "../components/cta-section"
-import FooterSection from "../components/footer-section"
 
 // Reusable Badge Component
 function Badge({ icon, text }: { icon: React.ReactNode; text: string }) {
@@ -42,10 +31,7 @@ export default function LandingPage() {
           <div className="w-[1px] h-full absolute right-4 sm:right-6 md:right-8 lg:right-0 top-0 bg-[rgba(55,50,47,0.12)] shadow-[1px_0px_0px_white] z-0"></div>
 
           <div className="self-stretch pt-[9px] overflow-hidden border-b border-[rgba(55,50,47,0.06)] flex flex-col justify-center items-center gap-4 sm:gap-6 md:gap-8 lg:gap-[66px] relative z-10">
-            {/* Navigation */}
-            <div className="w-full h-[84px] absolute left-0 top-0 flex justify-center items-center z-20 px-4 sm:px-6 lg:px-0">
-              <Navbar />
-            </div>
+            {/* Navigation - removed */}
 
             {/* Hero Section */}
             <div className="pt-16 sm:pt-20 md:pt-24 lg:pt-[216px] pb-8 sm:pb-12 md:pb-16 flex flex-col justify-start items-center px-2 sm:px-4 md:px-8 lg:px-0 w-full sm:pl-0 sm:pr-0 pl-0 pr-0">
@@ -151,8 +137,7 @@ export default function LandingPage() {
                 )}
               </div>
 
-              {/* Pain Section */}
-              <PainSection />
+              {/* Pain Section - removed */}
 
               {/* Bento Grid Section */}
               <div className="w-full border-b border-[rgba(55,50,47,0.12)] flex flex-col justify-center items-center">
@@ -274,29 +259,7 @@ export default function LandingPage() {
               {/* How It Works Section */}
               <HowItWorksSection />
 
-              {/* Before / After Section */}
-              <BeforeAfterSection />
-
-              {/* Target Audience Section */}
-              <TargetAudienceSection />
-
-              {/* Social Proof (Testimonials + Awards) */}
-              <SocialProofSection />
-
-              {/* ROI Calculator */}
-              <ROICalculatorSection />
-
-              {/* FAQ Section */}
-              <FAQSection />
-
-              {/* Contact Form */}
-              <ContactFormSection />
-
-              {/* CTA Section */}
-              <CTASection />
-
-              {/* Footer Section */}
-              <FooterSection />
+              {/* All other sections removed */}
             </div>
           </div>
         </div>
