@@ -4,10 +4,6 @@ import type React from "react"
 
 import { useState, useEffect, useRef } from "react"
 import Navbar from "../components/navbar"
-import BentoAlashedEdu from "../components/bento-alashed-edu"
-import BentoCodeStudio from "../components/bento-codestudio"
-import BentoHardware from "../components/bento-hardware"
-import BentoJournal from "../components/bento-journal"
 import PainSection from "../components/pain-section"
 import HowItWorksSection from "../components/how-it-works-section"
 import BeforeAfterSection from "../components/before-after-section"
@@ -210,8 +206,8 @@ export default function LandingPage() {
                           Генерация КМЖ, ФО, БЖБ, ТЖБ с автопривязкой к ОМ-кодам ГОСО 2026. AI знает профиль учителя, классы и успеваемость.
                         </p>
                       </div>
-                      <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] rounded-lg flex items-center justify-center overflow-hidden">
-                        <BentoAlashedEdu />
+                      <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] rounded-lg flex items-center justify-center overflow-hidden bg-gradient-to-br from-purple-50 via-blue-50 to-cyan-50">
+                        {/* Alashed EDU demo removed */}
                       </div>
                     </div>
 
@@ -225,8 +221,8 @@ export default function LandingPage() {
                           Python, JavaScript, Scratch + Arduino, ESP32, Micro:bit. Деплой на реальное железо, не симулятор. AI-помощник для кода.
                         </p>
                       </div>
-                      <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] rounded-lg flex overflow-hidden items-center justify-center">
-                        <BentoCodeStudio />
+                      <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] rounded-lg flex overflow-hidden items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+                        {/* CodeStudio demo removed */}
                       </div>
                     </div>
 
@@ -240,8 +236,8 @@ export default function LandingPage() {
                           Arduino, ESP32, Raspberry Pi, Micro:bit — напрямую в школы без посредников. Заказ из дашборда директора.
                         </p>
                       </div>
-                      <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] rounded-lg flex overflow-hidden justify-center items-center">
-                        <BentoHardware />
+                      <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] rounded-lg flex overflow-hidden justify-center items-center bg-gradient-to-br from-orange-50 to-red-50">
+                        {/* Hardware demo removed */}
                       </div>
                     </div>
 
@@ -255,8 +251,8 @@ export default function LandingPage() {
                           Оценки, посещаемость, расписание — всё в одном месте. Связан с AI-планами и аналитикой директора.
                         </p>
                       </div>
-                      <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] rounded-lg flex overflow-hidden items-center justify-center">
-                        <BentoJournal />
+                      <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] rounded-lg flex overflow-hidden items-center justify-center bg-gradient-to-br from-green-50 to-emerald-50">
+                        {/* Journal demo removed */}
                       </div>
                     </div>
                   </div>
