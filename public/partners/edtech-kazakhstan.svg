@@ -1,0 +1,17 @@
+<svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- EdTech Kazakhstan logo -->
+  <!-- Icon: Book with circuit -->
+  <g>
+    <rect x="8" y="12" width="16" height="16" rx="1" stroke="#7C3AED" stroke-width="1.5" fill="none"/>
+    <path d="M11 16H21M11 20H19M11 24H17" stroke="#7C3AED" stroke-width="1.5" strokeLinecap="round"/>
+    <circle cx="22" cy="26" r="2.5" stroke="#7C3AED" stroke-width="1.5" fill="none"/>
+    <circle cx="18" cy="10" r="1.5" fill="#7C3AED"/>
+    <path d="M18 10L22 26" stroke="#7C3AED" stroke-width="1" strokeLinecap="round"/>
+  </g>
+
+  <!-- Text -->
+  <g fill="#2D3748">
+    <text x="32" y="18" font-family="Arial, sans-serif" font-size="10" font-weight="700">EdTech</text>
+    <text x="32" y="28" font-family="Arial, sans-serif" font-size="8" font-weight="400">KAZAKHSTAN</text>
+  </g>
+</svg>

@@ -4,22 +4,20 @@ import type React from "react"
 
 import { useState, useEffect, useRef } from "react"
 import Navbar from "../components/navbar"
-import SmartSimpleBrilliant from "../components/smart-simple-brilliant"
-import YourWorkInSync from "../components/your-work-in-sync"
-import EffortlessIntegration from "../components/effortless-integration-updated"
-import NumbersThatSpeak from "../components/numbers-that-speak"
-import DocumentationSection from "../components/documentation-section"
-import TestimonialsSection from "../components/testimonials-section"
-import FAQSection from "../components/faq-section"
-import CTASection from "../components/cta-section"
-import FooterSection from "../components/footer-section"
-import StatsSection from "../components/stats-section"
+import BentoAlashedEdu from "../components/bento-alashed-edu"
+import BentoCodeStudio from "../components/bento-codestudio"
+import BentoHardware from "../components/bento-hardware"
+import BentoJournal from "../components/bento-journal"
+import PainSection from "../components/pain-section"
 import HowItWorksSection from "../components/how-it-works-section"
 import BeforeAfterSection from "../components/before-after-section"
+import TargetAudienceSection from "../components/target-audience-section"
+import SocialProofSection from "../components/social-proof-section"
 import ROICalculatorSection from "../components/roi-calculator-section"
-import AwardsSection from "../components/awards-section"
+import FAQSection from "../components/faq-section"
 import ContactFormSection from "../components/contact-form-section"
-import PlatformShowcaseSection from "../components/platform-showcase-section"
+import CTASection from "../components/cta-section"
+import FooterSection from "../components/footer-section"
 
 // Reusable Badge Component
 function Badge({ icon, text }: { icon: React.ReactNode; text: string }) {
@@ -34,56 +32,7 @@ function Badge({ icon, text }: { icon: React.ReactNode; text: string }) {
 }
 
 export default function LandingPage() {
-  const [activeCard, setActiveCard] = useState(0)
-  const [progress, setProgress] = useState(0)
   const [heroVideoPlaying, setHeroVideoPlaying] = useState(false)
-  const mountedRef = useRef(true)
-
-  useEffect(() => {
-    const progressInterval = setInterval(() => {
-      if (!mountedRef.current) return
-
-      setProgress((prev) => {
-        if (prev >= 100) {
-          if (mountedRef.current) {
-            setActiveCard((current) => (current + 1) % 3)
-          }
-          return 0
-        }
-        return prev + 2 // 2% every 100ms = 5 seconds total
-      })
-    }, 100)
-
-    return () => {
-      clearInterval(progressInterval)
-      mountedRef.current = false
-    }
-  }, [])
-
-  useEffect(() => {
-    return () => {
-      mountedRef.current = false
-    }
-  }, [])
-
-  const handleCardClick = (index: number) => {
-    if (!mountedRef.current) return
-    setActiveCard(index)
-    setProgress(0)
-  }
-
-  const getDashboardContent = () => {
-    switch (activeCard) {
-      case 0:
-        return <div className="text-[#828387] text-sm">Alashed EDU — AI-генерация документов для учителей</div>
-      case 1:
-        return <div className="text-[#828387] text-sm">CodeStudio — браузерное IDE для информатики</div>
-      case 2:
-        return <div className="text-[#828387] text-sm">Hardware & Соревнования — оборудование и подготовка</div>
-      default:
-        return <div className="text-[#828387] text-sm">Alashed EDU — AI-генерация документов для учителей</div>
-    }
-  }
 
   return (
     <div className="w-full min-h-screen relative bg-[#F7F5F3] overflow-x-hidden flex flex-col justify-start items-center">
@@ -206,98 +155,8 @@ export default function LandingPage() {
                 )}
               </div>
 
-              <div className="self-stretch border-t border-[#E0DEDB] border-b border-[#E0DEDB] flex justify-center items-start">
-                <div className="w-4 sm:w-6 md:w-8 lg:w-12 self-stretch relative overflow-hidden">
-                  {/* Left decorative pattern */}
-                  <div className="w-[120px] sm:w-[140px] md:w-[162px] left-[-40px] sm:left-[-50px] md:left-[-58px] top-[-120px] absolute flex flex-col justify-start items-start">
-                    {Array.from({ length: 50 }).map((_, i) => (
-                      <div
-                        key={i}
-                        className="self-stretch h-3 sm:h-4 rotate-[-45deg] origin-top-left outline outline-[0.5px] outline-[rgba(3,7,18,0.08)] outline-offset-[-0.25px]"
-                      ></div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="flex-1 px-0 sm:px-2 md:px-0 flex flex-col md:flex-row justify-center items-stretch gap-0">
-                  {/* Feature Cards */}
-                  <FeatureCard
-                    title="Alashed EDU"
-                    description="AI-генерация КМЖ, ФО, БЖБ с автопривязкой к ОМ-кодам ГОСО 2026 за 2 минуты."
-                    isActive={activeCard === 0}
-                    progress={activeCard === 0 ? progress : 0}
-                    onClick={() => handleCardClick(0)}
-                  />
-                  <FeatureCard
-                    title="CodeStudio"
-                    description="Браузерное IDE для Python, JS, Scratch + деплой на реальное железо Arduino/ESP32."
-                    isActive={activeCard === 1}
-                    progress={activeCard === 1 ? progress : 0}
-                    onClick={() => handleCardClick(1)}
-                  />
-                  <FeatureCard
-                    title="Hardware & Соревнования"
-                    description="Официальный импорт Arduino, Raspberry Pi + помощь в Infomatrix, KazRobotics, WRO."
-                    isActive={activeCard === 2}
-                    progress={activeCard === 2 ? progress : 0}
-                    onClick={() => handleCardClick(2)}
-                  />
-                </div>
-
-                <div className="w-4 sm:w-6 md:w-8 lg:w-12 self-stretch relative overflow-hidden">
-                  {/* Right decorative pattern */}
-                  <div className="w-[120px] sm:w-[140px] md:w-[162px] left-[-40px] sm:left-[-50px] md:left-[-58px] top-[-120px] absolute flex flex-col justify-start items-start">
-                    {Array.from({ length: 50 }).map((_, i) => (
-                      <div
-                        key={i}
-                        className="self-stretch h-3 sm:h-4 rotate-[-45deg] origin-top-left outline outline-[0.5px] outline-[rgba(3,7,18,0.08)] outline-offset-[-0.25px]"
-                      ></div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Social Proof Section */}
-              <div className="w-full border-b border-[rgba(55,50,47,0.12)] flex flex-col justify-center items-center">
-                <div className="self-stretch px-4 sm:px-6 md:px-24 py-8 sm:py-12 md:py-16 border-b border-[rgba(55,50,47,0.12)] flex justify-center items-center gap-6">
-                  <div className="w-full max-w-[586px] px-4 sm:px-6 py-4 sm:py-5 shadow-[0px_2px_4px_rgba(50,45,43,0.06)] overflow-hidden rounded-lg flex flex-col justify-start items-center gap-3 sm:gap-4 shadow-none">
-                    <Badge
-                      icon={
-                        <svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="1" y="3" width="4" height="6" stroke="#2E9DE0" strokeWidth="1" fill="none" />
-                          <rect x="7" y="1" width="4" height="8" stroke="#2E9DE0" strokeWidth="1" fill="none" />
-                          <rect x="2" y="4" width="1" height="1" fill="#2E9DE0" />
-                          <rect x="3.5" y="4" width="1" height="1" fill="#2E9DE0" />
-                          <rect x="2" y="5.5" width="1" height="1" fill="#2E9DE0" />
-                          <rect x="3.5" y="5.5" width="1" height="1" fill="#2E9DE0" />
-                          <rect x="8" y="2" width="1" height="1" fill="#2E9DE0" />
-                          <rect x="9.5" y="2" width="1" height="1" fill="#2E9DE0" />
-                          <rect x="8" y="3.5" width="1" height="1" fill="#2E9DE0" />
-                          <rect x="9.5" y="3.5" width="1" height="1" fill="#2E9DE0" />
-                          <rect x="8" y="5" width="1" height="1" fill="#2E9DE0" />
-                          <rect x="9.5" y="5" width="1" height="1" fill="#2E9DE0" />
-                        </svg>
-                      }
-                      text="Для кого"
-                    />
-                    <div className="w-full max-w-[472.55px] text-center flex justify-center flex-col text-[#49423D] text-xl sm:text-2xl md:text-[28px] font-semibold leading-tight font-sans tracking-tight">
-                      Закрываем боли всех участников
-                    </div>
-                    <div className="self-stretch text-center text-[#605A57] text-sm sm:text-base font-normal leading-6 sm:leading-7 font-sans">
-                      Учителя экономят 40% времени на документах,
-                      <br className="hidden sm:block" />
-                      директора получают аналитику, ученики — мотивацию.
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-
-              {/* Stats Section */}
-              <StatsSection />
-
-              {/* How It Works Section */}
-              <HowItWorksSection />
+              {/* Pain Section */}
+              <PainSection />
 
               {/* Bento Grid Section */}
               <div className="w-full border-b border-[rgba(55,50,47,0.12)] flex flex-col justify-center items-center">
@@ -351,13 +210,8 @@ export default function LandingPage() {
                           Генерация КМЖ, ФО, БЖБ, ТЖБ с автопривязкой к ОМ-кодам ГОСО 2026. AI знает профиль учителя, классы и успеваемость.
                         </p>
                       </div>
-                      <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] rounded-lg flex items-center justify-center overflow-hidden">
-                        <SmartSimpleBrilliant
-                          width="100%"
-                          height="100%"
-                          theme="light"
-                          className="scale-50 sm:scale-65 md:scale-75 lg:scale-90"
-                        />
+                      <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] rounded-lg flex items-center justify-center overflow-hidden">
+                        <BentoAlashedEdu />
                       </div>
                     </div>
 
@@ -371,13 +225,8 @@ export default function LandingPage() {
                           Python, JavaScript, Scratch + Arduino, ESP32, Micro:bit. Деплой на реальное железо, не симулятор. AI-помощник для кода.
                         </p>
                       </div>
-                      <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] rounded-lg flex overflow-hidden text-right items-center justify-center">
-                        <YourWorkInSync
-                          width="400"
-                          height="250"
-                          theme="light"
-                          className="scale-60 sm:scale-75 md:scale-90"
-                        />
+                      <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] rounded-lg flex overflow-hidden items-center justify-center">
+                        <BentoCodeStudio />
                       </div>
                     </div>
 
@@ -391,36 +240,23 @@ export default function LandingPage() {
                           Arduino, ESP32, Raspberry Pi, Micro:bit — напрямую в школы без посредников. Заказ из дашборда директора.
                         </p>
                       </div>
-                      <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] rounded-lg flex overflow-hidden justify-center items-center relative bg-transparent">
-                        <div className="w-full h-full flex items-center justify-center bg-transparent">
-                          <EffortlessIntegration width={400} height={250} className="max-w-full max-h-full" />
-                        </div>
-                        {/* Gradient mask for soft bottom edge */}
-                        <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[#F7F5F3] to-transparent pointer-events-none"></div>
+                      <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] rounded-lg flex overflow-hidden justify-center items-center">
+                        <BentoHardware />
                       </div>
                     </div>
 
-                    {/* Bottom Right - Competitions */}
+                    {/* Bottom Right - Journal */}
                     <div className="p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-start items-start gap-4 sm:gap-6">
                       <div className="flex flex-col gap-2">
                         <h3 className="text-[#37322F] text-lg sm:text-xl font-semibold leading-tight font-sans">
-                          Соревнования
+                          Электронный журнал
                         </h3>
                         <p className="text-[#605A57] text-sm md:text-base font-normal leading-relaxed font-sans">
-                          Помогаем школам участвовать в Infomatrix (Азия), KazRobotics, ITFest, WRO. Подготовка и сопровождение команд.
+                          Оценки, посещаемость, расписание — всё в одном месте. Связан с AI-планами и аналитикой директора.
                         </p>
                       </div>
-                      <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] rounded-lg flex overflow-hidden items-center justify-center relative">
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <NumbersThatSpeak
-                            width="100%"
-                            height="100%"
-                            theme="light"
-                            className="w-full h-full object-contain"
-                          />
-                        </div>
-                        {/* Gradient mask for soft bottom edge */}
-                        <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[#F7F5F3] to-transparent pointer-events-none"></div>
+                      <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] rounded-lg flex overflow-hidden items-center justify-center">
+                        <BentoJournal />
                       </div>
                     </div>
                   </div>
@@ -439,23 +275,20 @@ export default function LandingPage() {
                 </div>
               </div>
 
+              {/* How It Works Section */}
+              <HowItWorksSection />
+
               {/* Before / After Section */}
               <BeforeAfterSection />
 
-              {/* Platform Showcase */}
-              <PlatformShowcaseSection />
+              {/* Target Audience Section */}
+              <TargetAudienceSection />
 
-              {/* Documentation Section */}
-              <DocumentationSection />
-
-              {/* Testimonials Section */}
-              <TestimonialsSection />
+              {/* Social Proof (Testimonials + Awards) */}
+              <SocialProofSection />
 
               {/* ROI Calculator */}
               <ROICalculatorSection />
-
-              {/* Awards & Partners */}
-              <AwardsSection />
 
               {/* FAQ Section */}
               <FAQSection />
@@ -471,48 +304,6 @@ export default function LandingPage() {
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  )
-}
-
-// FeatureCard component definition inline to fix import error
-function FeatureCard({
-  title,
-  description,
-  isActive,
-  progress,
-  onClick,
-}: {
-  title: string
-  description: string
-  isActive: boolean
-  progress: number
-  onClick: () => void
-}) {
-  return (
-    <div
-      className={`w-full md:flex-1 self-stretch px-6 py-5 overflow-hidden flex flex-col justify-start items-start gap-2 cursor-pointer relative border-b md:border-b-0 last:border-b-0 transition-colors duration-200 ${
-        isActive
-          ? "bg-white shadow-[0px_0px_0px_0.75px_#D6EFFE_inset]"
-          : "border-l-0 border-r-0 md:border border-[#E0DEDB]/80 hover:bg-[#F0FAFF]/40"
-      }`}
-      onClick={onClick}
-    >
-      {isActive && (
-        <div className="absolute top-0 left-0 w-full h-0.5 bg-[#D6EFFE]">
-          <div
-            className="h-full bg-[#5BB8F5] transition-all duration-100 ease-linear"
-            style={{ width: `${progress}%` }}
-          />
-        </div>
-      )}
-
-      <div className="self-stretch flex justify-center flex-col text-[#49423D] text-sm md:text-sm font-semibold leading-6 md:leading-6 font-sans">
-        {title}
-      </div>
-      <div className="self-stretch text-[#605A57] text-[13px] md:text-[13px] font-normal leading-[22px] md:leading-[22px] font-sans">
-        {description}
       </div>
     </div>
   )

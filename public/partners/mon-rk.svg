@@ -1,0 +1,15 @@
+<svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- МОН РК (Ministry of Education and Science) -->
+  <!-- Icon: Shield with book -->
+  <g>
+    <path d="M20 10C20 10 15 10 12 12V25C12 25 15 23 20 23C25 23 28 25 28 25V12C25 10 20 10 20 10Z" stroke="#DC2626" stroke-width="1.5" fill="none"/>
+    <path d="M20 10V23" stroke="#DC2626" stroke-width="1.5"/>
+    <path d="M12 28C15 26 20 26 20 26C20 26 25 26 28 28" stroke="#DC2626" stroke-width="1.5" strokeLinecap="round"/>
+  </g>
+
+  <!-- Text -->
+  <g fill="#2D3748">
+    <text x="35" y="18" font-family="Arial, sans-serif" font-size="9" font-weight="700">МОН РК</text>
+    <text x="35" y="27" font-family="Arial, sans-serif" font-size="6" font-weight="400">Министерство образования</text>
+  </g>
+</svg>

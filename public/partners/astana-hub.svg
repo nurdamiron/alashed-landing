@@ -1,0 +1,15 @@
+<svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Astana Hub - Modern tech hub logo -->
+  <!-- Icon: Hexagon with "A" -->
+  <g>
+    <path d="M20 8L28 13.5V24.5L20 30L12 24.5V13.5L20 8Z" stroke="#00A3E0" stroke-width="2" fill="none"/>
+    <path d="M20 15L23 21H17L20 15Z" fill="#00A3E0"/>
+    <path d="M17 21H23L24 24H16L17 21Z" fill="#00A3E0"/>
+  </g>
+
+  <!-- Text: ASTANA HUB -->
+  <g fill="#2D3748">
+    <text x="38" y="18" font-family="Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="0.5">ASTANA</text>
+    <text x="38" y="28" font-family="Arial, sans-serif" font-size="10" font-weight="400" letter-spacing="0.8">HUB</text>
+  </g>
+</svg>
