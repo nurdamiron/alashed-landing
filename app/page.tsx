@@ -2,7 +2,14 @@
 
 import type React from "react"
 import { useState } from "react"
+import { motion } from "framer-motion"
 import HowItWorksSection from "../components/how-it-works-section"
+import Navbar from "@/components/navbar"
+import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/motion/scroll-reveal"
+import EduDemo from "@/components/demos/edu-demo"
+import CodeStudioDemo from "@/components/demos/codestudio-demo"
+import HardwareDemo from "@/components/demos/hardware-demo"
+import JournalDemo from "@/components/demos/journal-demo"
 
 // Reusable Badge Component
 function Badge({ icon, text }: { icon: React.ReactNode; text: string }) {
@@ -31,46 +38,94 @@ export default function LandingPage() {
           <div className="w-[1px] h-full absolute right-4 sm:right-6 md:right-8 lg:right-0 top-0 bg-[rgba(55,50,47,0.12)] shadow-[1px_0px_0px_white] z-0"></div>
 
           <div className="self-stretch pt-[9px] overflow-hidden border-b border-[rgba(55,50,47,0.06)] flex flex-col justify-center items-center gap-4 sm:gap-6 md:gap-8 lg:gap-[66px] relative z-10">
-            {/* Navigation - removed */}
+            <Navbar />
 
             {/* Hero Section */}
             <div className="pt-16 sm:pt-20 md:pt-24 lg:pt-[216px] pb-8 sm:pb-12 md:pb-16 flex flex-col justify-start items-center px-2 sm:px-4 md:px-8 lg:px-0 w-full sm:pl-0 sm:pr-0 pl-0 pr-0">
                 <div className="w-full max-w-[937px] lg:w-[937px] flex flex-col justify-center items-center gap-3 sm:gap-4 md:gap-5 lg:gap-6">
                 <div className="self-stretch rounded-[3px] flex flex-col justify-center items-center gap-4 sm:gap-5 md:gap-6 lg:gap-8">
-                  <div className="w-full max-w-[800px] lg:w-[800px] text-center flex justify-center flex-col text-[#37322F] text-[26px] sm:text-[34px] md:text-[44px] lg:text-[54px] font-normal leading-[1.15] font-serif px-2 sm:px-4 md:px-0">
-                    Полная STEM-экосистема
+                  {/* Animated headline */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+                    className="w-full max-w-[800px] lg:w-[800px] text-center flex justify-center flex-col text-[#37322F] text-[26px] sm:text-[34px] md:text-[44px] lg:text-[54px] font-normal leading-[1.15] font-serif px-2 sm:px-4 md:px-0"
+                  >
+                    <motion.span
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+                    >
+                      Полная STEM-экосистема
+                    </motion.span>
                     <br />
-                    для школ Казахстана
-                  </div>
-                  <div className="w-full max-w-[560px] lg:w-[560px] text-center flex justify-center flex-col text-[rgba(55,50,47,0.80)] sm:text-lg md:text-xl leading-[1.4] sm:leading-[1.45] md:leading-[1.5] lg:leading-7 font-sans px-2 sm:px-4 md:px-0 lg:text-lg font-medium text-sm">
+                    <motion.span
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.7, delay: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+                    >
+                      для школ Казахстана
+                    </motion.span>
+                  </motion.div>
+
+                  {/* Animated subtitle */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, delay: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
+                    className="w-full max-w-[560px] lg:w-[560px] text-center flex justify-center flex-col text-[rgba(55,50,47,0.80)] sm:text-lg md:text-xl leading-[1.4] sm:leading-[1.45] md:leading-[1.5] lg:leading-7 font-sans px-2 sm:px-4 md:px-0 lg:text-lg font-medium text-sm"
+                  >
                     AI-помощник для учителей, браузерное IDE для информатики и робототехники,
                     <br className="hidden sm:block" />
                     официальный импорт оборудования — всё в одной платформе.
-                  </div>
+                  </motion.div>
                 </div>
               </div>
 
-              <div className="w-full max-w-[497px] lg:w-[497px] flex flex-col justify-center items-center gap-6 sm:gap-8 md:gap-10 lg:gap-12 relative z-10 mt-6 sm:mt-8 md:mt-10 lg:mt-12">
+              {/* Animated CTAs */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.65, ease: [0.25, 0.1, 0.25, 1] }}
+                className="w-full max-w-[497px] lg:w-[497px] flex flex-col justify-center items-center gap-6 sm:gap-8 md:gap-10 lg:gap-12 relative z-10 mt-6 sm:mt-8 md:mt-10 lg:mt-12"
+              >
                 <div className="backdrop-blur-[8.25px] flex justify-start items-center gap-4">
-                  <a href="https://edu.alashed.kz" className="h-10 sm:h-11 px-6 sm:px-8 md:px-10 lg:px-12 bg-[#5BB8F5] hover:bg-[#2E9DE0] transition-colors rounded-full flex items-center gap-2 shadow-[0px_1px_3px_rgba(91,184,245,0.40)]">
+                  <motion.a
+                    href="https://edu.alashed.kz"
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="h-10 sm:h-11 px-6 sm:px-8 md:px-10 lg:px-12 bg-[#5BB8F5] hover:bg-[#2E9DE0] transition-colors rounded-full flex items-center gap-2 shadow-[0px_1px_3px_rgba(91,184,245,0.40)]"
+                  >
                     <span className="text-white text-sm font-semibold font-sans">
                       Попробовать бесплатно
                     </span>
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M2.5 7H11.5M11.5 7L8 3.5M11.5 7L8 10.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
-                  </a>
-                  <a href="#contact" className="h-10 px-6 bg-white hover:bg-[#F7F5F3] text-[#37322F] rounded-full font-medium text-sm transition-colors flex items-center shadow-[0px_1px_2px_rgba(55,50,47,0.12)]">
+                  </motion.a>
+                  <motion.a
+                    href="#contact"
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="h-10 px-6 bg-white hover:bg-[#F7F5F3] text-[#37322F] rounded-full font-medium text-sm transition-colors flex items-center shadow-[0px_1px_2px_rgba(55,50,47,0.12)]"
+                  >
                     Запросить демо
-                  </a>
+                  </motion.a>
                 </div>
-                <div className="flex items-center gap-2 text-[rgba(55,50,47,0.60)] text-sm font-medium">
+
+                {/* Animated badge */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.85, type: "spring", stiffness: 300 }}
+                  className="flex items-center gap-2 text-[rgba(55,50,47,0.60)] text-sm font-medium"
+                >
                   <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-[#EBF7FF] text-[#2E9DE0] text-xs font-semibold border border-[#5BB8F5]/30">
                     ГОСО 2026
                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
                   </span>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
 
               <div className="absolute top-[232px] sm:top-[248px] md:top-[264px] lg:top-[320px] left-1/2 transform -translate-x-1/2 z-0 pointer-events-none">
                 <img
@@ -83,10 +138,13 @@ export default function LandingPage() {
                 />
               </div>
 
-              <div className="w-full max-w-[960px] lg:w-[960px] pt-2 sm:pt-4 px-2 sm:px-4 md:px-6 lg:px-11 flex flex-col justify-center items-center gap-2 relative z-5 my-8 sm:my-12 md:my-16 lg:my-16 mb-0 lg:pb-0">
+              {/* Animated Video Section */}
+              <ScrollReveal animation="scaleIn" delay={0.2} duration={0.8} className="w-full max-w-[960px] lg:w-[960px] pt-2 sm:pt-4 px-2 sm:px-4 md:px-6 lg:px-11 flex flex-col justify-center items-center gap-2 relative z-5 my-8 sm:my-12 md:my-16 lg:my-16 mb-0 lg:pb-0">
                 {!heroVideoPlaying ? (
-                  <button
+                  <motion.button
                     onClick={() => setHeroVideoPlaying(true)}
+                    whileHover={{ scale: 1.01 }}
+                    whileTap={{ scale: 0.99 }}
                     className="w-full aspect-video rounded-[6px] sm:rounded-[8px] lg:rounded-[12px] overflow-hidden relative group cursor-pointer shadow-[0px_0px_0px_0.9px_rgba(0,0,0,0.08),0px_8px_32px_rgba(55,50,47,0.12)] bg-[#0F2744] flex items-center justify-center"
                     aria-label="Смотреть демо Alashed"
                   >
@@ -95,8 +153,16 @@ export default function LandingPage() {
 
                     {/* Animated glow */}
                     <div className="absolute inset-0 opacity-20">
-                      <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-[#5BB8F5] rounded-full blur-[80px]" />
-                      <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-[#2E9DE0] rounded-full blur-[60px]" />
+                      <motion.div
+                        animate={{ x: [0, 20, 0], y: [0, -10, 0] }}
+                        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                        className="absolute top-1/4 left-1/4 w-64 h-64 bg-[#5BB8F5] rounded-full blur-[80px]"
+                      />
+                      <motion.div
+                        animate={{ x: [0, -15, 0], y: [0, 15, 0] }}
+                        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+                        className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-[#2E9DE0] rounded-full blur-[60px]"
+                      />
                     </div>
 
                     {/* Grid pattern overlay */}
@@ -104,11 +170,15 @@ export default function LandingPage() {
 
                     {/* Center content */}
                     <div className="relative z-10 flex flex-col items-center gap-4 sm:gap-5">
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-white/15 backdrop-blur-sm border border-white/25 flex items-center justify-center group-hover:bg-white/25 group-hover:scale-105 transition-all duration-300 shadow-[0px_0px_40px_rgba(91,184,245,0.4)]">
+                      <motion.div
+                        animate={{ scale: [1, 1.05, 1] }}
+                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                        className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-white/15 backdrop-blur-sm border border-white/25 flex items-center justify-center group-hover:bg-white/25 transition-all duration-300 shadow-[0px_0px_40px_rgba(91,184,245,0.4)]"
+                      >
                         <svg className="ml-1" width="28" height="28" viewBox="0 0 28 28" fill="none">
                           <path d="M8 5l18 9-18 9V5z" fill="white"/>
                         </svg>
-                      </div>
+                      </motion.div>
                       <div className="flex flex-col items-center gap-1">
                         <span className="text-white text-sm sm:text-base md:text-lg font-semibold font-sans">Смотреть как работает Alashed</span>
                         <span className="text-white/60 text-xs sm:text-sm font-normal font-sans">3 минуты · AI-документы, CodeStudio, журнал</span>
@@ -121,9 +191,14 @@ export default function LandingPage() {
                       <span className="text-white text-[11px] font-semibold font-sans">Alashed EDU · Demo</span>
                     </div>
 
-                  </button>
+                  </motion.button>
                 ) : (
-                  <div className="w-full aspect-video rounded-[6px] sm:rounded-[8px] lg:rounded-[12px] overflow-hidden shadow-[0px_0px_0px_0.9px_rgba(0,0,0,0.08),0px_8px_32px_rgba(55,50,47,0.12)]">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4 }}
+                    className="w-full aspect-video rounded-[6px] sm:rounded-[8px] lg:rounded-[12px] overflow-hidden shadow-[0px_0px_0px_0.9px_rgba(0,0,0,0.08),0px_8px_32px_rgba(55,50,47,0.12)]"
+                  >
                     <iframe
                       width="100%"
                       height="100%"
@@ -133,38 +208,42 @@ export default function LandingPage() {
                       allowFullScreen
                       className="w-full h-full"
                     />
-                  </div>
+                  </motion.div>
                 )}
-              </div>
-
-              {/* Pain Section - removed */}
+              </ScrollReveal>
 
               {/* Bento Grid Section */}
               <div className="w-full border-b border-[rgba(55,50,47,0.12)] flex flex-col justify-center items-center">
                 {/* Header Section */}
-                <div className="self-stretch px-4 sm:px-6 md:px-8 lg:px-0 lg:max-w-[1060px] lg:w-[1060px] py-8 sm:py-12 md:py-16 border-b border-[rgba(55,50,47,0.12)] flex justify-center items-center gap-6">
-                  <div className="w-full max-w-[616px] lg:w-[616px] px-4 sm:px-6 py-4 sm:py-5 shadow-[0px_2px_4px_rgba(50,45,43,0.06)] overflow-hidden rounded-lg flex flex-col justify-start items-center gap-3 sm:gap-4 shadow-none">
-                    <Badge
-                      icon={
-                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="1" y="1" width="4" height="4" stroke="#2E9DE0" strokeWidth="1" fill="none" />
-                          <rect x="7" y="1" width="4" height="4" stroke="#2E9DE0" strokeWidth="1" fill="none" />
-                          <rect x="1" y="7" width="4" height="4" stroke="#2E9DE0" strokeWidth="1" fill="none" />
-                          <rect x="7" y="7" width="4" height="4" stroke="#2E9DE0" strokeWidth="1" fill="none" />
-                        </svg>
-                      }
-                      text="Продукты"
-                    />
-                    <div className="w-full max-w-[598.06px] lg:w-[598.06px] text-center flex justify-center flex-col text-[#49423D] text-xl sm:text-2xl md:text-[28px] font-semibold leading-tight font-sans tracking-tight">
-                      Единая платформа для всей школы
-                    </div>
-                    <div className="self-stretch text-center text-[#605A57] text-sm sm:text-base font-normal leading-6 sm:leading-7 font-sans">
-                      От AI-помощника учителю до реального железа на парте —
-                      <br />
-                      всё связано между собой и работает вместе.
-                    </div>
+                <ScrollReveal className="self-stretch px-4 sm:px-6 md:px-8 lg:px-0 lg:max-w-[1060px] lg:w-[1060px] py-8 sm:py-12 md:py-16 border-b border-[rgba(55,50,47,0.12)] flex justify-center items-center gap-6">
+                  <div className="w-full max-w-[616px] lg:w-[616px] px-4 sm:px-6 py-4 sm:py-5 overflow-hidden rounded-lg flex flex-col justify-start items-center gap-3 sm:gap-4">
+                    <ScrollReveal animation="scaleIn" delay={0.1}>
+                      <Badge
+                        icon={
+                          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="1" y="1" width="4" height="4" stroke="#2E9DE0" strokeWidth="1" fill="none" />
+                            <rect x="7" y="1" width="4" height="4" stroke="#2E9DE0" strokeWidth="1" fill="none" />
+                            <rect x="1" y="7" width="4" height="4" stroke="#2E9DE0" strokeWidth="1" fill="none" />
+                            <rect x="7" y="7" width="4" height="4" stroke="#2E9DE0" strokeWidth="1" fill="none" />
+                          </svg>
+                        }
+                        text="Продукты"
+                      />
+                    </ScrollReveal>
+                    <ScrollReveal delay={0.15}>
+                      <div className="w-full max-w-[598.06px] lg:w-[598.06px] text-center flex justify-center flex-col text-[#49423D] text-xl sm:text-2xl md:text-[28px] font-semibold leading-tight font-sans tracking-tight">
+                        Единая платформа для всей школы
+                      </div>
+                    </ScrollReveal>
+                    <ScrollReveal delay={0.25}>
+                      <div className="self-stretch text-center text-[#605A57] text-sm sm:text-base font-normal leading-6 sm:leading-7 font-sans">
+                        От AI-помощника учителю до реального железа на парте —
+                        <br />
+                        всё связано между собой и работает вместе.
+                      </div>
+                    </ScrollReveal>
                   </div>
-                </div>
+                </ScrollReveal>
 
                 {/* Bento Grid Content */}
                 <div className="self-stretch flex justify-center items-start">
@@ -180,9 +259,9 @@ export default function LandingPage() {
                     </div>
                   </div>
 
-                  <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-0 border-l border-r border-[rgba(55,50,47,0.12)]">
+                  <StaggerContainer staggerDelay={0.15} className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-0 border-l border-r border-[rgba(55,50,47,0.12)]">
                     {/* Top Left - Alashed EDU */}
-                    <div className="border-b border-r-0 md:border-r border-[rgba(55,50,47,0.12)] p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-start items-start gap-4 sm:gap-6">
+                    <StaggerItem className="border-b border-r-0 md:border-r border-[rgba(55,50,47,0.12)] p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-start items-start gap-4 sm:gap-6">
                       <div className="flex flex-col gap-2">
                         <h3 className="text-[#37322F] text-lg sm:text-xl font-semibold leading-tight font-sans">
                           Alashed EDU — AI Copilot
@@ -191,13 +270,13 @@ export default function LandingPage() {
                           Генерация КМЖ, ФО, БЖБ, ТЖБ с автопривязкой к ОМ-кодам ГОСО 2026. AI знает профиль учителя, классы и успеваемость.
                         </p>
                       </div>
-                      <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] rounded-lg flex items-center justify-center overflow-hidden bg-gradient-to-br from-purple-50 via-blue-50 to-cyan-50">
-                        {/* Alashed EDU demo removed */}
+                      <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] rounded-lg overflow-hidden">
+                        <EduDemo />
                       </div>
-                    </div>
+                    </StaggerItem>
 
                     {/* Top Right - CodeStudio */}
-                    <div className="border-b border-[rgba(55,50,47,0.12)] p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-start items-start gap-4 sm:gap-6">
+                    <StaggerItem className="border-b border-[rgba(55,50,47,0.12)] p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-start items-start gap-4 sm:gap-6">
                       <div className="flex flex-col gap-2">
                         <h3 className="text-[#37322F] font-semibold leading-tight font-sans text-lg sm:text-xl">
                           CodeStudio — браузерное IDE
@@ -206,13 +285,13 @@ export default function LandingPage() {
                           Python, JavaScript, Scratch + Arduino, ESP32, Micro:bit. Деплой на реальное железо, не симулятор. AI-помощник для кода.
                         </p>
                       </div>
-                      <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] rounded-lg flex overflow-hidden items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-                        {/* CodeStudio demo removed */}
+                      <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] rounded-lg overflow-hidden">
+                        <CodeStudioDemo />
                       </div>
-                    </div>
+                    </StaggerItem>
 
                     {/* Bottom Left - Hardware */}
-                    <div className="border-r-0 md:border-r border-[rgba(55,50,47,0.12)] p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-start items-start gap-4 sm:gap-6 bg-transparent">
+                    <StaggerItem className="border-r-0 md:border-r border-[rgba(55,50,47,0.12)] p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-start items-start gap-4 sm:gap-6 bg-transparent">
                       <div className="flex flex-col gap-2">
                         <h3 className="text-[#37322F] text-lg sm:text-xl font-semibold leading-tight font-sans">
                           Hardware — официальный импорт
@@ -221,13 +300,13 @@ export default function LandingPage() {
                           Arduino, ESP32, Raspberry Pi, Micro:bit — напрямую в школы без посредников. Заказ из дашборда директора.
                         </p>
                       </div>
-                      <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] rounded-lg flex overflow-hidden justify-center items-center bg-gradient-to-br from-orange-50 to-red-50">
-                        {/* Hardware demo removed */}
+                      <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] rounded-lg overflow-hidden">
+                        <HardwareDemo />
                       </div>
-                    </div>
+                    </StaggerItem>
 
                     {/* Bottom Right - Journal */}
-                    <div className="p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-start items-start gap-4 sm:gap-6">
+                    <StaggerItem className="p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-start items-start gap-4 sm:gap-6">
                       <div className="flex flex-col gap-2">
                         <h3 className="text-[#37322F] text-lg sm:text-xl font-semibold leading-tight font-sans">
                           Электронный журнал
@@ -236,11 +315,11 @@ export default function LandingPage() {
                           Оценки, посещаемость, расписание — всё в одном месте. Связан с AI-планами и аналитикой директора.
                         </p>
                       </div>
-                      <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] rounded-lg flex overflow-hidden items-center justify-center bg-gradient-to-br from-green-50 to-emerald-50">
-                        {/* Journal demo removed */}
+                      <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] rounded-lg overflow-hidden">
+                        <JournalDemo />
                       </div>
-                    </div>
-                  </div>
+                    </StaggerItem>
+                  </StaggerContainer>
 
                   <div className="w-4 sm:w-6 md:w-8 lg:w-12 self-stretch relative overflow-hidden">
                     {/* Right decorative pattern */}
