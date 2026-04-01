@@ -40,11 +40,13 @@ const SmartSimpleBrilliant: React.FC<SmartSimpleBrilliantProps> = ({
           "--ssb-shadow": "rgba(0,0,0,0.28)",
         } as React.CSSProperties)
 
-  // Figma-exported SVG assets used for small icons
-  const img = "http://localhost:3845/assets/1b1e60b441119fb176db990a3c7fe2670a764855.svg"
-  const img1 = "http://localhost:3845/assets/a502f04ccfc3811f304b58a3a982a5b6fa070e91.svg"
-  const img2 = "http://localhost:3845/assets/9c07375bf3b9f1f1d8a0a24447829eb6f54fa928.svg"
-  const img3 = "http://localhost:3845/assets/19500d66798ef5ea9dc9d5f971cd0e9c29674bd3.svg"
+  // Inline video-camera icon for calendar event badges (8×8px)
+  const VideoIcon = ({ color = "currentColor" }: { color?: string }) => (
+    <svg width="8" height="8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="5" width="14" height="14" rx="2" fill={color} />
+      <path d="M16 9.5L22 6V18L16 14.5V9.5Z" fill={color} />
+    </svg>
+  )
 
   return (
     <div
@@ -109,12 +111,8 @@ const SmartSimpleBrilliant: React.FC<SmartSimpleBrilliantProps> = ({
                       PM
                     </span>
                     <div style={{ background: "#92400E", padding: "1.5px", borderRadius: "100px" }}>
-                      <div style={{ width: "8px", height: "8px", overflow: "hidden", position: "relative" }}>
-                        <img
-                          src={img || "/placeholder.svg"}
-                          alt="video"
-                          style={{ position: "absolute", inset: "20% 10% 20% 10%" }}
-                        />
+                      <div style={{ width: "8px", height: "8px", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                        <VideoIcon color="#ffffff" />
                       </div>
                     </div>
                   </div>
@@ -150,12 +148,8 @@ const SmartSimpleBrilliant: React.FC<SmartSimpleBrilliantProps> = ({
                       PM
                     </span>
                     <div style={{ background: "#0C4A6E", padding: "1.5px", borderRadius: "100px" }}>
-                      <div style={{ width: "8px", height: "8px", overflow: "hidden", position: "relative" }}>
-                        <img
-                          src={img1 || "/placeholder.svg"}
-                          alt="video"
-                          style={{ position: "absolute", inset: "20% 10% 20% 10%" }}
-                        />
+                      <div style={{ width: "8px", height: "8px", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                        <VideoIcon color="#ffffff" />
                       </div>
                     </div>
                   </div>
@@ -238,12 +232,8 @@ const SmartSimpleBrilliant: React.FC<SmartSimpleBrilliantProps> = ({
                       AM
                     </span>
                     <div style={{ background: "#581C87", padding: "1.5px", borderRadius: "100px" }}>
-                      <div style={{ width: "8px", height: "8px", overflow: "hidden", position: "relative" }}>
-                        <img
-                          src={img2 || "/placeholder.svg"}
-                          alt="video"
-                          style={{ position: "absolute", inset: "20% 10% 20% 10%" }}
-                        />
+                      <div style={{ width: "8px", height: "8px", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                        <VideoIcon color="#ffffff" />
                       </div>
                     </div>
                   </div>
@@ -279,12 +269,8 @@ const SmartSimpleBrilliant: React.FC<SmartSimpleBrilliantProps> = ({
                       PM
                     </span>
                     <div style={{ background: "#BE123C", padding: "1.5px", borderRadius: "100px" }}>
-                      <div style={{ width: "8px", height: "8px", overflow: "hidden", position: "relative" }}>
-                        <img
-                          src={img3 || "/placeholder.svg"}
-                          alt="video"
-                          style={{ position: "absolute", inset: "20% 10% 20% 10%" }}
-                        />
+                      <div style={{ width: "8px", height: "8px", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                        <VideoIcon color="#ffffff" />
                       </div>
                     </div>
                   </div>

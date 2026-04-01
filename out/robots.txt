@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://alashed.kz
-
-# Sitemaps
-Sitemap: https://alashed.kz/sitemap.xml

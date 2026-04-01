@@ -13,15 +13,15 @@ export default function ContactSection() {
     setStatus("sending")
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://it.alashed.kz/api/contact/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: form.name,
-          school: form.school,
-          phone: form.phone,
           email: form.email,
-          message: form.message,
+          phone: form.phone,
+          subject: `Заявка на пилот — ${form.school} (${form.name})`,
+          message: `Школа: ${form.school}\nТелефон: ${form.phone}\nEmail: ${form.email}\n\n${form.message || "—"}`,
         }),
       })
       if (res.ok) {
