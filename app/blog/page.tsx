@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { posts, getCategories, formatDate } from "@/lib/posts"
 import { categoryColors } from "@/lib/blog-config"
+import { News01Icon } from "hugeicons-react"
 import Navbar from "@/components/navbar"
 import BlogList from "@/components/blog-list"
 import type { Metadata } from "next"
@@ -38,9 +39,7 @@ export default function BlogPage() {
         {/* Header */}
         <div className="mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#EBF7FF] rounded-full border border-[#5BB8F5]/30 mb-5">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <path d="M2 2h8v1.5L6 7 2 3.5V2zM2 5v5h8V5" stroke="#2E9DE0" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <News01Icon size={12} color="#2E9DE0" strokeWidth={1} />
             <span className="text-[#2E9DE0] text-xs font-semibold font-sans uppercase tracking-wide">Блог</span>
           </div>
           <h1 className="text-[#37322F] text-2xl sm:text-3xl md:text-[36px] font-semibold font-serif leading-tight tracking-tight">
@@ -63,9 +62,7 @@ export default function BlogPage() {
                   <div className="absolute inset-0 opacity-10" style={{backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)", backgroundSize: "32px 32px"}} />
                   <div className="relative text-center">
                     <div className="w-16 h-16 rounded-2xl bg-white/15 border border-white/20 flex items-center justify-center mx-auto mb-3">
-                      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                        <path d="M4 6h20M4 12h14M4 18h10" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                      </svg>
+                      <News01Icon size={28} color="white" strokeWidth={2} />
                     </div>
                     <span className="text-white/60 text-sm font-sans">Главная статья</span>
                   </div>

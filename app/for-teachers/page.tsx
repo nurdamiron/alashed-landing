@@ -1,6 +1,15 @@
 import Link from "next/link"
 import Navbar from "@/components/navbar"
 import FooterSection from "@/components/footer-section"
+import {
+  Layers01Icon,
+  NoteIcon,
+  Clock01Icon,
+  UserMultipleIcon,
+  File01Icon,
+  Comment01Icon,
+  UserIcon,
+} from "hugeicons-react"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -10,61 +19,32 @@ export const metadata: Metadata = {
 
 const features = [
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
+    icon: <Layers01Icon size={24} color="#2E9DE0" />,
     title: "Генерация КМЖ за 2 минуты",
     desc: "AI создаёт краткосрочный план урока по любому предмету с привязкой к ГОСО 2026. Вы указываете тему — система генерирует цели, задания, критерии оценивания.",
   },
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <rect x="3" y="3" width="18" height="18" rx="2" stroke="#2E9DE0" strokeWidth="1.5"/>
-        <path d="M9 9h6M9 12h6M9 15h4" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
+    icon: <NoteIcon size={24} color="#2E9DE0" />,
     title: "БЖБ и ТЖБ по стандарту",
     desc: "Автоматическая генерация бланков жетістіктерін бағалау и тоқсандық жиынтық бағалау с правильной структурой, дескрипторами и дифференцированными заданиями.",
   },
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <circle cx="12" cy="12" r="9" stroke="#2E9DE0" strokeWidth="1.5"/>
-        <path d="M12 7v5l3 3" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
+    icon: <Clock01Icon size={24} color="#2E9DE0" />,
     title: "Экономия 5+ часов в неделю",
     desc: "Учителя тратят до 40% рабочего времени на документацию. Alashed EDU автоматизирует рутину — вы фокусируетесь на преподавании и учениках.",
   },
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round"/>
-        <circle cx="9" cy="7" r="4" stroke="#2E9DE0" strokeWidth="1.5"/>
-        <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
+    icon: <UserMultipleIcon size={24} color="#2E9DE0" />,
     title: "Профили учеников",
     desc: "Система запоминает прогресс каждого ученика. AI учитывает сильные и слабые стороны класса при генерации заданий и подбирает дифференцированные материалы.",
   },
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
+    icon: <File01Icon size={24} color="#2E9DE0" />,
     title: "Готовые шаблоны",
     desc: "Библиотека из 500+ шаблонов уроков, проверочных работ и раздаточных материалов по всем предметам казахстанской школьной программы.",
   },
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
+    icon: <Comment01Icon size={24} color="#2E9DE0" />,
     title: "Поддержка на казахском",
     desc: "Все документы генерируются на казахском, русском или обоих языках одновременно. AI обучен на актуальных учебных программах МОН РК.",
   },
@@ -117,10 +97,7 @@ export default function ForTeachersPage() {
       <div className="max-w-[1060px] mx-auto px-4 sm:px-6 pt-16 pb-20 sm:pt-20 sm:pb-28">
         <div className="max-w-[680px]">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#EBF7FF] rounded-full border border-[#5BB8F5]/30 mb-6">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <circle cx="6" cy="4" r="2.5" stroke="#2E9DE0" strokeWidth="1"/>
-              <path d="M1 11c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="#2E9DE0" strokeWidth="1" strokeLinecap="round"/>
-            </svg>
+            <UserIcon size={12} color="#2E9DE0" />
             <span className="text-[#2E9DE0] text-xs font-semibold font-sans uppercase tracking-wide">Для учителей</span>
           </div>
 

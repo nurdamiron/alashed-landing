@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { Cancel01Icon } from "hugeicons-react"
 
 export default function AnnouncementBanner() {
   const [visible, setVisible] = useState(true)
@@ -27,9 +28,7 @@ export default function AnnouncementBanner() {
         className="absolute right-3 top-1/2 -translate-y-1/2 text-[#A8D8F5] hover:text-white transition-colors"
         aria-label="Закрыть"
       >
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-          <path d="M3 3l8 8M11 3L3 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-        </svg>
+        <Cancel01Icon size={14} color="currentColor" />
       </button>
     </div>
   )

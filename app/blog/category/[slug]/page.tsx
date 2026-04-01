@@ -2,6 +2,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { posts, getCategories, getPostsByCategory, formatDate } from "@/lib/posts"
 import { categoryColors, categorySlugMap, categoryToSlug } from "@/lib/blog-config"
+import { ArrowLeft02Icon } from "hugeicons-react"
 import Navbar from "@/components/navbar"
 import type { Metadata } from "next"
 
@@ -38,9 +39,7 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
       <div className="max-w-[1060px] mx-auto px-4 sm:px-6 py-12 sm:py-16">
         {/* Back */}
         <Link href="/blog" className="inline-flex items-center gap-1.5 text-[rgba(55,50,47,0.50)] text-sm font-sans hover:text-[#37322F] transition-colors mb-8 group">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <path d="M9 3L5 7l4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
+          <ArrowLeft02Icon size={14} color="currentColor" strokeWidth={1.5} />
           Все статьи
         </Link>
 

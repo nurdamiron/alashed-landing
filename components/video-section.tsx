@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { PlayCircle02Icon, PlayIcon } from "hugeicons-react"
 
 export default function VideoSection() {
   const [playing, setPlaying] = useState(false)
@@ -11,10 +12,7 @@ export default function VideoSection() {
       <div className="self-stretch px-6 md:px-24 py-12 md:py-16 border-b border-[rgba(55,50,47,0.12)] flex justify-center items-center gap-6">
         <div className="w-full max-w-[586px] flex flex-col justify-start items-center gap-4">
           <div className="px-[14px] py-[6px] bg-[#EBF7FF] overflow-hidden rounded-[90px] flex items-center gap-[8px] border border-[#5BB8F5]/30">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="6" cy="6" r="5" stroke="#2E9DE0" strokeWidth="1"/>
-              <path d="M4.5 4l4 2-4 2V4z" fill="#2E9DE0"/>
-            </svg>
+            <PlayCircle02Icon size={12} color="#2E9DE0" strokeWidth={1} />
             <div className="text-[#2E9DE0] text-xs font-semibold leading-3 font-sans tracking-wide uppercase">
               Демо
             </div>
@@ -43,9 +41,7 @@ export default function VideoSection() {
               {/* Play button */}
               <div className="relative z-10 flex flex-col items-center gap-4">
                 <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center group-hover:bg-white/30 transition-colors">
-                  <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                    <path d="M9 6l16 8-16 8V6z" fill="white"/>
-                  </svg>
+                  <PlayIcon size={28} color="white" />
                 </div>
                 <div className="text-white text-base font-semibold font-sans">Смотреть демо (3 мин)</div>
               </div>

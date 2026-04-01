@@ -2,6 +2,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { posts, getPost, getRelatedPosts, formatDate } from "@/lib/posts"
 import { categoryColors, categoryToSlug } from "@/lib/blog-config"
+import { ArrowLeft02Icon, Tick01Icon, News01Icon } from "hugeicons-react"
 import Navbar from "@/components/navbar"
 import type { Metadata } from "next"
 
@@ -76,9 +77,7 @@ function renderContent(md: string) {
           {listItems.map((item, idx) => (
             <li key={idx} className="flex items-start gap-2.5">
               <div className="w-4 h-4 rounded-full bg-[#EBF7FF] flex items-center justify-center flex-shrink-0 mt-0.5">
-                <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
-                  <path d="M1.5 4l1.5 1.5 3-3" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+                <Tick01Icon size={8} color="#2E9DE0" strokeWidth={1.5} />
               </div>
               <span className="text-[#605A57] text-sm font-sans leading-6">{renderInline(item)}</span>
             </li>
@@ -224,9 +223,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
       <div className="max-w-[720px] mx-auto px-4 sm:px-6 py-10 sm:py-14">
         {/* Back */}
         <Link href="/blog" className="inline-flex items-center gap-1.5 text-[rgba(55,50,47,0.50)] text-sm font-sans hover:text-[#37322F] transition-colors mb-8 group">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <path d="M9 3L5 7l4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
+          <ArrowLeft02Icon size={14} color="currentColor" strokeWidth={1.5} />
           Все статьи
         </Link>
 
@@ -284,9 +281,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
         <div className="my-10 p-6 sm:p-8 bg-white border border-[rgba(55,50,47,0.12)] rounded-2xl">
           <div className="flex items-start gap-4">
             <div className="w-10 h-10 rounded-xl bg-[#EBF7FF] flex items-center justify-center flex-shrink-0">
-              <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                <path d="M3 5h12M3 9h8M3 13h5" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round"/>
-              </svg>
+              <News01Icon size={18} color="#2E9DE0" strokeWidth={1.5} />
             </div>
             <div className="flex-1">
               <div className="text-[#37322F] text-base font-semibold font-sans mb-1">Попробуйте Alashed бесплатно</div>

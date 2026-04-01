@@ -1,12 +1,7 @@
 "use client"
 
 import { useState } from "react"
-
-const CheckIcon = ({ color = "#9CA3AF" }: { color?: string }) => (
-  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M10 3L4.5 8.5L2 6" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-)
+import { Tick01Icon } from "hugeicons-react"
 
 // Diagonal pattern helper
 function DiagonalPattern() {
@@ -37,9 +32,7 @@ export default function PricingSection() {
         <div className="w-full max-w-[586px] px-6 py-5 overflow-hidden rounded-lg flex flex-col justify-start items-center gap-4">
           {/* Badge */}
           <div className="px-[14px] py-[6px] bg-[#EBF7FF] overflow-hidden rounded-[90px] flex justify-start items-center gap-[8px] border border-[#5BB8F5]/30">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6 1V11M8.5 3H4.75C4.28587 3 3.84075 3.18437 3.51256 3.51256C3.18437 3.84075 3 4.28587 3 4.75C3 5.21413 3.18437 5.65925 3.51256 5.98744C3.84075 6.31563 4.28587 6.5 4.75 6.5H7.25C7.71413 6.5 8.15925 6.68437 8.48744 7.01256C8.81563 7.34075 9 7.78587 9 8.25C9 8.71413 8.81563 9.15925 8.48744 9.48744C8.15925 9.81563 7.71413 10 7.25 10H3.5" stroke="#2E9DE0" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <Tick01Icon size={12} color="#2E9DE0" />
             <div className="text-center text-[#2E9DE0] text-xs font-semibold leading-3 font-sans tracking-wide uppercase">
               Тарифы
             </div>
@@ -130,7 +123,7 @@ export default function PricingSection() {
                 ].map((feature, index) => (
                   <div key={index} className="self-stretch flex justify-start items-center gap-[13px]">
                     <div className="w-4 h-4 flex items-center justify-center flex-shrink-0">
-                      <CheckIcon color="#9CA3AF" />
+                      <Tick01Icon size={12} color="#9CA3AF" />
                     </div>
                     <div className="flex-1 text-[rgba(55,50,47,0.80)] text-[12.5px] font-normal leading-5 font-sans">{feature}</div>
                   </div>
@@ -178,7 +171,7 @@ export default function PricingSection() {
                 ].map((feature, index) => (
                   <div key={index} className="self-stretch flex justify-start items-center gap-[13px]">
                     <div className="w-4 h-4 flex items-center justify-center flex-shrink-0">
-                      <CheckIcon color="#FF8000" />
+                      <Tick01Icon size={12} color="#FF8000" />
                     </div>
                     <div className="flex-1 text-[#F0EFEE] text-[12.5px] font-normal leading-5 font-sans">{feature}</div>
                   </div>
@@ -223,7 +216,7 @@ export default function PricingSection() {
                 ].map((feature, index) => (
                   <div key={index} className="self-stretch flex justify-start items-center gap-[13px]">
                     <div className="w-4 h-4 flex items-center justify-center flex-shrink-0">
-                      <CheckIcon color="#9CA3AF" />
+                      <Tick01Icon size={12} color="#9CA3AF" />
                     </div>
                     <div className="flex-1 text-[rgba(55,50,47,0.80)] text-[12.5px] font-normal leading-5 font-sans">{feature}</div>
                   </div>

@@ -1,6 +1,14 @@
 import Link from "next/link"
 import Navbar from "@/components/navbar"
 import FooterSection from "@/components/footer-section"
+import {
+  CodeIcon,
+  StarIcon,
+  UserMultipleIcon,
+  NoteIcon,
+  CpuIcon,
+  CheckmarkCircle02Icon,
+} from "hugeicons-react"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -10,61 +18,32 @@ export const metadata: Metadata = {
 
 const features = [
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M8 6.5L3 12l5 5.5M16 6.5L21 12l-5 5.5M14 4l-4 16" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
+    icon: <CodeIcon size={24} color="#2E9DE0" />,
     title: "CodeStudio — браузерное IDE",
     desc: "Пиши код прямо в браузере — без установки программ. Python, JavaScript и Scratch. Автосохранение, подсветка синтаксиса и встроенный дебаггер.",
   },
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
+    icon: <StarIcon size={24} color="#2E9DE0" />,
     title: "Геймификация и очки",
     desc: "За каждое выполненное задание — баллы и достижения. Таблица лидеров в классе мотивирует учиться быстрее. Открывай новые уровни и получай сертификаты.",
   },
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round"/>
-        <circle cx="9" cy="7" r="4" stroke="#2E9DE0" strokeWidth="1.5"/>
-        <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
+    icon: <UserMultipleIcon size={24} color="#2E9DE0" />,
     title: "Командные проекты",
     desc: "Создавай проекты вместе с одноклассниками в реальном времени. Общий редактор кода, чат и управление задачами — всё как у настоящих разработчиков.",
   },
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <rect x="5" y="2" width="14" height="20" rx="2" stroke="#2E9DE0" strokeWidth="1.5"/>
-        <path d="M9 7h6M9 11h6M9 15h4" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
+    icon: <NoteIcon size={24} color="#2E9DE0" />,
     title: "Подготовка к Infomatrix",
     desc: "Специальные курсы и задания для подготовки к Infomatrix, KazRobotics и WRO. Разбор прошлых олимпиадных задач с объяснениями от тренеров.",
   },
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <rect x="2" y="7" width="20" height="14" rx="2" stroke="#2E9DE0" strokeWidth="1.5"/>
-        <path d="M16 7V5a2 2 0 0 0-4 0v2M9 14l2 2 4-4" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
+    icon: <CpuIcon size={24} color="#2E9DE0" />,
     title: "Проекты с Arduino",
     desc: "Деплой кода прямо на Arduino и ESP32 из браузера. Учись создавать реальные устройства: умный дом, робот, метеостанция — шаг за шагом.",
   },
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M22 4L12 14.01l-3-3" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
+    icon: <CheckmarkCircle02Icon size={24} color="#2E9DE0" />,
     title: "Персональный прогресс",
     desc: "Видишь свой прогресс по каждой теме. AI определяет пробелы в знаниях и предлагает упражнения именно там, где ты ещё не уверен.",
   },
@@ -123,9 +102,7 @@ export default function ForStudentsPage() {
       <div className="max-w-[1060px] mx-auto px-4 sm:px-6 pt-16 pb-20 sm:pt-20 sm:pb-28">
         <div className="max-w-[680px]">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#EBF7FF] rounded-full border border-[#5BB8F5]/30 mb-6">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <path d="M3 3.5L1 6l2 2.5M9 3.5L11 6 9 8.5M7 2l-2 8" stroke="#2E9DE0" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <CodeIcon size={12} color="#2E9DE0" />
             <span className="text-[#2E9DE0] text-xs font-semibold font-sans uppercase tracking-wide">Для учеников</span>
           </div>
 

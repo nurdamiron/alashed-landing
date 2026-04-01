@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import { ArrowLeft02Icon, ArrowRight02Icon } from "hugeicons-react"
 import { categoryColors } from "@/lib/blog-config"
 
 interface PostItem {
@@ -122,9 +123,7 @@ export default function BlogList({ posts, categories }: { posts: PostItem[]; cat
             disabled={page === 1}
             className="w-9 h-9 rounded-full border border-[rgba(55,50,47,0.15)] flex items-center justify-center text-[#605A57] hover:bg-white disabled:opacity-30 disabled:cursor-not-allowed transition-all"
           >
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M9 3L5 7l4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <ArrowLeft02Icon size={14} color="currentColor" strokeWidth={1.5} />
           </button>
           {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
             <button
@@ -144,9 +143,7 @@ export default function BlogList({ posts, categories }: { posts: PostItem[]; cat
             disabled={page === totalPages}
             className="w-9 h-9 rounded-full border border-[rgba(55,50,47,0.15)] flex items-center justify-center text-[#605A57] hover:bg-white disabled:opacity-30 disabled:cursor-not-allowed transition-all"
           >
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M5 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <ArrowRight02Icon size={14} color="currentColor" strokeWidth={1.5} />
           </button>
         </div>
       )}

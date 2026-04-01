@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { Clock01Icon } from "hugeicons-react"
 import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/motion/scroll-reveal"
 
 const steps = [
@@ -41,10 +42,7 @@ export default function HowItWorksSection() {
       <div className="px-4 sm:px-8 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20 border-b border-[rgba(55,50,47,0.12)] flex flex-col items-center gap-4 text-center">
         <ScrollReveal animation="scaleIn">
           <div className="px-[14px] py-[6px] bg-[#EBF7FF] overflow-hidden rounded-[90px] flex items-center gap-[8px] border border-[#5BB8F5]/30">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="6" cy="6" r="4" stroke="#2E9DE0" strokeWidth="1.2" />
-              <path d="M6 4V6.5L7.5 7.5" stroke="#2E9DE0" strokeWidth="1.2" strokeLinecap="round" />
-            </svg>
+            <Clock01Icon size={12} color="#2E9DE0" strokeWidth={1.2} />
             <span className="text-[#2E9DE0] text-xs font-semibold leading-3 font-sans tracking-wide uppercase">
               Как это работает
             </span>

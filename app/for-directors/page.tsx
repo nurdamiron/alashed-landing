@@ -1,6 +1,14 @@
 import Link from "next/link"
 import Navbar from "@/components/navbar"
 import FooterSection from "@/components/footer-section"
+import {
+  DashboardSquare01Icon,
+  Analytics01Icon,
+  Task01Icon,
+  DeliveryBox01Icon,
+  File01Icon,
+  UserMultipleIcon,
+} from "hugeicons-react"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -10,63 +18,32 @@ export const metadata: Metadata = {
 
 const features = [
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <rect x="3" y="3" width="7" height="7" rx="1.5" stroke="#2E9DE0" strokeWidth="1.5"/>
-        <rect x="14" y="3" width="7" height="7" rx="1.5" stroke="#2E9DE0" strokeWidth="1.5"/>
-        <rect x="3" y="14" width="7" height="7" rx="1.5" stroke="#2E9DE0" strokeWidth="1.5"/>
-        <path d="M17.5 14v7M14 17.5h7" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
+    icon: <DashboardSquare01Icon size={24} color="#2E9DE0" />,
     title: "Единый дашборд школы",
     desc: "Все показатели в одном экране: успеваемость по классам, активность учителей, статусы документов. Никаких Excel-таблиц и ручного сбора данных.",
   },
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M18 20V10M12 20V4M6 20v-6" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
+    icon: <Analytics01Icon size={24} color="#2E9DE0" />,
     title: "Аналитика успеваемости",
     desc: "Динамика оценок по предметам, классам и четвертям. Автоматические алерты при падении успеваемости — принимайте решения до того, как ситуация ухудшится.",
   },
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2M9 12h6M9 16h4" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
+    icon: <Task01Icon size={24} color="#2E9DE0" />,
     title: "Контроль документации",
     desc: "Видите в реальном времени: кто из учителей сдал КМЖ, кто ещё нет. Журнал проверок, статусы и комментарии — без бумажных обходов.",
   },
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <rect x="2" y="7" width="20" height="14" rx="2" stroke="#2E9DE0" strokeWidth="1.5"/>
-        <path d="M16 7V5a2 2 0 0 0-4 0v2M12 12v4M10 14h4" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
+    icon: <DeliveryBox01Icon size={24} color="#2E9DE0" />,
     title: "Инвентарь оборудования",
     desc: "Учёт всего оборудования: Arduino, компьютеры, проекторы. История обслуживания, плановые замены, закупки. Интеграция с официальным импортом Alashed Hardware.",
   },
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M14 2v6h6M16 13H8M16 17H8" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
+    icon: <File01Icon size={24} color="#2E9DE0" />,
     title: "Автоматические отчёты",
     desc: "Генерация квартальных и годовых отчётов для управления образования в один клик. Соответствие форматам МОН РК — без ручного заполнения бланков.",
   },
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round"/>
-        <circle cx="9" cy="7" r="4" stroke="#2E9DE0" strokeWidth="1.5"/>
-        <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
+    icon: <UserMultipleIcon size={24} color="#2E9DE0" />,
     title: "Управление педколлективом",
     desc: "Профили учителей, нагрузка, повышение квалификации и сертификаты в одном месте. Планирование расписания с учётом доступности и компетенций.",
   },
@@ -93,12 +70,7 @@ export default function ForDirectorsPage() {
       <div className="max-w-[1060px] mx-auto px-4 sm:px-6 pt-16 pb-20 sm:pt-20 sm:pb-28">
         <div className="max-w-[680px]">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#EBF7FF] rounded-full border border-[#5BB8F5]/30 mb-6">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <rect x="1" y="1" width="4" height="4" rx="0.75" stroke="#2E9DE0" strokeWidth="1"/>
-              <rect x="7" y="1" width="4" height="4" rx="0.75" stroke="#2E9DE0" strokeWidth="1"/>
-              <rect x="1" y="7" width="4" height="4" rx="0.75" stroke="#2E9DE0" strokeWidth="1"/>
-              <path d="M9 7v4M7 9h4" stroke="#2E9DE0" strokeWidth="1" strokeLinecap="round"/>
-            </svg>
+            <DashboardSquare01Icon size={12} color="#2E9DE0" />
             <span className="text-[#2E9DE0] text-xs font-semibold font-sans uppercase tracking-wide">Для директоров</span>
           </div>
 

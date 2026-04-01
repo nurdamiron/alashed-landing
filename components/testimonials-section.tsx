@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import type React from "react"
+import { ArrowLeft02Icon, ArrowRight02Icon } from "hugeicons-react"
 
 // Badge component for consistency
 function Badge({ icon, text }: { icon: React.ReactNode; text: string }) {
@@ -121,33 +122,13 @@ export default function TestimonialsSection() {
               onClick={() => handleNavigationClick((activeTestimonial - 1 + testimonials.length) % testimonials.length)}
               className="w-9 h-9 overflow-hidden rounded-full border border-[#5BB8F5]/40 bg-[#EBF7FF] justify-center items-center gap-2 flex hover:bg-[#D6EFFE] transition-colors"
             >
-              <div className="w-6 h-6 relative overflow-hidden">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M15 18L9 12L15 6"
-                    stroke="#2E9DE0"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
+              <ArrowLeft02Icon size={24} color="#2E9DE0" />
             </button>
             <button
               onClick={() => handleNavigationClick((activeTestimonial + 1) % testimonials.length)}
               className="w-9 h-9 overflow-hidden rounded-full bg-[#5BB8F5] border border-[#5BB8F5] justify-center items-center gap-2 flex hover:bg-[#2E9DE0] transition-colors"
             >
-              <div className="w-6 h-6 relative overflow-hidden">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M9 18L15 12L9 6"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
+              <ArrowRight02Icon size={24} color="white" />
             </button>
           </div>
         </div>

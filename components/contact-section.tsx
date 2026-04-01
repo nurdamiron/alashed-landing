@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
+import { Mail01Icon } from "hugeicons-react"
 import ScrollReveal from "@/components/motion/scroll-reveal"
 
 export default function ContactSection() {
@@ -41,10 +42,7 @@ export default function ContactSection() {
       <div className="px-4 sm:px-8 md:px-16 lg:px-24 py-12 sm:py-16 md:py-20 border-b border-[rgba(55,50,47,0.12)] flex flex-col items-center gap-4 text-center">
         <ScrollReveal animation="scaleIn">
           <div className="px-[14px] py-[6px] bg-[#EBF7FF] overflow-hidden rounded-[90px] flex items-center gap-[8px] border border-[#5BB8F5]/30">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <path d="M2 3h8v6H2z" stroke="#2E9DE0" strokeWidth="1.2" strokeLinejoin="round"/>
-              <path d="M2 3l4 3.5L10 3" stroke="#2E9DE0" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+            <Mail01Icon size={12} color="#2E9DE0" strokeWidth={1.2} />
             <span className="text-[#2E9DE0] text-xs font-semibold leading-3 font-sans tracking-wide uppercase">
               Контакты
             </span>

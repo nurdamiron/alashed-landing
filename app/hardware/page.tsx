@@ -1,6 +1,14 @@
 import Link from "next/link"
 import Navbar from "@/components/navbar"
 import FooterSection from "@/components/footer-section"
+import {
+  CheckmarkBadge01Icon,
+  FlashIcon,
+  Shield01Icon,
+  UserMultipleIcon,
+  ChipIcon,
+  ArrowRight02Icon,
+} from "hugeicons-react"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -61,40 +69,22 @@ const catalog = [
 
 const advantages = [
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
+    icon: <CheckmarkBadge01Icon size={24} color="#2E9DE0" />,
     title: "Официальный импорт",
     desc: "Прямые поставки от производителей. Сертифицированное оборудование, таможенное оформление и полный пакет документов для школ.",
   },
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
+    icon: <FlashIcon size={24} color="#2E9DE0" />,
     title: "Быстрая доставка",
     desc: "Доставка по всему Казахстану за 2–5 рабочих дней. Экспресс-доставка в Алматы и Астану на следующий день.",
   },
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
+    icon: <Shield01Icon size={24} color="#2E9DE0" />,
     title: "Гарантия и замена",
     desc: "12 месяцев гарантии на всё оборудование. Быстрая замена при заводском браке — без лишней бюрократии.",
   },
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round"/>
-        <circle cx="9" cy="7" r="4" stroke="#2E9DE0" strokeWidth="1.5"/>
-        <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
+    icon: <UserMultipleIcon size={24} color="#2E9DE0" />,
     title: "Поддержка для школ",
     desc: "Помощь с оформлением заявок для государственных закупок. Счета, акты и все необходимые документы для бухгалтерии.",
   },
@@ -114,11 +104,7 @@ export default function HardwarePage() {
       <div className="max-w-[1060px] mx-auto px-4 sm:px-6 pt-16 pb-20 sm:pt-20 sm:pb-28">
         <div className="max-w-[680px]">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#FFF7ED] rounded-full border border-[#FDBA74]/50 mb-6">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <rect x="1" y="4" width="10" height="5" rx="0.75" stroke="#EA580C" strokeWidth="1"/>
-              <path d="M3.5 4V3a2.5 2.5 0 015 0v1" stroke="#EA580C" strokeWidth="1"/>
-              <path d="M3.5 6.5h1.5M7 6.5h1.5" stroke="#EA580C" strokeWidth="1" strokeLinecap="round"/>
-            </svg>
+            <ChipIcon size={12} color="#EA580C" />
             <span className="text-[#EA580C] text-xs font-semibold font-sans uppercase tracking-wide">Hardware</span>
           </div>
 
@@ -180,9 +166,7 @@ export default function HardwarePage() {
                 <Link href="/#contact"
                   className="inline-flex items-center gap-1.5 text-[#2E9DE0] text-sm font-semibold font-sans hover:text-[#1A6FA8] transition-colors mt-1">
                   Уточнить наличие
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                    <path d="M3 6h6M7 4l2 2-2 2" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
+                  <ArrowRight02Icon size={12} color="currentColor" />
                 </Link>
               </div>
             ))}

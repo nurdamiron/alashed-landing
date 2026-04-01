@@ -1,3 +1,5 @@
+import { UserMultipleIcon } from "hugeicons-react"
+
 const team = [
   {
     name: "Нурдаулет Ахматов",
@@ -35,11 +37,7 @@ export default function TeamSection() {
       <div className="self-stretch px-6 md:px-24 py-12 md:py-16 border-b border-[rgba(55,50,47,0.12)] flex justify-center items-center gap-6">
         <div className="w-full max-w-[586px] flex flex-col justify-start items-center gap-4">
           <div className="px-[14px] py-[6px] bg-[#EBF7FF] overflow-hidden rounded-[90px] flex items-center gap-[8px] border border-[#5BB8F5]/30">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="4" cy="4" r="2" stroke="#2E9DE0" strokeWidth="1"/>
-              <circle cx="8" cy="4" r="2" stroke="#2E9DE0" strokeWidth="1"/>
-              <path d="M1 10c0-2 1.3-3 3-3h4c1.7 0 3 1 3 3" stroke="#2E9DE0" strokeWidth="1" strokeLinecap="round"/>
-            </svg>
+            <UserMultipleIcon size={12} color="#2E9DE0" />
             <div className="text-[#2E9DE0] text-xs font-semibold leading-3 font-sans tracking-wide uppercase">
               Команда
             </div>

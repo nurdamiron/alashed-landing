@@ -1,3 +1,5 @@
+import { Tick01Icon, MultiplicationSignIcon, GridTableIcon } from "hugeicons-react"
+
 const features = [
   { name: "AI-генерация КМЖ, БЖБ, ТЖБ", alashed: true, foreign: false, manual: false },
   { name: "Привязка к ОМ-кодам ГОСО 2026", alashed: true, foreign: false, manual: false },
@@ -16,9 +18,7 @@ function Cell({ value }: { value: boolean | string | undefined }) {
     return (
       <div className="flex justify-center">
         <div className="w-5 h-5 rounded-full bg-[#EBF7FF] flex items-center justify-center">
-          <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-            <path d="M2 5l2 2 4-4" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
+          <Tick01Icon size={10} color="#2E9DE0" strokeWidth={1.5} />
         </div>
       </div>
     )
@@ -35,9 +35,7 @@ function Cell({ value }: { value: boolean | string | undefined }) {
   return (
     <div className="flex justify-center">
       <div className="w-5 h-5 rounded-full bg-[rgba(55,50,47,0.06)] flex items-center justify-center">
-        <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
-          <path d="M2 2l4 4M6 2L2 6" stroke="rgba(55,50,47,0.30)" strokeWidth="1.5" strokeLinecap="round"/>
-        </svg>
+        <MultiplicationSignIcon size={8} color="rgba(55,50,47,0.30)" strokeWidth={1.5} />
       </div>
     </div>
   )
@@ -50,10 +48,7 @@ export default function ComparisonTableSection() {
       <div className="self-stretch px-6 md:px-24 py-12 md:py-16 border-b border-[rgba(55,50,47,0.12)] flex justify-center items-center gap-6">
         <div className="w-full max-w-[586px] flex flex-col justify-start items-center gap-4">
           <div className="px-[14px] py-[6px] bg-[#EBF7FF] overflow-hidden rounded-[90px] flex items-center gap-[8px] border border-[#5BB8F5]/30">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="1" y="1" width="4" height="10" rx="0.5" stroke="#2E9DE0" strokeWidth="1"/>
-              <rect x="7" y="1" width="4" height="10" rx="0.5" stroke="#2E9DE0" strokeWidth="1"/>
-            </svg>
+            <GridTableIcon size={12} color="#2E9DE0" strokeWidth={1} />
             <div className="text-[#2E9DE0] text-xs font-semibold leading-3 font-sans tracking-wide uppercase">
               Сравнение
             </div>

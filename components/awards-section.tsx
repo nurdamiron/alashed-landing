@@ -1,3 +1,5 @@
+import { StarIcon } from "hugeicons-react"
+
 const awards = [
   {
     iconPath: "M6 1l1.2 2.4 2.7.4-1.95 1.9.46 2.7L6 7.25 3.57 8.44l.46-2.7L2.1 3.84l2.7-.4L6 1z",
@@ -56,9 +58,7 @@ export default function AwardsSection() {
       <div className="self-stretch px-6 md:px-24 py-12 md:py-16 border-b border-[rgba(55,50,47,0.12)] flex justify-center items-center gap-6">
         <div className="w-full max-w-[586px] flex flex-col justify-start items-center gap-4">
           <div className="px-[14px] py-[6px] bg-[#EBF7FF] overflow-hidden rounded-[90px] flex items-center gap-[8px] border border-[#5BB8F5]/30">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6 1l1.2 2.4 2.7.4-1.95 1.9.46 2.7L6 7.25 3.57 8.44l.46-2.7L2.1 3.84l2.7-.4L6 1z" stroke="#2E9DE0" strokeWidth="1" fill="none" strokeLinejoin="round"/>
-            </svg>
+            <StarIcon size={12} color="#2E9DE0" />
             <div className="text-[#2E9DE0] text-xs font-semibold leading-3 font-sans tracking-wide uppercase">
               Партнёрства
             </div>

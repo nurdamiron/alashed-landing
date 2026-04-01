@@ -2,6 +2,14 @@ import Link from "next/link"
 import Navbar from "@/components/navbar"
 import FooterSection from "@/components/footer-section"
 import CompetitionsCarousel from "@/components/competitions-carousel"
+import {
+  StarIcon,
+  UserMultipleIcon,
+  CpuIcon,
+  CodeIcon,
+  CheckmarkSquare01Icon,
+  File01Icon,
+} from "hugeicons-react"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -41,61 +49,32 @@ const competitions = [
 
 const preparation = [
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
+    icon: <StarIcon size={24} color="#2E9DE0" />,
     title: "Разбор прошлых задач",
     desc: "База заданий с Infomatrix, KazRobotics и WRO за последние 5 лет. Подробные решения и разбор типичных ошибок.",
   },
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round"/>
-        <circle cx="9" cy="7" r="4" stroke="#2E9DE0" strokeWidth="1.5"/>
-        <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
+    icon: <UserMultipleIcon size={24} color="#2E9DE0" />,
     title: "Опытные тренеры",
     desc: "Наставники с опытом участия и победы в международных соревнованиях. Персональный план подготовки для каждой команды.",
   },
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <rect x="2" y="7" width="20" height="14" rx="2" stroke="#2E9DE0" strokeWidth="1.5"/>
-        <path d="M16 7V5a2 2 0 0 0-4 0v2M9 14l2 2 4-4" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
+    icon: <CpuIcon size={24} color="#2E9DE0" />,
     title: "Оборудование WRO-стандарта",
     desc: "Роботы и наборы, идентичные тем, что используются на официальных соревнованиях. Тренируйся на том же железе.",
   },
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M8 6.5L3 12l5 5.5M16 6.5L21 12l-5 5.5M14 4l-4 16" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
+    icon: <CodeIcon size={24} color="#2E9DE0" />,
     title: "CodeStudio для тренировок",
     desc: "Браузерное IDE с задачами олимпиадного уровня. Автоматическая проверка, подсказки и статистика прогресса команды.",
   },
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M9 11l3 3L22 4" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
+    icon: <CheckmarkSquare01Icon size={24} color="#2E9DE0" />,
     title: "Пробные соревнования",
     desc: "Ежеквартальные внутренние турниры между школами-партнёрами Alashed. Реальный опыт соревнований до официального старта.",
   },
   {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
+    icon: <File01Icon size={24} color="#2E9DE0" />,
     title: "Помощь с документацией",
     desc: "Помогаем оформить заявки, анкеты участников и проектную документацию. Знаем требования каждого соревнования.",
   },
@@ -122,9 +101,7 @@ export default function CompetitionsPage() {
       <div className="max-w-[1060px] mx-auto px-4 sm:px-6 pt-16 pb-20 sm:pt-20 sm:pb-28">
         <div className="max-w-[680px]">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#FEF3C7] rounded-full border border-[#FCD34D]/60 mb-6">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <path d="M6 1l1.2 2.5L10 4l-2 1.9.5 2.6L6 7.4l-2.5 1.1.5-2.6L2 4l2.8-.5L6 1z" stroke="#D97706" strokeWidth="1" strokeLinejoin="round"/>
-            </svg>
+            <StarIcon size={12} color="#D97706" />
             <span className="text-[#D97706] text-xs font-semibold font-sans uppercase tracking-wide">Соревнования</span>
           </div>
 

@@ -1,51 +1,42 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
+import {
+  SearchList01Icon,
+  CodeIcon,
+  ChipIcon,
+  StarIcon,
+  UserIcon,
+  GridViewIcon,
+  ArrowDown01Icon,
+  Briefcase01Icon,
+  News01Icon,
+} from "hugeicons-react"
 
 const products = [
   {
     name: "Alashed EDU",
     desc: "AI-генерация КМЖ, БЖБ, ТЖБ с привязкой к ГОСО 2026",
     href: "https://edu.alashed.kz",
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-        <path d="M2 4h12M2 8h8M2 12h5" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round"/>
-        <circle cx="13" cy="11" r="2.5" stroke="#2E9DE0" strokeWidth="1.25"/>
-        <path d="M14.8 13.8l1.5 1.5" stroke="#2E9DE0" strokeWidth="1.25" strokeLinecap="round"/>
-      </svg>
-    ),
+    icon: <SearchList01Icon size={16} color="#2E9DE0" strokeWidth={1.5} />,
   },
   {
     name: "CodeStudio",
     desc: "Браузерное IDE: Python, JS, Scratch — деплой на Arduino",
     href: "https://studio.alashed.kz",
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-        <path d="M5 5L2 8l3 3M11 5l3 3-3 3M9 4l-2 8" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
+    icon: <CodeIcon size={16} color="#2E9DE0" strokeWidth={1.5} />,
   },
   {
     name: "Hardware",
     desc: "Официальный импорт Arduino, ESP32, Raspberry Pi в КЗ",
     href: "/hardware",
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-        <rect x="2" y="5" width="12" height="7" rx="1" stroke="#2E9DE0" strokeWidth="1.25"/>
-        <path d="M5 5V4a3 3 0 016 0v1" stroke="#2E9DE0" strokeWidth="1.25"/>
-        <path d="M5 9h2M9 9h2" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
+    icon: <ChipIcon size={16} color="#2E9DE0" strokeWidth={1.5} />,
   },
   {
     name: "Соревнования",
     desc: "Подготовка к Infomatrix, KazRobotics, WRO",
     href: "/competitions",
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-        <path d="M8 2l1.5 3 3.5.5-2.5 2.5.5 3.5L8 10l-3 1.5.5-3.5L3 5.5l3.5-.5L8 2z" stroke="#2E9DE0" strokeWidth="1.25" strokeLinejoin="round"/>
-      </svg>
-    ),
+    icon: <StarIcon size={16} color="#2E9DE0" strokeWidth={1.5} />,
   },
 ]
 
@@ -54,44 +45,24 @@ const solutions = [
     name: "Для учителей",
     desc: "AI-ассистент, который знает ГОСО и ваш класс",
     href: "/for-teachers",
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-        <circle cx="8" cy="5" r="3" stroke="#2E9DE0" strokeWidth="1.25"/>
-        <path d="M2 14c0-3 2.7-5 6-5s6 2 6 5" stroke="#2E9DE0" strokeWidth="1.25" strokeLinecap="round"/>
-      </svg>
-    ),
+    icon: <UserIcon size={16} color="#2E9DE0" strokeWidth={1.5} />,
   },
   {
     name: "Для директоров",
     desc: "Аналитика школы, инвентарь и отчётность в одном дашборде",
     href: "/for-directors",
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-        <rect x="2" y="2" width="5" height="5" rx="1" stroke="#2E9DE0" strokeWidth="1.25"/>
-        <rect x="9" y="2" width="5" height="5" rx="1" stroke="#2E9DE0" strokeWidth="1.25"/>
-        <rect x="2" y="9" width="5" height="5" rx="1" stroke="#2E9DE0" strokeWidth="1.25"/>
-        <path d="M9 11.5h5M11.5 9v5" stroke="#2E9DE0" strokeWidth="1.25" strokeLinecap="round"/>
-      </svg>
-    ),
+    icon: <GridViewIcon size={16} color="#2E9DE0" strokeWidth={1.5} />,
   },
   {
     name: "Для учеников",
     desc: "CodeStudio, геймификация и соревнования",
     href: "/for-students",
-    icon: (
-      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-        <path d="M4 5L2 8l2 3M12 5l2 3-2 3M7 4l-1.5 8" stroke="#2E9DE0" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
+    icon: <CodeIcon size={16} color="#2E9DE0" strokeWidth={1.5} />,
   },
 ]
 
 function ChevronDown() {
-  return (
-    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-      <path d="M3 4.5l3 3 3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-  )
+  return <ArrowDown01Icon size={12} color="currentColor" strokeWidth={1.5} />
 }
 
 function DropdownMenu({ items }: { items: typeof products }) {
@@ -302,11 +273,7 @@ export default function Navbar() {
           <div className="px-4 py-3 flex flex-col gap-1">
             <a href="https://it.alashed.kz" target="_blank" rel="noopener noreferrer" onClick={() => setMobileOpen(false)} className="flex items-center gap-3 py-2.5 hover:bg-[#F7F5F3] rounded-xl px-2 -mx-2 transition-colors">
               <div className="w-7 h-7 rounded-lg bg-[#EBF7FF] flex items-center justify-center flex-shrink-0">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <rect x="1.5" y="3" width="11" height="8" rx="1" stroke="#2E9DE0" strokeWidth="1.25"/>
-                  <path d="M5 3V2.5a2 2 0 014 0V3" stroke="#2E9DE0" strokeWidth="1.25"/>
-                  <path d="M4.5 7h5M7 5.5v3" stroke="#2E9DE0" strokeWidth="1.25" strokeLinecap="round"/>
-                </svg>
+                <Briefcase01Icon size={14} color="#2E9DE0" strokeWidth={1.5} />
               </div>
               <div>
                 <span className="text-[#37322F] text-sm font-medium font-sans block">Услуги</span>
@@ -315,18 +282,13 @@ export default function Navbar() {
             </a>
             <a href="/blog" onClick={() => setMobileOpen(false)} className="flex items-center gap-3 py-2.5 hover:bg-[#F7F5F3] rounded-xl px-2 -mx-2 transition-colors">
               <div className="w-7 h-7 rounded-lg bg-[#EBF7FF] flex items-center justify-center flex-shrink-0">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path d="M2 3h10M2 6.5h7M2 10h5" stroke="#2E9DE0" strokeWidth="1.25" strokeLinecap="round"/>
-                </svg>
+                <News01Icon size={14} color="#2E9DE0" strokeWidth={1.5} />
               </div>
               <span className="text-[#37322F] text-sm font-medium font-sans">Блог</span>
             </a>
             <a href="#contact" onClick={() => setMobileOpen(false)} className="flex items-center gap-3 py-2.5 hover:bg-[#F7F5F3] rounded-xl px-2 -mx-2 transition-colors">
               <div className="w-7 h-7 rounded-lg bg-[#EBF7FF] flex items-center justify-center flex-shrink-0">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <circle cx="7" cy="5" r="2.5" stroke="#2E9DE0" strokeWidth="1.25"/>
-                  <path d="M2 13c0-2.8 2.2-5 5-5s5 2.2 5 5" stroke="#2E9DE0" strokeWidth="1.25" strokeLinecap="round"/>
-                </svg>
+                <UserIcon size={14} color="#2E9DE0" strokeWidth={1.5} />
               </div>
               <span className="text-[#37322F] text-sm font-medium font-sans">О нас</span>
             </a>
