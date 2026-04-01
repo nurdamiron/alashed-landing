@@ -11,18 +11,18 @@ const productLinks = [
 ]
 
 const companyLinks = [
-  { label: "О нас", href: "#" },
+  { label: "О нас", href: "/#contact" },
   { label: "Для учителей", href: "/for-teachers" },
   { label: "Для директоров", href: "/for-directors" },
   { label: "Блог", href: "/blog" },
-  { label: "Контакты", href: "#contact" },
+  { label: "Контакты", href: "/#contact" },
 ]
 
 const resourceLinks = [
-  { label: "ГОСО 2026", href: "#" },
-  { label: "Документация", href: "#" },
-  { label: "Обучение", href: "#" },
-  { label: "Поддержка", href: "#" },
+  { label: "ГОСО 2026", href: "/blog/category/goso-2026" },
+  { label: "Документация", href: "https://edu.alashed.kz" },
+  { label: "Обучение", href: "/for-students" },
+  { label: "Поддержка", href: "/#contact" },
 ]
 
 export default function FooterSection() {
@@ -55,7 +55,7 @@ export default function FooterSection() {
                     <circle cx="18" cy="6" r="1.5" fill="#49423D"/>
                   </svg>
                 )},
-                { label: "LinkedIn", href: "#", icon: (
+                { label: "LinkedIn", href: "https://linkedin.com/company/alashed", icon: (
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                     <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z" fill="#49423D"/>
                   </svg>
@@ -155,10 +155,10 @@ export default function FooterSection() {
             © 2025 Alashed. Все права защищены.
           </span>
           <div className="flex items-center gap-3 sm:gap-4">
-            <a href="#" className="text-[rgba(73,66,61,0.50)] text-[11px] sm:text-xs font-normal font-sans hover:text-[#49423D] transition-colors">
+            <a href="https://it.alashed.kz/privacy" className="text-[rgba(73,66,61,0.50)] text-[11px] sm:text-xs font-normal font-sans hover:text-[#49423D] transition-colors">
               Конфиденциальность
             </a>
-            <a href="#" className="text-[rgba(73,66,61,0.50)] text-[11px] sm:text-xs font-normal font-sans hover:text-[#49423D] transition-colors">
+            <a href="https://it.alashed.kz/terms" className="text-[rgba(73,66,61,0.50)] text-[11px] sm:text-xs font-normal font-sans hover:text-[#49423D] transition-colors">
               Условия
             </a>
           </div>
