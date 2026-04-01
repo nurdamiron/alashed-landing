@@ -116,14 +116,14 @@ export default function LandingPage() {
                       </div>
                     </StaggerItem>
 
-                    {/* Bottom Left - Hardware */}
+                    {/* Bottom Left - Alash Electronics Store */}
                     <StaggerItem className="border-r-0 md:border-r border-[rgba(55,50,47,0.12)] p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-start items-start gap-4 sm:gap-6 bg-transparent">
                       <div className="flex flex-col gap-2">
                         <h3 className="text-[#37322F] text-lg sm:text-xl font-semibold leading-tight font-sans">
-                          Hardware — официальный импорт
+                          Alash Electronics — магазин
                         </h3>
                         <p className="text-[#605A57] text-sm md:text-base font-normal leading-relaxed font-sans">
-                          Arduino, ESP32, Raspberry Pi, Micro:bit — напрямую в школы без посредников. Заказ из дашборда директора.
+                          Онлайн-магазин STEM-оборудования для школ. Arduino, ESP32, Raspberry Pi, датчики, роботы — с доставкой по Казахстану.
                         </p>
                       </div>
                       <div className="w-full h-[200px] sm:h-[250px] md:h-[300px] lg:h-[350px] rounded-lg overflow-hidden">

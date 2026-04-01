@@ -3,134 +3,136 @@
 import { motion, useInView } from "framer-motion"
 import { useRef, useState, useEffect } from "react"
 
-function ChipIcon({ color }: { color: string }) {
-  return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <rect x="3" y="3" width="10" height="10" rx="2" stroke={color} strokeWidth="1.2"/>
-      <rect x="5.5" y="5.5" width="5" height="5" rx="1" fill={color} opacity="0.15"/>
-      <path d="M6 1v2M10 1v2M6 13v2M10 13v2M1 6h2M1 10h2M13 6h2M13 10h2" stroke={color} strokeWidth="1" strokeLinecap="round"/>
-    </svg>
-  )
-}
-
 const products = [
-  { name: "Arduino Uno R4", price: "125 A", qty: "x30", color: "#2E9DE0", status: "inStock" },
-  { name: "ESP32 DevKit", price: "82 A", qty: "x30", color: "#28C840", status: "inStock" },
-  { name: "Micro:bit V2", price: "158 A", qty: "x15", color: "#F5A623", status: "inStock" },
-  { name: "Raspberry Pi 5", price: "389 A", qty: "x5", color: "#E84D4D", status: "limited" },
+  {
+    name: "Arduino Uno R4 WiFi",
+    price: "12 900",
+    tag: "Хит",
+    tagColor: "#2E9DE0",
+    gradient: "from-[#0097D1] to-[#00BCD4]",
+  },
+  {
+    name: "ESP32-S3 DevKit",
+    price: "6 400",
+    tag: "Новинка",
+    tagColor: "#28C840",
+    gradient: "from-[#28C840] to-[#4ADE80]",
+  },
+  {
+    name: "Raspberry Pi 5 (8GB)",
+    price: "42 500",
+    tag: "PRO",
+    tagColor: "#C51A4A",
+    gradient: "from-[#C51A4A] to-[#E84D72]",
+  },
+  {
+    name: "Micro:bit V2 Starter Kit",
+    price: "15 800",
+    tag: "Набор",
+    tagColor: "#F5A623",
+    gradient: "from-[#F5A623] to-[#FBBF24]",
+  },
 ]
 
 export default function HardwareDemo() {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
-  const [selectedItems, setSelectedItems] = useState<number[]>([])
-  const [showTotal, setShowTotal] = useState(false)
-  const [orderPlaced, setOrderPlaced] = useState(false)
+  const [visibleItems, setVisibleItems] = useState<number[]>([])
 
   useEffect(() => {
     if (!isInView) return
-    const timers = [
-      setTimeout(() => setSelectedItems([0]), 800),
-      setTimeout(() => setSelectedItems([0, 1]), 1200),
-      setTimeout(() => setSelectedItems([0, 1, 2]), 1600),
-      setTimeout(() => setShowTotal(true), 2000),
-      setTimeout(() => setOrderPlaced(true), 2800),
-    ]
+    const timers = products.map((_, i) =>
+      setTimeout(() => setVisibleItems(prev => [...prev, i]), 400 + i * 250)
+    )
     return () => timers.forEach(clearTimeout)
   }, [isInView])
 
   return (
     <div ref={ref} className="w-full h-full rounded-lg overflow-hidden bg-white border border-[rgba(55,50,47,0.08)] shadow-[0_1px_3px_rgba(0,0,0,0.04)] flex flex-col">
-      {/* Header */}
+      {/* Store Header */}
       <div className="flex items-center justify-between px-3 py-2 border-b border-[rgba(55,50,47,0.06)] bg-[#FAFAF9]">
         <div className="flex items-center gap-2">
-          <div className="w-5 h-5 rounded bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center">
-            <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-              <rect x="2" y="3" width="6" height="5" rx="0.5" stroke="white" strokeWidth="0.8"/>
-              <path d="M4 3V2h2v1" stroke="white" strokeWidth="0.8"/>
-            </svg>
+          <div className="w-5 h-5 rounded-md bg-[#1a1715] flex items-center justify-center">
+            <span className="text-[7px] font-black text-white tracking-tight">AE</span>
           </div>
-          <span className="text-[11px] font-semibold text-[#37322F] font-sans">Заказ оборудования</span>
+          <span className="text-[11px] font-semibold text-[#37322F] font-sans">Alash Electronics</span>
         </div>
-        <span className="text-[9px] text-[#605A57] font-sans hidden sm:block">Дашборд директора</span>
+        <a
+          href="https://alash-electronics.kz"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[9px] text-[#2E9DE0] font-semibold font-sans hidden sm:block hover:underline"
+        >
+          alash-electronics.kz →
+        </a>
       </div>
 
-      {/* Product list */}
-      <div className="flex-1 p-2 sm:p-2.5 flex flex-col gap-1 sm:gap-1.5 overflow-hidden">
+      {/* Products Grid */}
+      <div className="flex-1 p-2 sm:p-2.5 grid grid-cols-2 gap-1.5 sm:gap-2 overflow-hidden">
         {products.map((product, i) => {
-          const isSelected = selectedItems.includes(i)
+          const isVisible = visibleItems.includes(i)
           return (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 8 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.2 + i * 0.15, duration: 0.35 }}
-              className={`flex items-center gap-2 p-2 rounded-md border transition-colors duration-300 ${
-                isSelected
-                  ? "border-[#5BB8F5]/40 bg-[#EBF7FF]/50"
-                  : "border-[rgba(55,50,47,0.06)] bg-white"
-              }`}
+              initial={{ opacity: 0, y: 12, scale: 0.95 }}
+              animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : {}}
+              transition={{ duration: 0.4, type: "spring", stiffness: 300, damping: 25 }}
+              className="flex flex-col rounded-lg border border-[rgba(55,50,47,0.06)] bg-white overflow-hidden group"
             >
-              <motion.div
-                animate={isSelected ? { scale: [1, 1.15, 1] } : {}}
-                transition={{ duration: 0.25 }}
-                className="flex-shrink-0"
-              >
-                <ChipIcon color={product.color} />
-              </motion.div>
-              <div className="flex-1 min-w-0">
-                <div className="text-[11px] font-medium text-[#37322F] font-sans truncate">{product.name}</div>
-                <div className="text-[9px] text-[#605A57] font-sans">{product.price} coins / шт</div>
-              </div>
-              <span className="text-[10px] font-medium text-[#37322F] font-sans">{product.qty}</span>
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={isSelected ? { scale: 1 } : { scale: 0 }}
-                transition={{ type: "spring", stiffness: 500, damping: 20 }}
-                className="w-4 h-4 rounded-full bg-[#5BB8F5] flex items-center justify-center flex-shrink-0"
-              >
-                <svg width="8" height="8" viewBox="0 0 8 8" fill="none">
-                  <path d="M2 4l1.5 1.5L6 3" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+              {/* Product image placeholder */}
+              <div className={`h-[60px] sm:h-[72px] bg-gradient-to-br ${product.gradient} relative flex items-center justify-center`}>
+                {/* Circuit board pattern */}
+                <div className="absolute inset-0 opacity-10">
+                  <div className="w-full h-full" style={{
+                    backgroundImage: `
+                      linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px),
+                      linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px)
+                    `,
+                    backgroundSize: "8px 8px",
+                  }} />
+                </div>
+                {/* Chip icon */}
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="opacity-40">
+                  <rect x="6" y="6" width="12" height="12" rx="2" stroke="white" strokeWidth="1.5"/>
+                  <rect x="9" y="9" width="6" height="6" rx="1" fill="white" opacity="0.3"/>
+                  <path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3" stroke="white" strokeWidth="1" strokeLinecap="round"/>
                 </svg>
-              </motion.div>
+                {/* Tag */}
+                <span
+                  className="absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded text-[7px] font-bold text-white uppercase tracking-wider"
+                  style={{ backgroundColor: "rgba(0,0,0,0.25)", backdropFilter: "blur(4px)" }}
+                >
+                  {product.tag}
+                </span>
+              </div>
+              {/* Product info */}
+              <div className="p-2 flex flex-col gap-0.5">
+                <span className="text-[10px] sm:text-[11px] font-medium text-[#37322F] font-sans leading-tight line-clamp-2">
+                  {product.name}
+                </span>
+                <span className="text-[11px] sm:text-[12px] font-bold text-[#1a1715] font-sans">
+                  {product.price} ₸
+                </span>
+              </div>
             </motion.div>
           )
         })}
-
-        {/* Total & Order */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={showTotal ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.4 }}
-          className="mt-auto pt-2 border-t border-[rgba(55,50,47,0.06)]"
-        >
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-[10px] text-[#605A57] font-sans">Итого (75 шт)</span>
-            <span className="text-[12px] font-semibold text-[#37322F] font-sans">10 935 A coins</span>
-          </div>
-          <motion.div
-            animate={orderPlaced ? { backgroundColor: "#28C840" } : { backgroundColor: "#5BB8F5" }}
-            transition={{ duration: 0.3 }}
-            className="w-full py-1.5 rounded-md flex items-center justify-center gap-1.5"
-          >
-            {orderPlaced ? (
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ type: "spring", stiffness: 400 }}
-                className="flex items-center gap-1.5"
-              >
-                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                  <path d="M2 5l2.5 2.5L8 3" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                <span className="text-[10px] font-semibold text-white font-sans">Заказ оформлен</span>
-              </motion.div>
-            ) : (
-              <span className="text-[10px] font-semibold text-white font-sans">Заказать</span>
-            )}
-          </motion.div>
-        </motion.div>
       </div>
+
+      {/* Bottom CTA */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={visibleItems.length >= 4 ? { opacity: 1 } : {}}
+        transition={{ duration: 0.4 }}
+        className="px-2.5 pb-2.5"
+      >
+        <div className="w-full py-1.5 rounded-lg bg-[#1a1715] flex items-center justify-center gap-1.5">
+          <span className="text-[10px] font-semibold text-white font-sans">Перейти в каталог</span>
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+            <path d="M3 5h4M5.5 3L7.5 5L5.5 7" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </div>
+      </motion.div>
     </div>
   )
 }
