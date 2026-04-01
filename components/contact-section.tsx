@@ -55,7 +55,7 @@ export default function ContactSection() {
         </ScrollReveal>
         <ScrollReveal delay={0.2}>
           <p className="text-[#605A57] text-sm sm:text-base font-normal leading-7 font-sans max-w-[520px]">
-            Подключим вашу школу за 48 часов. Первый месяц — бесплатно.
+            Подключим вашу школу за 48 часов. Полный доступ ко всей экосистеме — первый месяц бесплатно.
           </p>
         </ScrollReveal>
       </div>

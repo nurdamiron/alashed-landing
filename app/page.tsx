@@ -38,7 +38,7 @@ export default function LandingPage() {
           {/* Right vertical line */}
           <div className="w-[1px] h-full absolute right-4 sm:right-6 md:right-8 lg:right-0 top-0 bg-[rgba(55,50,47,0.12)] shadow-[1px_0px_0px_white] z-0"></div>
 
-          <div className="self-stretch pt-[9px] overflow-hidden border-b border-[rgba(55,50,47,0.06)] flex flex-col justify-center items-center gap-4 sm:gap-6 md:gap-8 lg:gap-[66px] relative z-10">
+          <div className="self-stretch pt-[9px] border-b border-[rgba(55,50,47,0.06)] flex flex-col justify-center items-center gap-4 sm:gap-6 md:gap-8 lg:gap-[66px] relative z-10">
             <Navbar />
 
             {/* Hero Section */}
@@ -120,7 +120,7 @@ export default function LandingPage() {
                     <StaggerItem className="border-r-0 md:border-r border-[rgba(55,50,47,0.12)] p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-start items-start gap-4 sm:gap-6 bg-transparent">
                       <div className="flex flex-col gap-2">
                         <h3 className="text-[#37322F] text-lg sm:text-xl font-semibold leading-tight font-sans">
-                          Alash Electronics — магазин
+                          Alash Electronics — официальный импорт
                         </h3>
                         <p className="text-[#605A57] text-sm md:text-base font-normal leading-relaxed font-sans">
                           Онлайн-магазин STEM-оборудования для школ. Arduino, ESP32, Raspberry Pi, датчики, роботы — с доставкой по Казахстану.

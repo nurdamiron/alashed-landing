@@ -27,9 +27,9 @@ const products = [
     icon: <CodeIcon size={16} color="#2E9DE0" strokeWidth={1.5} />,
   },
   {
-    name: "Hardware",
+    name: "Alash Electronics",
     desc: "Официальный импорт Arduino, ESP32, Raspberry Pi в КЗ",
-    href: "/hardware",
+    href: "https://alash-electronics.kz",
     icon: <ChipIcon size={16} color="#2E9DE0" strokeWidth={1.5} />,
   },
   {
@@ -310,7 +310,7 @@ export default function Navbar() {
               onClick={() => setMobileOpen(false)}
               className="w-full py-3 bg-[rgba(55,50,47,0.05)] hover:bg-[rgba(55,50,47,0.08)] transition-colors rounded-full text-[#37322F] text-sm font-medium font-sans text-center"
             >
-              Попробовать EDU
+              Попробовать бесплатно
             </a>
           </div>
         </div>

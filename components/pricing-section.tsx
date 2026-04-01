@@ -22,8 +22,8 @@ function DiagonalPattern() {
 export default function PricingSection() {
   const [billing, setBilling] = useState<"monthly" | "annually">("annually")
 
-  const schoolPrice = billing === "annually" ? "6 000 ₸" : "7 500 ₸"
-  const schoolPeriod = billing === "annually" ? "/мес · годовая подписка" : "/мес · месячная оплата"
+  const schoolPrice = "По запросу"
+  const schoolPeriod = billing === "annually" ? "годовая подписка · скидка 20%" : "месячная подписка"
 
   return (
     <div id="pricing" className="w-full flex flex-col justify-center items-center gap-2">
@@ -95,7 +95,7 @@ export default function PricingSection() {
                 <div className="self-stretch flex flex-col justify-start items-start gap-2">
                   <div className="text-[rgba(55,50,47,0.90)] text-lg font-medium leading-7 font-sans">Бесплатно</div>
                   <div className="w-full max-w-[242px] text-[rgba(41,37,35,0.70)] text-sm font-normal leading-5 font-sans">
-                    Для одного учителя — попробуйте без риска.
+                    Попробуйте всю экосистему без риска.
                   </div>
                 </div>
                 <div className="self-stretch flex flex-col justify-start items-start gap-2">
@@ -115,9 +115,9 @@ export default function PricingSection() {
               </div>
               <div className="self-stretch flex flex-col justify-start items-start gap-2">
                 {[
-                  "1 учитель",
+                  "1 учитель + 1 класс учеников",
                   "AI-генерация: 10 ҚМЖ в месяц",
-                  "AI-генерация: 5 БЖБ/ТЖБ в месяц",
+                  "CodeStudio: 10 часов/месяц",
                   "Электронный журнал (1 класс)",
                   "Доступ к ГОСО 2026 базе",
                 ].map((feature, index) => (
@@ -136,11 +136,11 @@ export default function PricingSection() {
               <div className="self-stretch flex flex-col justify-start items-center gap-9">
                 <div className="self-stretch flex flex-col justify-start items-start gap-2">
                   <div className="flex items-center gap-2">
-                    <div className="text-white text-lg font-medium leading-7 font-sans">Школа</div>
+                    <div className="text-white text-lg font-medium leading-7 font-sans">Школа — полная экосистема</div>
                     <div className="px-2 py-0.5 bg-[#5BB8F5]/30 rounded text-[#D6EFFE] text-[11px] font-semibold font-sans">Популярный</div>
                   </div>
                   <div className="w-full max-w-[242px] text-[#A8D8F5] text-sm font-normal leading-5 font-sans">
-                    Весь педагогический состав школы. Полный AI.
+                    EDU + CodeStudio + Журнал + Alash Electronics. Всё включено.
                   </div>
                 </div>
                 <div className="self-stretch flex flex-col justify-start items-start gap-2">
