@@ -12,6 +12,15 @@ import HardwareDemo from "@/components/demos/hardware-demo"
 import JournalDemo from "@/components/demos/journal-demo"
 import FooterSection from "@/components/footer-section"
 import ContactSection from "@/components/contact-section"
+import {
+  ArrowRight02Icon,
+  CheckmarkCircle02Icon,
+  SparklesIcon,
+  Rocket01Icon,
+  AiBrain01Icon,
+  CodeIcon,
+  Shield01Icon,
+} from "hugeicons-react"
 
 // Reusable Badge Component
 function Badge({ icon, text }: { icon: React.ReactNode; text: string }) {
@@ -46,6 +55,18 @@ export default function LandingPage() {
             <div className="pt-16 sm:pt-20 md:pt-24 lg:pt-[216px] pb-8 sm:pb-12 md:pb-16 flex flex-col justify-start items-center px-2 sm:px-4 md:px-8 lg:px-0 w-full sm:pl-0 sm:pr-0 pl-0 pr-0">
                 <div className="w-full max-w-[937px] lg:w-[937px] flex flex-col justify-center items-center gap-3 sm:gap-4 md:gap-5 lg:gap-6">
                 <div className="self-stretch rounded-[3px] flex flex-col justify-center items-center gap-4 sm:gap-5 md:gap-6 lg:gap-8">
+
+                  {/* Top pill badge */}
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+                    className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#EBF7FF] rounded-full border border-[#5BB8F5]/30"
+                  >
+                    <SparklesIcon size={14} color="#2E9DE0" strokeWidth={2} />
+                    <span className="text-[#2E9DE0] text-xs font-semibold tracking-wide uppercase font-sans">STEM-платформа для школ</span>
+                  </motion.div>
+
                   {/* Animated headline */}
                   <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -89,42 +110,51 @@ export default function LandingPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.65, ease: [0.25, 0.1, 0.25, 1] }}
-                className="w-full max-w-[497px] lg:w-[497px] flex flex-col justify-center items-center gap-6 sm:gap-8 md:gap-10 lg:gap-12 relative z-10 mt-6 sm:mt-8 md:mt-10 lg:mt-12"
+                className="w-full max-w-[540px] lg:w-[540px] flex flex-col justify-center items-center gap-6 sm:gap-8 md:gap-10 lg:gap-10 relative z-10 mt-6 sm:mt-8 md:mt-10 lg:mt-10"
               >
                 <div className="backdrop-blur-[8.25px] flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 w-full sm:w-auto px-4 sm:px-0">
                   <motion.a
                     href="https://edu.alashed.kz"
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.98 }}
-                    className="h-10 sm:h-11 px-6 sm:px-8 md:px-10 lg:px-12 bg-[#5BB8F5] hover:bg-[#2E9DE0] transition-colors rounded-full flex items-center justify-center gap-2 shadow-[0px_1px_3px_rgba(91,184,245,0.40)] w-full sm:w-auto"
+                    className="h-11 sm:h-12 px-7 sm:px-8 md:px-10 bg-[#5BB8F5] hover:bg-[#2E9DE0] transition-colors rounded-full flex items-center justify-center gap-2.5 shadow-[0px_1px_3px_rgba(91,184,245,0.40),0px_0px_0px_1px_rgba(91,184,245,0.15)] w-full sm:w-auto"
                   >
+                    <Rocket01Icon size={16} color="white" strokeWidth={2} />
                     <span className="text-white text-sm font-semibold font-sans">
                       Попробовать бесплатно
                     </span>
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M2.5 7H11.5M11.5 7L8 3.5M11.5 7L8 10.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
+                    <ArrowRight02Icon size={16} color="white" strokeWidth={2} />
                   </motion.a>
                   <motion.a
                     href="#contact"
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.98 }}
-                    className="h-10 px-6 bg-white hover:bg-[#F7F5F3] text-[#37322F] rounded-full font-medium text-sm transition-colors flex items-center justify-center shadow-[0px_1px_2px_rgba(55,50,47,0.12)] w-full sm:w-auto"
+                    className="h-11 sm:h-12 px-7 bg-white hover:bg-[#F7F5F3] text-[#37322F] rounded-full font-semibold text-sm transition-colors flex items-center justify-center gap-2 shadow-[0px_1px_2px_rgba(55,50,47,0.12),0px_0px_0px_1px_rgba(55,50,47,0.06)] w-full sm:w-auto"
                   >
                     Запросить демо
                   </motion.a>
                 </div>
 
-                {/* Animated badge */}
+                {/* Trust indicators */}
                 <motion.div
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, delay: 0.85, type: "spring", stiffness: 300 }}
-                  className="flex items-center gap-2 text-[rgba(55,50,47,0.60)] text-sm font-medium"
+                  className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-[rgba(55,50,47,0.55)] text-[13px] font-medium"
                 >
-                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-[#EBF7FF] text-[#2E9DE0] text-xs font-semibold border border-[#5BB8F5]/30">
-                    ГОСО 2026
-                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5l2 2 4-4" stroke="#2E9DE0" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  <span className="inline-flex items-center gap-1.5">
+                    <CheckmarkCircle02Icon size={14} color="#2E9DE0" strokeWidth={2} />
+                    <span>ГОСО 2026</span>
+                  </span>
+                  <span className="w-1 h-1 rounded-full bg-[rgba(55,50,47,0.25)]" />
+                  <span className="inline-flex items-center gap-1.5">
+                    <AiBrain01Icon size={14} color="#2E9DE0" strokeWidth={2} />
+                    <span>AI-powered</span>
+                  </span>
+                  <span className="w-1 h-1 rounded-full bg-[rgba(55,50,47,0.25)]" />
+                  <span className="inline-flex items-center gap-1.5">
+                    <Shield01Icon size={14} color="#2E9DE0" strokeWidth={2} />
+                    <span>50+ школ</span>
                   </span>
                 </motion.div>
               </motion.div>
@@ -221,14 +251,7 @@ export default function LandingPage() {
                   <div className="w-full max-w-[616px] lg:w-[616px] px-4 sm:px-6 py-4 sm:py-5 overflow-hidden rounded-lg flex flex-col justify-start items-center gap-3 sm:gap-4">
                     <ScrollReveal animation="scaleIn" delay={0.1}>
                       <Badge
-                        icon={
-                          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="1" y="1" width="4" height="4" stroke="#2E9DE0" strokeWidth="1" fill="none" />
-                            <rect x="7" y="1" width="4" height="4" stroke="#2E9DE0" strokeWidth="1" fill="none" />
-                            <rect x="1" y="7" width="4" height="4" stroke="#2E9DE0" strokeWidth="1" fill="none" />
-                            <rect x="7" y="7" width="4" height="4" stroke="#2E9DE0" strokeWidth="1" fill="none" />
-                          </svg>
-                        }
+                        icon={<CodeIcon size={14} color="#2E9DE0" strokeWidth={2} />}
                         text="Продукты"
                       />
                     </ScrollReveal>
