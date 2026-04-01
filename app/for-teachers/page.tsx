@@ -111,7 +111,7 @@ export default function ForTeachersPage() {
           <div className="flex flex-wrap gap-3">
             <Link href="https://edu.alashed.kz"
               className="px-6 py-3 bg-[#5BB8F5] hover:bg-[#2E9DE0] transition-colors rounded-full text-white text-sm font-semibold font-sans">
-              Попробовать бесплатно
+              Начать работу
             </Link>
             <Link href="/#contact"
               className="px-6 py-3 bg-white border border-[rgba(55,50,47,0.20)] hover:bg-[#F0EFEE] transition-colors rounded-full text-[#37322F] text-sm font-medium font-sans">
@@ -215,7 +215,7 @@ export default function ForTeachersPage() {
           <div className="flex flex-wrap gap-3 justify-center">
             <Link href="https://edu.alashed.kz"
               className="px-6 py-3 bg-[#5BB8F5] hover:bg-[#2E9DE0] transition-colors rounded-full text-white text-sm font-semibold font-sans">
-              Попробовать бесплатно
+              Начать работу
             </Link>
             <Link href="/#contact"
               className="px-6 py-3 bg-white border border-[rgba(55,50,47,0.20)] hover:bg-[#F7F5F3] transition-colors rounded-full text-[#37322F] text-sm font-medium font-sans">

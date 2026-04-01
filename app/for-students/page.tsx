@@ -116,7 +116,7 @@ export default function ForStudentsPage() {
           <div className="flex flex-wrap gap-3">
             <Link href="https://studio.alashed.kz"
               className="px-6 py-3 bg-[#5BB8F5] hover:bg-[#2E9DE0] transition-colors rounded-full text-white text-sm font-semibold font-sans">
-              Начать бесплатно
+              Начать работу
             </Link>
             <Link href="#tracks"
               className="px-6 py-3 bg-white border border-[rgba(55,50,47,0.20)] hover:bg-[#F0EFEE] transition-colors rounded-full text-[#37322F] text-sm font-medium font-sans">
@@ -192,7 +192,7 @@ export default function ForStudentsPage() {
           </p>
           <Link href="https://studio.alashed.kz"
             className="inline-flex px-8 py-3.5 bg-[#5BB8F5] hover:bg-[#2E9DE0] transition-colors rounded-full text-white text-sm font-semibold font-sans">
-            Зарегистрироваться бесплатно
+            Зарегистрироваться
           </Link>
         </div>
       </div>

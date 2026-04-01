@@ -284,14 +284,14 @@ export default function PostPage({ params }: { params: { slug: string } }) {
               <News01Icon size={18} color="#2E9DE0" strokeWidth={1.5} />
             </div>
             <div className="flex-1">
-              <div className="text-[#37322F] text-base font-semibold font-sans mb-1">Попробуйте Alashed бесплатно</div>
+              <div className="text-[#37322F] text-base font-semibold font-sans mb-1">Попробуйте Alashed</div>
               <p className="text-[#605A57] text-sm font-sans leading-6 mb-4">
                 Подключите школу к пилоту. Генерируйте КМЖ за 2 минуты, ведите CodeStudio уроки, заказывайте оборудование — всё в одном месте.
               </p>
               <div className="flex flex-wrap gap-2">
                 <Link href="https://edu.alashed.kz"
                   className="px-5 py-2.5 bg-[#5BB8F5] hover:bg-[#2E9DE0] transition-colors rounded-full text-white text-sm font-semibold font-sans">
-                  Начать бесплатно
+                  Начать работу
                 </Link>
                 <Link href="/#contact"
                   className="px-5 py-2.5 bg-white border border-[rgba(55,50,47,0.20)] hover:bg-[#F7F5F3] transition-colors rounded-full text-[#37322F] text-sm font-medium font-sans">

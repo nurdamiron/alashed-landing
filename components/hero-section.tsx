@@ -98,7 +98,7 @@ export function HeroSection() {
             className="group h-12 sm:h-[52px] px-7 sm:px-9 bg-[#37322F] hover:bg-[#1a1715] transition-all duration-200 rounded-[14px] flex items-center justify-center gap-2.5 shadow-[0_1px_2px_rgba(0,0,0,0.2),0_0_0_1px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.06)] w-full sm:w-auto"
           >
             <span className="text-white text-sm font-semibold font-sans">
-              Попробовать бесплатно
+              Начать работу
             </span>
             <div className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
               <ArrowRight02Icon size={12} color="white" strokeWidth={2.5} />

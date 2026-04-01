@@ -14,7 +14,7 @@ export default function AnnouncementBanner() {
         <span className="text-[#D6EFFE] text-xs font-semibold uppercase tracking-wide font-sans">Пилот 2025–2026</span>
         <span className="w-1 h-1 rounded-full bg-[#5BB8F5]/60" />
         <span className="text-white text-xs font-normal font-sans">
-          Принимаем заявки от школ Казахстана — бесплатный доступ на весь учебный год
+          Принимаем заявки от школ Казахстана — полная STEM-экосистема для вашей школы
         </span>
         <a
           href="#contact"

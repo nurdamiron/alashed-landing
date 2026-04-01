@@ -43,9 +43,9 @@ export default function PricingSection() {
           </div>
           {/* Description */}
           <div className="self-stretch text-center text-[#605A57] text-base font-normal leading-7 font-sans">
-            Начните бесплатно — переходите на полный план когда будете готовы.
+            Гибкие условия для каждой школы.
             <br />
-            Без скрытых платежей. Без привязки карты.
+            Без скрытых платежей. B2B оплата через тендеры.
           </div>
         </div>
       </div>
@@ -89,48 +89,6 @@ export default function PricingSection() {
           <DiagonalPattern />
 
           <div className="flex-1 flex flex-col md:flex-row justify-center items-stretch gap-0">
-            {/* Free Plan */}
-            <div className="flex-1 max-w-full self-stretch px-6 py-5 border border-[rgba(50,45,43,0.12)] bg-[rgba(255,255,255,0)] overflow-hidden flex flex-col justify-start items-start gap-12">
-              <div className="self-stretch flex flex-col justify-start items-center gap-9">
-                <div className="self-stretch flex flex-col justify-start items-start gap-2">
-                  <div className="text-[rgba(55,50,47,0.90)] text-lg font-medium leading-7 font-sans">Бесплатно</div>
-                  <div className="w-full max-w-[242px] text-[rgba(41,37,35,0.70)] text-sm font-normal leading-5 font-sans">
-                    Попробуйте всю экосистему без риска.
-                  </div>
-                </div>
-                <div className="self-stretch flex flex-col justify-start items-start gap-2">
-                  <div className="flex flex-col justify-start items-start gap-1">
-                    <div className="relative h-[60px] flex items-center text-[#37322F] text-5xl font-medium leading-[60px] font-serif">
-                      0 ₸
-                    </div>
-                    <div className="text-[#847971] text-sm font-medium font-sans">навсегда бесплатно</div>
-                  </div>
-                </div>
-                <a
-                  href="https://edu.alashed.kz"
-                  className="self-stretch px-4 py-[10px] bg-[#5BB8F5] shadow-[0px_2px_4px_rgba(91,184,245,0.30)] overflow-hidden rounded-[99px] flex justify-center items-center hover:bg-[#2E9DE0] transition-colors"
-                >
-                  <div className="text-white text-[13px] font-semibold leading-5 font-sans">Начать бесплатно</div>
-                </a>
-              </div>
-              <div className="self-stretch flex flex-col justify-start items-start gap-2">
-                {[
-                  "1 учитель + 1 класс учеников",
-                  "AI-генерация: 10 ҚМЖ в месяц",
-                  "CodeStudio: 10 часов/месяц",
-                  "Электронный журнал (1 класс)",
-                  "Доступ к ГОСО 2026 базе",
-                ].map((feature, index) => (
-                  <div key={index} className="self-stretch flex justify-start items-center gap-[13px]">
-                    <div className="w-4 h-4 flex items-center justify-center flex-shrink-0">
-                      <Tick01Icon size={12} color="#9CA3AF" />
-                    </div>
-                    <div className="flex-1 text-[rgba(55,50,47,0.80)] text-[12.5px] font-normal leading-5 font-sans">{feature}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
             {/* School Plan (Featured) */}
             <div className="flex-1 max-w-full self-stretch px-6 py-5 bg-[#1A6FA8] border border-[#1565A0] overflow-hidden flex flex-col justify-start items-start gap-12">
               <div className="self-stretch flex flex-col justify-start items-center gap-9">
@@ -232,7 +190,7 @@ export default function PricingSection() {
       {/* Footer note */}
       <div className="self-stretch py-6 flex justify-center items-center">
         <p className="text-[#847971] text-sm font-normal font-sans text-center">
-          Все тарифы включают бесплатный онбординг и техническую поддержку · B2B оплата через тендеры
+          Все тарифы включают онбординг и техническую поддержку · B2B оплата через тендеры
         </p>
       </div>
     </div>

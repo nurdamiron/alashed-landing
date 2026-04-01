@@ -24,7 +24,7 @@ export default function StickyMobileCTA() {
           href="https://edu.alashed.kz"
           className="flex-1 px-4 py-[10px] bg-[#5BB8F5] shadow-[0px_2px_4px_rgba(91,184,245,0.30)] rounded-[99px] flex justify-center items-center gap-2 hover:bg-[#2E9DE0] transition-colors"
         >
-          <span className="text-white text-[13px] font-semibold leading-5 font-sans">Попробовать бесплатно</span>
+          <span className="text-white text-[13px] font-semibold leading-5 font-sans">Начать работу</span>
         </a>
         <a
           href="#contact"

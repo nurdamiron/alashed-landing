@@ -88,7 +88,7 @@ export default function ForDirectorsPage() {
             </Link>
             <Link href="https://edu.alashed.kz"
               className="px-6 py-3 bg-white border border-[rgba(55,50,47,0.20)] hover:bg-[#F0EFEE] transition-colors rounded-full text-[#37322F] text-sm font-medium font-sans">
-              Попробовать бесплатно
+              Начать работу
             </Link>
           </div>
         </div>
