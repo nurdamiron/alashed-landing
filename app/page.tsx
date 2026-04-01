@@ -90,12 +90,12 @@ export default function LandingPage() {
                 transition={{ duration: 0.6, delay: 0.65, ease: [0.25, 0.1, 0.25, 1] }}
                 className="w-full max-w-[497px] lg:w-[497px] flex flex-col justify-center items-center gap-6 sm:gap-8 md:gap-10 lg:gap-12 relative z-10 mt-6 sm:mt-8 md:mt-10 lg:mt-12"
               >
-                <div className="backdrop-blur-[8.25px] flex justify-start items-center gap-4">
+                <div className="backdrop-blur-[8.25px] flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 w-full sm:w-auto px-4 sm:px-0">
                   <motion.a
                     href="https://edu.alashed.kz"
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.98 }}
-                    className="h-10 sm:h-11 px-6 sm:px-8 md:px-10 lg:px-12 bg-[#5BB8F5] hover:bg-[#2E9DE0] transition-colors rounded-full flex items-center gap-2 shadow-[0px_1px_3px_rgba(91,184,245,0.40)]"
+                    className="h-10 sm:h-11 px-6 sm:px-8 md:px-10 lg:px-12 bg-[#5BB8F5] hover:bg-[#2E9DE0] transition-colors rounded-full flex items-center justify-center gap-2 shadow-[0px_1px_3px_rgba(91,184,245,0.40)] w-full sm:w-auto"
                   >
                     <span className="text-white text-sm font-semibold font-sans">
                       Попробовать бесплатно
@@ -108,7 +108,7 @@ export default function LandingPage() {
                     href="#contact"
                     whileHover={{ scale: 1.03 }}
                     whileTap={{ scale: 0.98 }}
-                    className="h-10 px-6 bg-white hover:bg-[#F7F5F3] text-[#37322F] rounded-full font-medium text-sm transition-colors flex items-center shadow-[0px_1px_2px_rgba(55,50,47,0.12)]"
+                    className="h-10 px-6 bg-white hover:bg-[#F7F5F3] text-[#37322F] rounded-full font-medium text-sm transition-colors flex items-center justify-center shadow-[0px_1px_2px_rgba(55,50,47,0.12)] w-full sm:w-auto"
                   >
                     Запросить демо
                   </motion.a>
@@ -248,7 +248,7 @@ export default function LandingPage() {
 
                 {/* Bento Grid Content */}
                 <div className="self-stretch flex justify-center items-start">
-                  <div className="w-4 sm:w-6 md:w-8 lg:w-12 self-stretch relative overflow-hidden">
+                  <div className="hidden md:block w-4 sm:w-6 md:w-8 lg:w-12 self-stretch relative overflow-hidden">
                     {/* Left decorative pattern */}
                     <div className="w-[120px] sm:w-[140px] md:w-[162px] left-[-40px] sm:left-[-50px] md:left-[-58px] top-[-120px] absolute flex flex-col justify-start items-start">
                       {Array.from({ length: 200 }).map((_, i) => (
@@ -260,7 +260,7 @@ export default function LandingPage() {
                     </div>
                   </div>
 
-                  <StaggerContainer staggerDelay={0.15} className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-0 border-l border-r border-[rgba(55,50,47,0.12)]">
+                  <StaggerContainer staggerDelay={0.15} className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-0 border-l-0 md:border-l border-r-0 md:border-r border-[rgba(55,50,47,0.12)]">
                     {/* Top Left - Alashed EDU */}
                     <StaggerItem className="border-b border-r-0 md:border-r border-[rgba(55,50,47,0.12)] p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-start items-start gap-4 sm:gap-6">
                       <div className="flex flex-col gap-2">
@@ -307,7 +307,7 @@ export default function LandingPage() {
                     </StaggerItem>
 
                     {/* Bottom Right - Journal */}
-                    <StaggerItem className="p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-start items-start gap-4 sm:gap-6">
+                    <StaggerItem className="border-b md:border-b-0 border-[rgba(55,50,47,0.12)] last:border-b-0 p-4 sm:p-6 md:p-8 lg:p-12 flex flex-col justify-start items-start gap-4 sm:gap-6">
                       <div className="flex flex-col gap-2">
                         <h3 className="text-[#37322F] text-lg sm:text-xl font-semibold leading-tight font-sans">
                           Электронный журнал
@@ -322,7 +322,7 @@ export default function LandingPage() {
                     </StaggerItem>
                   </StaggerContainer>
 
-                  <div className="w-4 sm:w-6 md:w-8 lg:w-12 self-stretch relative overflow-hidden">
+                  <div className="hidden md:block w-4 sm:w-6 md:w-8 lg:w-12 self-stretch relative overflow-hidden">
                     {/* Right decorative pattern */}
                     <div className="w-[120px] sm:w-[140px] md:w-[162px] left-[-40px] sm:left-[-50px] md:left-[-58px] top-[-120px] absolute flex flex-col justify-start items-start">
                       {Array.from({ length: 200 }).map((_, i) => (

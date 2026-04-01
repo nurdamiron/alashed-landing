@@ -86,7 +86,7 @@ export default function CodeStudioDemo() {
       {/* Editor area */}
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* Code */}
-        <div className="flex-1 p-3 overflow-hidden">
+        <div className="flex-1 p-2 sm:p-3 overflow-hidden">
           <div className="flex flex-col gap-0">
             {codeLines.map((line, i) => (
               <motion.div
@@ -94,13 +94,13 @@ export default function CodeStudioDemo() {
                 initial={{ opacity: 0 }}
                 animate={i < visibleLines ? { opacity: 1 } : {}}
                 transition={{ duration: 0.15 }}
-                className="flex items-center gap-2 h-[18px]"
+                className="flex items-center gap-1.5 sm:gap-2 h-[16px] sm:h-[18px]"
               >
-                <span className="text-[10px] font-mono text-[rgba(255,255,255,0.2)] w-4 text-right select-none">
+                <span className="text-[8px] sm:text-[10px] font-mono text-[rgba(255,255,255,0.2)] w-3 sm:w-4 text-right select-none">
                   {i + 1}
                 </span>
                 {line.text ? (
-                  <span className="text-[11px] font-mono leading-none" style={{ color: line.color }}>
+                  <span className="text-[9px] sm:text-[11px] font-mono leading-none whitespace-nowrap" style={{ color: line.color }}>
                     {line.text}
                   </span>
                 ) : (
@@ -125,9 +125,9 @@ export default function CodeStudioDemo() {
           transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
           className="border-t border-[rgba(255,255,255,0.06)] bg-[#1A1A1A] overflow-hidden"
         >
-          <div className="p-2 flex flex-col gap-0.5">
-            <div className="flex items-center gap-1.5 mb-1">
-              <span className="text-[9px] font-mono text-[rgba(255,255,255,0.3)] uppercase tracking-wider">Terminal</span>
+          <div className="p-1.5 sm:p-2 flex flex-col gap-0.5">
+            <div className="flex items-center gap-1.5 mb-0.5 sm:mb-1">
+              <span className="text-[8px] sm:text-[9px] font-mono text-[rgba(255,255,255,0.3)] uppercase tracking-wider">Terminal</span>
             </div>
             {outputLines.map((line, i) => (
               <motion.div
@@ -135,9 +135,9 @@ export default function CodeStudioDemo() {
                 initial={{ opacity: 0, x: -5 }}
                 animate={showOutput ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: line.delay, duration: 0.2 }}
-                className="flex items-center"
+                className="flex items-center overflow-hidden"
               >
-                <span className={`text-[10px] font-mono leading-relaxed ${
+                <span className={`text-[8px] sm:text-[10px] font-mono leading-relaxed truncate ${
                   line.text.includes("✓") ? "text-[#28C840]" : "text-[rgba(255,255,255,0.5)]"
                 }`}>
                   {line.text}

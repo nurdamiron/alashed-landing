@@ -22,7 +22,7 @@ function GradeCell({ grade, delay, isVisible }: { grade: number; delay: number; 
       initial={{ opacity: 0, scale: 0.5 }}
       animate={isVisible ? { opacity: 1, scale: 1 } : {}}
       transition={{ delay, type: "spring", stiffness: 500, damping: 20 }}
-      className={`w-6 h-6 rounded flex items-center justify-center text-[10px] font-bold font-sans ${color}`}
+      className={`w-5 h-5 sm:w-6 sm:h-6 rounded flex items-center justify-center text-[9px] sm:text-[10px] font-bold font-sans ${color}`}
     >
       {grade}
     </motion.div>
@@ -64,14 +64,14 @@ export default function JournalDemo() {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ delay: 0.2, duration: 0.3 }}
-          className="flex items-center gap-0 px-2 py-1.5 border-b border-[rgba(55,50,47,0.06)] bg-[#FAFAF9]"
+          className="flex items-center gap-0 px-1.5 sm:px-2 py-1.5 border-b border-[rgba(55,50,47,0.06)] bg-[#FAFAF9]"
         >
-          <span className="w-[72px] text-[8px] font-medium text-[#605A57] uppercase tracking-wider font-sans flex-shrink-0">Ученик</span>
+          <span className="w-[52px] sm:w-[72px] text-[7px] sm:text-[8px] font-medium text-[#605A57] uppercase tracking-wider font-sans flex-shrink-0">Ученик</span>
           {["10.03", "12.03", "14.03", "17.03", "19.03"].map((d, i) => (
-            <span key={i} className="w-6 text-center text-[8px] text-[#605A57] font-mono flex-shrink-0">{d}</span>
+            <span key={i} className={`w-5 sm:w-6 text-center text-[7px] sm:text-[8px] text-[#605A57] font-mono flex-shrink-0 ${i >= 4 ? "hidden sm:block" : ""}`}>{d}</span>
           ))}
-          <span className="w-8 text-center text-[8px] font-medium text-[#605A57] uppercase font-sans flex-shrink-0 ml-1">СР</span>
-          <span className="flex-1 text-right text-[8px] font-medium text-[#605A57] uppercase font-sans">%</span>
+          <span className="w-6 sm:w-8 text-center text-[7px] sm:text-[8px] font-medium text-[#605A57] uppercase font-sans flex-shrink-0 ml-0.5 sm:ml-1">СР</span>
+          <span className="flex-1 text-right text-[7px] sm:text-[8px] font-medium text-[#605A57] uppercase font-sans">%</span>
         </motion.div>
 
         {/* Rows */}
@@ -82,13 +82,13 @@ export default function JournalDemo() {
               initial={{ opacity: 0, x: -12 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: 0.3 + si * 0.12, duration: 0.35 }}
-              className="flex items-center gap-0 px-2 py-1 border-b border-[rgba(55,50,47,0.03)] hover:bg-[#F7F5F3]/50 transition-colors"
+              className="flex items-center gap-0 px-1.5 sm:px-2 py-1 border-b border-[rgba(55,50,47,0.03)] hover:bg-[#F7F5F3]/50 transition-colors"
             >
-              <span className="w-[72px] text-[10px] text-[#37322F] font-medium font-sans truncate flex-shrink-0">
+              <span className="w-[52px] sm:w-[72px] text-[9px] sm:text-[10px] text-[#37322F] font-medium font-sans truncate flex-shrink-0">
                 {student.name}
               </span>
               {student.grades.map((grade, gi) => (
-                <div key={gi} className="w-6 flex justify-center flex-shrink-0">
+                <div key={gi} className={`w-5 sm:w-6 flex justify-center flex-shrink-0 ${gi >= 4 ? "hidden sm:flex" : ""}`}>
                   <GradeCell
                     grade={grade}
                     delay={0.5 + si * 0.12 + gi * 0.08}
@@ -100,7 +100,7 @@ export default function JournalDemo() {
                 initial={{ opacity: 0 }}
                 animate={showStats ? { opacity: 1 } : {}}
                 transition={{ delay: si * 0.05, duration: 0.3 }}
-                className={`w-8 text-center text-[10px] font-bold font-sans flex-shrink-0 ml-1 ${
+                className={`w-6 sm:w-8 text-center text-[9px] sm:text-[10px] font-bold font-sans flex-shrink-0 ml-0.5 sm:ml-1 ${
                   student.avg >= 4.5 ? "text-[#28C840]" : student.avg >= 4 ? "text-[#2E9DE0]" : "text-[#F5A623]"
                 }`}
               >
@@ -110,7 +110,7 @@ export default function JournalDemo() {
                 initial={{ opacity: 0 }}
                 animate={showStats ? { opacity: 1 } : {}}
                 transition={{ delay: si * 0.05 + 0.1, duration: 0.3 }}
-                className="flex-1 text-right text-[9px] text-[#605A57] font-sans"
+                className="flex-1 text-right text-[8px] sm:text-[9px] text-[#605A57] font-sans"
               >
                 {student.attendance}
               </motion.span>
@@ -124,16 +124,16 @@ export default function JournalDemo() {
         initial={{ opacity: 0, y: 8 }}
         animate={showStats ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.4 }}
-        className="px-3 py-2 border-t border-[rgba(55,50,47,0.06)] bg-[#FAFAF9] flex items-center justify-between"
+        className="px-1.5 sm:px-3 py-1.5 sm:py-2 border-t border-[rgba(55,50,47,0.06)] bg-[#FAFAF9] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1 sm:gap-0"
       >
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
           <div className="flex items-center gap-1">
             <div className="w-1.5 h-1.5 rounded-full bg-[#28C840]" />
-            <span className="text-[8px] text-[#605A57] font-sans">Средний балл: 4.32</span>
+            <span className="text-[7px] sm:text-[8px] text-[#605A57] font-sans">Ср. балл: 4.32</span>
           </div>
           <div className="flex items-center gap-1">
             <div className="w-1.5 h-1.5 rounded-full bg-[#2E9DE0]" />
-            <span className="text-[8px] text-[#605A57] font-sans">Посещаемость: 96.2%</span>
+            <span className="text-[7px] sm:text-[8px] text-[#605A57] font-sans">Посещ.: 96.2%</span>
           </div>
         </div>
         <motion.div
@@ -141,7 +141,7 @@ export default function JournalDemo() {
           transition={{ duration: 0.3 }}
           className="px-1.5 py-0.5 rounded bg-[#28C840]/10 border border-[#28C840]/20"
         >
-          <span className="text-[8px] font-bold text-[#28C840] font-sans">AI: +12% за четверть</span>
+          <span className="text-[7px] sm:text-[8px] font-bold text-[#28C840] font-sans">AI: +12%</span>
         </motion.div>
       </motion.div>
     </div>

@@ -150,16 +150,16 @@ export default function FooterSection() {
 
       {/* Bottom bar */}
       <div className="self-stretch border-t border-[rgba(55,50,47,0.12)]">
-        <div className="flex flex-col sm:flex-row justify-between items-center px-4 md:px-8 py-5 gap-3">
-          <span className="text-[rgba(73,66,61,0.50)] text-xs font-normal font-sans">
+        <div className="flex flex-col sm:flex-row justify-between items-center px-4 md:px-8 py-4 sm:py-5 gap-2 sm:gap-3">
+          <span className="text-[rgba(73,66,61,0.50)] text-[11px] sm:text-xs font-normal font-sans">
             © 2025 Alashed. Все права защищены.
           </span>
-          <div className="flex items-center gap-4">
-            <a href="#" className="text-[rgba(73,66,61,0.50)] text-xs font-normal font-sans hover:text-[#49423D] transition-colors">
-              Политика конфиденциальности
+          <div className="flex items-center gap-3 sm:gap-4">
+            <a href="#" className="text-[rgba(73,66,61,0.50)] text-[11px] sm:text-xs font-normal font-sans hover:text-[#49423D] transition-colors">
+              Конфиденциальность
             </a>
-            <a href="#" className="text-[rgba(73,66,61,0.50)] text-xs font-normal font-sans hover:text-[#49423D] transition-colors">
-              Условия использования
+            <a href="#" className="text-[rgba(73,66,61,0.50)] text-[11px] sm:text-xs font-normal font-sans hover:text-[#49423D] transition-colors">
+              Условия
             </a>
           </div>
         </div>

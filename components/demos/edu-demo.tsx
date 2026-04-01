@@ -89,33 +89,33 @@ export default function EduDemo() {
       </div>
 
       {/* Content */}
-      <div className="flex-1 p-3 flex flex-col gap-2 overflow-hidden">
+      <div className="flex-1 p-2 sm:p-3 flex flex-col gap-1.5 sm:gap-2 overflow-hidden">
         {/* Prompt */}
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.1, duration: 0.4 }}
-          className="flex items-start gap-2 p-2 rounded-md bg-[#F7F5F3] border border-[rgba(55,50,47,0.06)]"
+          className="flex items-start gap-2 p-1.5 sm:p-2 rounded-md bg-[#F7F5F3] border border-[rgba(55,50,47,0.06)]"
         >
-          <span className="text-[10px] text-[#605A57] font-sans leading-relaxed">
+          <span className="text-[9px] sm:text-[10px] text-[#605A57] font-sans leading-relaxed">
             <span className="text-[#2E9DE0] font-medium">→</span> Сгенерируй КМЖ по теме &quot;Циклы в Python&quot;, 7 класс
           </span>
         </motion.div>
 
         {/* Generated fields */}
-        <div className="flex flex-col gap-1.5 mt-1">
+        <div className="flex flex-col gap-1 sm:gap-1.5 mt-0.5 sm:mt-1">
           {lessonPlanLines.map((line, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, x: -10 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ delay: line.delay, duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
-              className="flex items-baseline gap-2"
+              className="flex flex-col sm:flex-row sm:items-baseline gap-0 sm:gap-2"
             >
-              <span className="text-[9px] font-medium text-[#2E9DE0] uppercase tracking-wider whitespace-nowrap font-sans min-w-[60px]">
+              <span className="text-[8px] sm:text-[9px] font-medium text-[#2E9DE0] uppercase tracking-wider whitespace-nowrap font-sans sm:min-w-[60px]">
                 {line.label}
               </span>
-              <span className="text-[11px] text-[#37322F] font-sans leading-snug">
+              <span className="text-[10px] sm:text-[11px] text-[#37322F] font-sans leading-snug">
                 <TypewriterText text={line.value} startDelay={line.delay} isVisible={isInView} />
               </span>
             </motion.div>
@@ -131,14 +131,14 @@ export default function EduDemo() {
         />
 
         {/* FO tasks */}
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-0.5 sm:gap-1">
           {foTasks.map((task, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 6 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: task.delay, duration: 0.35 }}
-              className="flex items-start gap-1.5 px-2 py-1 rounded bg-[#EBF7FF]/50"
+              className="flex items-start gap-1.5 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded bg-[#EBF7FF]/50"
             >
               <motion.svg
                 width="10" height="10" viewBox="0 0 10 10" fill="none" className="mt-0.5 flex-shrink-0"
@@ -149,7 +149,7 @@ export default function EduDemo() {
                 <rect x="1" y="1" width="8" height="8" rx="2" stroke="#5BB8F5" strokeWidth="1"/>
                 <path d="M3 5l1.5 1.5L7 4" stroke="#5BB8F5" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"/>
               </motion.svg>
-              <span className="text-[10px] text-[#37322F] font-sans leading-snug">{task.text}</span>
+              <span className="text-[9px] sm:text-[10px] text-[#37322F] font-sans leading-snug">{task.text}</span>
             </motion.div>
           ))}
         </div>

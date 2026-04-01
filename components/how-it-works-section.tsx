@@ -67,7 +67,7 @@ export default function HowItWorksSection() {
       <StaggerContainer staggerDelay={0.12} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
         {steps.map((step, index) => (
           <StaggerItem key={index}>
-            <div className="flex flex-col gap-5 p-6 sm:p-8 md:p-10 border-b sm:border-b-0 sm:border-r border-[rgba(55,50,47,0.12)] last:border-r-0 relative h-full">
+            <div className={`flex flex-col gap-5 p-6 sm:p-8 md:p-10 border-[rgba(55,50,47,0.12)] relative h-full ${index < steps.length - 1 ? "border-b sm:border-b-0 sm:border-r" : "sm:border-r-0"}`}>
               {/* Connector line between steps on desktop */}
               {index < steps.length - 1 && (
                 <div className="hidden lg:block absolute top-[52px] right-0 w-0 h-px border-t border-dashed border-[#5BB8F5]/40 translate-x-[1px]" />

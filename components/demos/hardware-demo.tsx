@@ -42,11 +42,11 @@ export default function HardwareDemo() {
           </div>
           <span className="text-[11px] font-semibold text-[#37322F] font-sans">Заказ оборудования</span>
         </div>
-        <span className="text-[9px] text-[#605A57] font-sans">Дашборд директора</span>
+        <span className="text-[9px] text-[#605A57] font-sans hidden sm:block">Дашборд директора</span>
       </div>
 
       {/* Product list */}
-      <div className="flex-1 p-2.5 flex flex-col gap-1.5 overflow-hidden">
+      <div className="flex-1 p-2 sm:p-2.5 flex flex-col gap-1 sm:gap-1.5 overflow-hidden">
         {products.map((product, i) => {
           const isSelected = selectedItems.includes(i)
           return (
