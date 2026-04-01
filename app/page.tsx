@@ -12,7 +12,16 @@ import JournalDemo from "@/components/demos/journal-demo"
 import FooterSection from "@/components/footer-section"
 import ContactSection from "@/components/contact-section"
 import { HeroSection } from "@/components/hero-section"
-import { CodeIcon } from "hugeicons-react"
+import {
+  CodeIcon,
+  AiBrain01Icon,
+  ChipIcon,
+  BookOpen01Icon,
+  Briefcase01Icon,
+  Clock01Icon,
+  ComputerProgramming01Icon,
+  ArrowRight02Icon,
+} from "hugeicons-react"
 
 // Reusable Badge Component
 function Badge({ icon, text }: { icon: React.ReactNode; text: string }) {
@@ -58,14 +67,14 @@ export default function LandingPage() {
                     </ScrollReveal>
                     <ScrollReveal delay={0.15}>
                       <div className="w-full max-w-[598.06px] lg:w-[598.06px] text-center flex justify-center flex-col text-[#49423D] text-xl sm:text-2xl md:text-[28px] font-semibold leading-tight font-sans tracking-tight">
-                        Единая платформа для всей школы
+                        Экосистема продуктов Alashed
                       </div>
                     </ScrollReveal>
                     <ScrollReveal delay={0.25}>
                       <div className="self-stretch text-center text-[#605A57] text-sm sm:text-base font-normal leading-6 sm:leading-7 font-sans">
-                        От AI-помощника учителю до реального железа на парте —
+                        Образование, робототехника, бизнес и IT —
                         <br />
-                        всё связано между собой и работает вместе.
+                        9 продуктов, связанных в единую платформу.
                       </div>
                     </ScrollReveal>
                   </div>
@@ -159,6 +168,107 @@ export default function LandingPage() {
                     </div>
                   </div>
                 </div>
+              </div>
+
+              {/* More Products Section */}
+              <div className="w-full border-b border-[rgba(55,50,47,0.12)] flex flex-col items-center">
+                <ScrollReveal className="self-stretch px-4 sm:px-6 md:px-8 lg:px-0 py-8 sm:py-12 md:py-14 border-b border-[rgba(55,50,47,0.12)] flex justify-center">
+                  <div className="w-full max-w-[616px] flex flex-col items-center gap-3">
+                    <ScrollReveal animation="scaleIn" delay={0.1}>
+                      <Badge
+                        icon={<AiBrain01Icon size={14} color="#2E9DE0" strokeWidth={2} />}
+                        text="Ещё продукты"
+                      />
+                    </ScrollReveal>
+                    <ScrollReveal delay={0.15}>
+                      <div className="text-center text-[#49423D] text-xl sm:text-2xl md:text-[28px] font-semibold leading-tight font-sans tracking-tight">
+                        Робототехника, бизнес и инструменты
+                      </div>
+                    </ScrollReveal>
+                  </div>
+                </ScrollReveal>
+
+                <StaggerContainer staggerDelay={0.1} className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0">
+                  {/* Unitree.kz */}
+                  <StaggerItem className="border-b sm:border-r border-[rgba(55,50,47,0.12)] p-6 sm:p-8 flex flex-col gap-4 group">
+                    <div className="w-10 h-10 rounded-xl bg-[#1a1715] flex items-center justify-center">
+                      <ComputerProgramming01Icon size={20} color="white" strokeWidth={1.5} />
+                    </div>
+                    <div className="flex flex-col gap-1.5">
+                      <h3 className="text-[#37322F] text-base font-semibold font-sans">Unitree.kz</h3>
+                      <p className="text-[#605A57] text-sm font-normal leading-relaxed font-sans">
+                        Официальный дистрибьютор роботов Unitree в СНГ. Четвероногие роботы, гуманоиды, промышленная робототехника.
+                      </p>
+                    </div>
+                    <a href="https://unitree.kz" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-[#2E9DE0] text-sm font-semibold font-sans group-hover:gap-2.5 transition-all">
+                      unitree.kz <ArrowRight02Icon size={14} color="#2E9DE0" strokeWidth={2} />
+                    </a>
+                  </StaggerItem>
+
+                  {/* Alashed IT */}
+                  <StaggerItem className="border-b lg:border-r border-[rgba(55,50,47,0.12)] p-6 sm:p-8 flex flex-col gap-4 group">
+                    <div className="w-10 h-10 rounded-xl bg-[#2E9DE0] flex items-center justify-center">
+                      <CodeIcon size={20} color="white" strokeWidth={1.5} />
+                    </div>
+                    <div className="flex flex-col gap-1.5">
+                      <h3 className="text-[#37322F] text-base font-semibold font-sans">Alashed IT</h3>
+                      <p className="text-[#605A57] text-sm font-normal leading-relaxed font-sans">
+                        IT-услуги и AI-интеграции для бизнеса. Разработка, консалтинг, внедрение AI-решений под ключ.
+                      </p>
+                    </div>
+                    <a href="https://it.alashed.kz" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-[#2E9DE0] text-sm font-semibold font-sans group-hover:gap-2.5 transition-all">
+                      it.alashed.kz <ArrowRight02Icon size={14} color="#2E9DE0" strokeWidth={2} />
+                    </a>
+                  </StaggerItem>
+
+                  {/* Alashed BIZ */}
+                  <StaggerItem className="border-b sm:border-r lg:border-r-0 border-[rgba(55,50,47,0.12)] p-6 sm:p-8 flex flex-col gap-4 group">
+                    <div className="w-10 h-10 rounded-xl bg-[#F59E0B] flex items-center justify-center">
+                      <Briefcase01Icon size={20} color="white" strokeWidth={1.5} />
+                    </div>
+                    <div className="flex flex-col gap-1.5">
+                      <h3 className="text-[#37322F] text-base font-semibold font-sans">Alashed BIZ</h3>
+                      <p className="text-[#605A57] text-sm font-normal leading-relaxed font-sans">
+                        Управление бизнесом: заказы, склад, поставщики, фискализация через Webkassa. PWA-приложение.
+                      </p>
+                    </div>
+                    <span className="inline-flex items-center gap-1.5 text-[#605A57] text-sm font-medium font-sans">
+                      Скоро
+                    </span>
+                  </StaggerItem>
+
+                  {/* Tendon */}
+                  <StaggerItem className="border-b sm:border-b-0 lg:border-b-0 sm:border-r lg:border-r border-[rgba(55,50,47,0.12)] p-6 sm:p-8 flex flex-col gap-4 group">
+                    <div className="w-10 h-10 rounded-xl bg-[#8B5CF6] flex items-center justify-center">
+                      <Clock01Icon size={20} color="white" strokeWidth={1.5} />
+                    </div>
+                    <div className="flex flex-col gap-1.5">
+                      <h3 className="text-[#37322F] text-base font-semibold font-sans">Tendon</h3>
+                      <p className="text-[#605A57] text-sm font-normal leading-relaxed font-sans">
+                        Task-трекер для разработчиков. Интеграция с Claude Code, фокус-сессии, стендапы, ревью.
+                      </p>
+                    </div>
+                    <a href="https://tendon.alashed.kz" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-[#2E9DE0] text-sm font-semibold font-sans group-hover:gap-2.5 transition-all">
+                      tendon.alashed.kz <ArrowRight02Icon size={14} color="#2E9DE0" strokeWidth={2} />
+                    </a>
+                  </StaggerItem>
+
+                  {/* Wiki */}
+                  <StaggerItem className="sm:border-r-0 lg:border-r border-[rgba(55,50,47,0.12)] p-6 sm:p-8 flex flex-col gap-4 group">
+                    <div className="w-10 h-10 rounded-xl bg-[#10B981] flex items-center justify-center">
+                      <BookOpen01Icon size={20} color="white" strokeWidth={1.5} />
+                    </div>
+                    <div className="flex flex-col gap-1.5">
+                      <h3 className="text-[#37322F] text-base font-semibold font-sans">Wiki Alashed</h3>
+                      <p className="text-[#605A57] text-sm font-normal leading-relaxed font-sans">
+                        Документация, курсы и обучающие материалы по электронике и робототехнике для учеников.
+                      </p>
+                    </div>
+                    <a href="https://wiki.alashed.kz" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-[#2E9DE0] text-sm font-semibold font-sans group-hover:gap-2.5 transition-all">
+                      wiki.alashed.kz <ArrowRight02Icon size={14} color="#2E9DE0" strokeWidth={2} />
+                    </a>
+                  </StaggerItem>
+                </StaggerContainer>
               </div>
 
               {/* How It Works Section */}

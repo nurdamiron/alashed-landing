@@ -6,23 +6,23 @@ import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/motion
 const productLinks = [
   { label: "Alashed EDU", href: "https://edu.alashed.kz" },
   { label: "CodeStudio", href: "https://studio.alashed.kz" },
-  { label: "Hardware", href: "/hardware" },
-  { label: "Соревнования", href: "/competitions" },
+  { label: "Alash Electronics", href: "https://alash-electronics.kz" },
+  { label: "Unitree.kz", href: "https://unitree.kz" },
+  { label: "Tendon", href: "https://tendon.alashed.kz" },
 ]
 
 const companyLinks = [
-  { label: "О нас", href: "/#contact" },
-  { label: "Для учителей", href: "/for-teachers" },
-  { label: "Для директоров", href: "/for-directors" },
+  { label: "Alashed IT", href: "https://it.alashed.kz" },
+  { label: "Wiki", href: "https://wiki.alashed.kz" },
   { label: "Блог", href: "/blog" },
   { label: "Контакты", href: "/#contact" },
 ]
 
 const resourceLinks = [
+  { label: "Для учителей", href: "/for-teachers" },
+  { label: "Для директоров", href: "/for-directors" },
+  { label: "Для учеников", href: "/for-students" },
   { label: "ГОСО 2026", href: "/blog/category/goso-2026" },
-  { label: "Документация", href: "https://edu.alashed.kz" },
-  { label: "Обучение", href: "/for-students" },
-  { label: "Поддержка", href: "/#contact" },
 ]
 
 export default function FooterSection() {
@@ -40,9 +40,9 @@ export default function FooterSection() {
               <img src="/alashed-wide-logo.svg" alt="Alashed" className="h-6 w-auto" />
             </motion.div>
             <div className="text-[rgba(73,66,61,0.90)] text-sm font-medium leading-[18px] font-sans max-w-[240px]">
-              STEM-экосистема для школ Казахстана.
+              Технологическая экосистема из Казахстана.
               <br />
-              AI, код, железо — в одной платформе.
+              Образование, робототехника, бизнес и IT.
             </div>
 
             {/* Social Media Icons */}

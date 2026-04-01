@@ -33,10 +33,22 @@ const products = [
     icon: <ChipIcon size={16} color="#2E9DE0" strokeWidth={1.5} />,
   },
   {
-    name: "Соревнования",
-    desc: "Подготовка к Infomatrix, KazRobotics, WRO",
-    href: "/competitions",
+    name: "Unitree.kz",
+    desc: "Дистрибьютор роботов Unitree в СНГ",
+    href: "https://unitree.kz",
     icon: <StarIcon size={16} color="#2E9DE0" strokeWidth={1.5} />,
+  },
+  {
+    name: "Tendon",
+    desc: "Task-трекер для разработчиков с AI-интеграцией",
+    href: "https://tendon.alashed.kz",
+    icon: <GridViewIcon size={16} color="#2E9DE0" strokeWidth={1.5} />,
+  },
+  {
+    name: "Wiki",
+    desc: "Документация и курсы по робототехнике",
+    href: "https://wiki.alashed.kz",
+    icon: <SearchList01Icon size={16} color="#2E9DE0" strokeWidth={1.5} />,
   },
 ]
 

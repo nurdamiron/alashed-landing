@@ -54,11 +54,11 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
             className="w-full max-w-[780px] text-center text-[#1a1715] text-[28px] sm:text-[36px] md:text-[48px] lg:text-[58px] font-normal leading-[1.1] font-serif px-2 sm:px-4 md:px-0 tracking-[-0.02em]"
           >
-            <span className="block">Полная STEM-экосистема</span>
+            <span className="block">Технологическая</span>
             <span className="block mt-1">
-              для{" "}
+              экосистема{" "}
               <span className="relative inline-block">
-                <span className="relative z-10">школ Казахстана</span>
+                <span className="relative z-10">из Казахстана</span>
                 <motion.span
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
@@ -76,7 +76,7 @@ export function HeroSection() {
             transition={{ duration: 0.7, delay: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
             className="w-full max-w-[520px] text-center text-[rgba(55,50,47,0.70)] text-[15px] sm:text-base md:text-lg leading-[1.6] font-sans px-4 md:px-0 font-medium"
           >
-            AI-помощник для учителей, браузерное IDE для робототехники, официальный импорт оборудования — всё в одной платформе.
+            Образование, робототехника, дистрибуция, бизнес-инструменты — 9 продуктов в единой экосистеме.
           </motion.p>
         </div>
       </div>
