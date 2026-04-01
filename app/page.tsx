@@ -11,6 +11,7 @@ import CodeStudioDemo from "@/components/demos/codestudio-demo"
 import HardwareDemo from "@/components/demos/hardware-demo"
 import JournalDemo from "@/components/demos/journal-demo"
 import FooterSection from "@/components/footer-section"
+import ContactSection from "@/components/contact-section"
 
 // Reusable Badge Component
 function Badge({ icon, text }: { icon: React.ReactNode; text: string }) {
@@ -338,6 +339,9 @@ export default function LandingPage() {
 
               {/* How It Works Section */}
               <HowItWorksSection />
+
+              {/* Contact Section */}
+              <ContactSection />
 
               {/* Footer */}
               <FooterSection />

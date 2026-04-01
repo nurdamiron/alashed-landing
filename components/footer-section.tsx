@@ -5,7 +5,7 @@ import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/motion
 
 const productLinks = [
   { label: "Alashed EDU", href: "https://edu.alashed.kz" },
-  { label: "CodeStudio", href: "/for-students" },
+  { label: "CodeStudio", href: "https://studio.alashed.kz" },
   { label: "Hardware", href: "/hardware" },
   { label: "Соревнования", href: "/competitions" },
 ]
