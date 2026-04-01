@@ -18,11 +18,11 @@ const codeLines = [
 ]
 
 const outputLines = [
-  { text: ">>> Подключение к ESP32...", delay: 0 },
-  { text: ">>> Устройство найдено на COM3", delay: 0.3 },
-  { text: ">>> Загрузка main.py...", delay: 0.6 },
-  { text: ">>> ✓ Код загружен успешно", delay: 1.0 },
-  { text: ">>> LED мигает при нажатии", delay: 1.4 },
+  { text: ">>> Подключение к ESP32...", delay: 0, success: false },
+  { text: ">>> Устройство найдено на COM3", delay: 0.3, success: false },
+  { text: ">>> Загрузка main.py...", delay: 0.6, success: false },
+  { text: ">>> Код загружен успешно", delay: 1.0, success: true },
+  { text: ">>> LED мигает при нажатии", delay: 1.4, success: false },
 ]
 
 export default function CodeStudioDemo() {
@@ -137,8 +137,13 @@ export default function CodeStudioDemo() {
                 transition={{ delay: line.delay, duration: 0.2 }}
                 className="flex items-center overflow-hidden"
               >
+                {line.success && (
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none" className="flex-shrink-0 mr-1">
+                    <path d="M2 5l2.5 2.5L8 3" stroke="#28C840" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                )}
                 <span className={`text-[8px] sm:text-[10px] font-mono leading-relaxed truncate ${
-                  line.text.includes("✓") ? "text-[#28C840]" : "text-[rgba(255,255,255,0.5)]"
+                  line.success ? "text-[#28C840]" : "text-[rgba(255,255,255,0.5)]"
                 }`}>
                   {line.text}
                 </span>

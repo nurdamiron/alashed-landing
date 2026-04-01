@@ -207,7 +207,7 @@ export default function Navbar() {
                 </div>
               </div>
 
-              {/* Услуги → it.alashed.kz */}
+              {/* Услуги - it.alashed.kz */}
               <a
                 href="https://it.alashed.kz"
                 target="_blank"
@@ -348,7 +348,7 @@ export default function Navbar() {
               onClick={() => setMobileOpen(false)}
               className="w-full py-3 bg-[rgba(55,50,47,0.05)] hover:bg-[rgba(55,50,47,0.08)] transition-colors rounded-full text-[#37322F] text-sm font-medium font-sans text-center"
             >
-              Попробовать EDU →
+              Попробовать EDU
             </a>
           </div>
         </div>

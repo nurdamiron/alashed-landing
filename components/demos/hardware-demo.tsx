@@ -3,11 +3,21 @@
 import { motion, useInView } from "framer-motion"
 import { useRef, useState, useEffect } from "react"
 
+function ChipIcon({ color }: { color: string }) {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <rect x="3" y="3" width="10" height="10" rx="2" stroke={color} strokeWidth="1.2"/>
+      <rect x="5.5" y="5.5" width="5" height="5" rx="1" fill={color} opacity="0.15"/>
+      <path d="M6 1v2M10 1v2M6 13v2M10 13v2M1 6h2M1 10h2M13 6h2M13 10h2" stroke={color} strokeWidth="1" strokeLinecap="round"/>
+    </svg>
+  )
+}
+
 const products = [
-  { name: "Arduino Uno R4", price: "12 500 ₸", qty: "×30", icon: "🔵", status: "inStock" },
-  { name: "ESP32 DevKit", price: "8 200 ₸", qty: "×30", icon: "🟢", status: "inStock" },
-  { name: "Micro:bit V2", price: "15 800 ₸", qty: "×15", icon: "🟡", status: "inStock" },
-  { name: "Raspberry Pi 5", price: "38 900 ₸", qty: "×5", icon: "🔴", status: "limited" },
+  { name: "Arduino Uno R4", price: "125 A", qty: "x30", color: "#2E9DE0", status: "inStock" },
+  { name: "ESP32 DevKit", price: "82 A", qty: "x30", color: "#28C840", status: "inStock" },
+  { name: "Micro:bit V2", price: "158 A", qty: "x15", color: "#F5A623", status: "inStock" },
+  { name: "Raspberry Pi 5", price: "389 A", qty: "x5", color: "#E84D4D", status: "limited" },
 ]
 
 export default function HardwareDemo() {
@@ -64,13 +74,13 @@ export default function HardwareDemo() {
               <motion.div
                 animate={isSelected ? { scale: [1, 1.15, 1] } : {}}
                 transition={{ duration: 0.25 }}
-                className="text-sm leading-none"
+                className="flex-shrink-0"
               >
-                {product.icon}
+                <ChipIcon color={product.color} />
               </motion.div>
               <div className="flex-1 min-w-0">
                 <div className="text-[11px] font-medium text-[#37322F] font-sans truncate">{product.name}</div>
-                <div className="text-[9px] text-[#605A57] font-sans">{product.price} / шт</div>
+                <div className="text-[9px] text-[#605A57] font-sans">{product.price} coins / шт</div>
               </div>
               <span className="text-[10px] font-medium text-[#37322F] font-sans">{product.qty}</span>
               <motion.div
@@ -96,7 +106,7 @@ export default function HardwareDemo() {
         >
           <div className="flex items-center justify-between mb-2">
             <span className="text-[10px] text-[#605A57] font-sans">Итого (75 шт)</span>
-            <span className="text-[12px] font-semibold text-[#37322F] font-sans">1 093 500 ₸</span>
+            <span className="text-[12px] font-semibold text-[#37322F] font-sans">10 935 A coins</span>
           </div>
           <motion.div
             animate={orderPlaced ? { backgroundColor: "#28C840" } : { backgroundColor: "#5BB8F5" }}
@@ -116,7 +126,7 @@ export default function HardwareDemo() {
                 <span className="text-[10px] font-semibold text-white font-sans">Заказ оформлен</span>
               </motion.div>
             ) : (
-              <span className="text-[10px] font-semibold text-white font-sans">Оформить заказ</span>
+              <span className="text-[10px] font-semibold text-white font-sans">Заказать</span>
             )}
           </motion.div>
         </motion.div>

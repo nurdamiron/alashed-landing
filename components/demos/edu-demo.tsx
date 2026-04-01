@@ -98,7 +98,8 @@ export default function EduDemo() {
           className="flex items-start gap-2 p-1.5 sm:p-2 rounded-md bg-[#F7F5F3] border border-[rgba(55,50,47,0.06)]"
         >
           <span className="text-[9px] sm:text-[10px] text-[#605A57] font-sans leading-relaxed">
-            <span className="text-[#2E9DE0] font-medium">→</span> Сгенерируй КМЖ по теме &quot;Циклы в Python&quot;, 7 класс
+            <svg width="8" height="8" viewBox="0 0 8 8" fill="none" className="inline-block mr-1 align-middle flex-shrink-0"><path d="M1 4h5M4.5 2L6.5 4L4.5 6" stroke="#2E9DE0" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            <span className="text-[#2E9DE0] font-medium align-middle">Сгенерируй КМЖ по теме &quot;Циклы в Python&quot;, 7 класс</span>
           </span>
         </motion.div>
 

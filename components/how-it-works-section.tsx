@@ -22,7 +22,7 @@ const steps = [
     number: "03",
     title: "Ученики программируют на CodeStudio",
     description:
-      "Браузерное IDE открывается без установки. Scratch → Python → реальное железо: ученики деплоят код на Arduino прямо с урока.",
+      "Браузерное IDE открывается без установки. Scratch, Python, реальное железо: ученики деплоят код на Arduino прямо с урока.",
     tag: "CodeStudio",
   },
   {

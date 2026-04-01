@@ -141,7 +141,7 @@ export default function ContactSection() {
                 : "bg-[#5BB8F5] hover:bg-[#2E9DE0]"
             }`}
           >
-            {status === "sent" ? "✓ Заявка отправлена!" :
+            {status === "sent" ? "Заявка отправлена!" :
              status === "sending" ? "Отправка..." :
              status === "error" ? "Ошибка — попробовать снова" :
              "Отправить заявку"}
