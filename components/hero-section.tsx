@@ -1,155 +1,109 @@
 "use client"
 
 import { motion } from "framer-motion"
-import {
-  ArrowRight02Icon,
-  SparklesIcon,
-  CodeIcon,
-  AiBrain01Icon,
-  Atom01Icon,
-} from "hugeicons-react"
+import { ArrowRight02Icon } from "hugeicons-react"
+
+const products = [
+  { name: "EDU", href: "https://edu.alashed.kz" },
+  { name: "CodeStudio", href: "https://studio.alashed.kz" },
+  { name: "Alash Electronics", href: "https://alash-electronics.kz" },
+  { name: "Unitree.kz", href: "https://unitree.kz" },
+  { name: "Tendon", href: "https://tendon.alashed.kz" },
+  { name: "IT", href: "https://it.alashed.kz" },
+  { name: "Wiki", href: "https://wiki.alashed.kz" },
+  { name: "BIZ", href: "#" },
+]
 
 export function HeroSection() {
-
   return (
-    <div className="relative pt-6 sm:pt-8 md:pt-10 lg:pt-[64px] pb-8 sm:pb-12 md:pb-16 flex flex-col justify-start items-center px-2 sm:px-4 md:px-8 lg:px-0 w-full">
-
-      {/* Background gradient orb */}
-      <div className="absolute top-[100px] lg:top-[160px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] pointer-events-none z-0">
-        <motion.div
-          animate={{ scale: [1, 1.08, 1], rotate: [0, 3, 0] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-          className="w-full h-full rounded-full opacity-[0.07]"
-          style={{
-            background: "radial-gradient(circle, #5BB8F5 0%, #2E9DE0 40%, transparent 70%)",
-          }}
+    <div className="relative pt-8 sm:pt-12 lg:pt-[72px] pb-0 flex flex-col justify-start items-center w-full">
+      {/* Subtle radial gradient */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] pointer-events-none z-0 opacity-[0.04]">
+        <div
+          className="w-full h-full"
+          style={{ background: "radial-gradient(ellipse at center, #37322F 0%, transparent 70%)" }}
         />
       </div>
 
-
-      {/* Main content */}
-      <div className="w-full max-w-[937px] flex flex-col justify-center items-center gap-3 sm:gap-4 md:gap-5 lg:gap-6 relative z-10">
-        <div className="self-stretch flex flex-col justify-center items-center gap-5 sm:gap-6 md:gap-7 lg:gap-8">
-
-          {/* Animated pill badge */}
-          <motion.div
-            initial={{ opacity: 0, y: -10, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-          >
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-white/70 backdrop-blur-sm rounded-full border border-[rgba(55,50,47,0.08)] shadow-[0_1px_6px_rgba(0,0,0,0.04)]">
-              <div className="flex items-center gap-1.5 px-2 py-0.5 bg-[#EBF7FF] rounded-full">
-                <SparklesIcon size={12} color="#2E9DE0" strokeWidth={2} />
-                <span className="text-[#2E9DE0] text-[11px] font-bold tracking-wider uppercase font-sans">Новое</span>
-              </div>
-              <span className="text-[#49423D] text-[13px] font-medium font-sans">8 продуктов · 3 направления · 1 экосистема</span>
-            </div>
-          </motion.div>
-
-          {/* Headline */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-            className="w-full max-w-[780px] text-center text-[#1a1715] text-[28px] sm:text-[36px] md:text-[48px] lg:text-[58px] font-normal leading-[1.1] font-serif px-2 sm:px-4 md:px-0 tracking-[-0.02em]"
-          >
-            <span className="block">Технологическая</span>
-            <span className="block mt-1">
-              экосистема{" "}
-              <span className="relative inline-block">
-                <span className="relative z-10">из Казахстана</span>
-                <motion.span
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{ duration: 0.6, delay: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-                  className="absolute bottom-[6px] sm:bottom-[8px] md:bottom-[10px] left-0 right-0 h-[6px] sm:h-[8px] md:h-[10px] bg-[#5BB8F5]/20 rounded-full origin-left z-0"
-                />
-              </span>
-            </span>
-          </motion.h1>
-
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
-            className="w-full max-w-[520px] text-center text-[rgba(55,50,47,0.70)] text-[15px] sm:text-base md:text-lg leading-[1.6] font-sans px-4 md:px-0 font-medium"
-          >
-            Строим продукты в образовании, робототехнике и бизнесе — от AI-копилота для учителей до дистрибуции промышленных роботов
-          </motion.p>
-        </div>
-      </div>
-
-      {/* CTA block */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.55, ease: [0.25, 0.1, 0.25, 1] }}
-        className="flex flex-col items-center gap-7 sm:gap-8 relative z-10 mt-8 sm:mt-10"
-      >
-        {/* Buttons */}
-        <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-3.5 w-full sm:w-auto px-4 sm:px-0">
-          <motion.a
-            href="#products"
-            whileHover={{ scale: 1.03, y: -1 }}
-            whileTap={{ scale: 0.97 }}
-            transition={{ type: "spring", stiffness: 400, damping: 20 }}
-            className="group h-12 sm:h-[52px] px-7 sm:px-9 bg-[#37322F] hover:bg-[#1a1715] transition-all duration-200 rounded-[14px] flex items-center justify-center gap-2.5 shadow-[0_1px_2px_rgba(0,0,0,0.2),0_0_0_1px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.06)] w-full sm:w-auto"
-          >
-            <span className="text-white text-sm font-semibold font-sans">
-              Наши продукты
-            </span>
-            <div className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
-              <ArrowRight02Icon size={12} color="white" strokeWidth={2.5} />
-            </div>
-          </motion.a>
-          <motion.a
-            href="#contact"
-            whileHover={{ scale: 1.03, y: -1 }}
-            whileTap={{ scale: 0.97 }}
-            transition={{ type: "spring", stiffness: 400, damping: 20 }}
-            className="h-12 sm:h-[52px] px-7 bg-white hover:bg-[#FAFAF9] text-[#37322F] rounded-[14px] font-semibold text-sm transition-all duration-200 flex items-center justify-center gap-2 shadow-[0_1px_3px_rgba(0,0,0,0.06),0_0_0_1px_rgba(55,50,47,0.1)] w-full sm:w-auto"
-          >
-            Связаться с нами
-          </motion.a>
-        </div>
-
-        {/* Trust strip */}
-        <motion.div
+      {/* Content */}
+      <div className="w-full max-w-[860px] flex flex-col items-center relative z-10 px-4">
+        {/* Eyebrow */}
+        <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.9 }}
-          className="flex flex-wrap justify-center items-center gap-3 sm:gap-5"
+          transition={{ duration: 0.6 }}
+          className="text-[#605A57] text-[13px] font-medium font-sans tracking-[0.08em] uppercase mb-6 sm:mb-8"
         >
-          {[
-            { icon: <CodeIcon size={14} color="#2E9DE0" strokeWidth={2} />, text: "8 продуктов" },
-            { icon: <AiBrain01Icon size={14} color="#2E9DE0" strokeWidth={2} />, text: "3 направления" },
-            { icon: <Atom01Icon size={14} color="#2E9DE0" strokeWidth={2} />, text: "Казахстан" },
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.95 + i * 0.08 }}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/60 border border-[rgba(55,50,47,0.06)]"
-            >
-              {item.icon}
-              <span className="text-[#605A57] text-[12px] font-semibold font-sans">{item.text}</span>
-            </motion.div>
-          ))}
+          Образование · Робототехника · Бизнес
+        </motion.p>
+
+        {/* Headline — large, serif, commanding */}
+        <motion.h1
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+          className="text-center text-[#1a1715] text-[32px] sm:text-[42px] md:text-[56px] lg:text-[64px] font-normal leading-[1.05] font-serif tracking-[-0.025em] mb-5 sm:mb-6"
+        >
+          Технологическая
+          <br />
+          экосистема из Казахстана
+        </motion.h1>
+
+        {/* Subtitle — understated, precise */}
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+          className="text-center text-[#605A57] text-[15px] sm:text-[17px] leading-[1.65] font-sans max-w-[480px] mb-10 sm:mb-12"
+        >
+          8 продуктов в 3 направлениях. От AI&#8209;копилота
+          для учителей до дистрибуции промышленных роботов.
+        </motion.p>
+
+        {/* CTA row */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="flex flex-col sm:flex-row items-center gap-3 mb-16 sm:mb-20"
+        >
+          <a
+            href="#products"
+            className="group h-[48px] px-7 bg-[#1a1715] hover:bg-[#0a0a0a] text-white rounded-full text-[14px] font-semibold font-sans flex items-center gap-2.5 transition-colors duration-200"
+          >
+            Продукты
+            <ArrowRight02Icon size={14} color="white" strokeWidth={2} className="group-hover:translate-x-0.5 transition-transform duration-200" />
+          </a>
+          <a
+            href="#contact"
+            className="h-[48px] px-7 bg-transparent hover:bg-[rgba(55,50,47,0.04)] text-[#37322F] rounded-full text-[14px] font-semibold font-sans flex items-center border border-[rgba(55,50,47,0.2)] hover:border-[rgba(55,50,47,0.35)] transition-all duration-200"
+          >
+            Связаться
+          </a>
         </motion.div>
-      </motion.div>
-
-
-      {/* Background pattern */}
-      <div className="absolute top-[232px] sm:top-[248px] md:top-[264px] lg:top-[320px] left-1/2 transform -translate-x-1/2 z-0 pointer-events-none">
-        <img
-          src="/mask-group-pattern.svg"
-          alt=""
-          className="w-[936px] sm:w-[1404px] md:w-[2106px] lg:w-[2808px] h-auto opacity-20 sm:opacity-25 md:opacity-30 mix-blend-multiply"
-          style={{ filter: "hue-rotate(15deg) saturate(0.5) brightness(1.3)" }}
-        />
       </div>
+
+      {/* Product marquee strip — full width, edge-to-edge */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.7 }}
+        className="w-full border-t border-b border-[rgba(55,50,47,0.12)] py-4 overflow-hidden"
+      >
+        <div className="flex items-center justify-center gap-6 sm:gap-10 px-4 flex-wrap sm:flex-nowrap">
+          {products.map((p, i) => (
+            <a
+              key={i}
+              href={p.href}
+              target={p.href.startsWith("http") ? "_blank" : undefined}
+              rel={p.href.startsWith("http") ? "noopener noreferrer" : undefined}
+              className="text-[#37322F]/40 hover:text-[#37322F] text-[13px] sm:text-[14px] font-semibold font-sans tracking-[0.02em] transition-colors duration-200 whitespace-nowrap"
+            >
+              {p.name}
+            </a>
+          ))}
+        </div>
+      </motion.div>
     </div>
   )
 }

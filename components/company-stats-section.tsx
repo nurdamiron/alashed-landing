@@ -2,13 +2,12 @@
 
 import { useEffect, useRef, useState } from "react"
 import { motion, useInView } from "framer-motion"
-import ScrollReveal from "@/components/motion/scroll-reveal"
 
 const stats = [
-  { value: 8, label: "продуктов в экосистеме" },
-  { value: 3, label: "направления бизнеса" },
-  { value: 6, label: "доменов в продакшене" },
-  { value: 2024, label: "год основания" },
+  { value: 8, suffix: "", label: "продуктов" },
+  { value: 3, suffix: "", label: "направления" },
+  { value: 6, suffix: "+", label: "доменов" },
+  { value: 2024, suffix: "", label: "с года" },
 ]
 
 function AnimatedNumber({ value, inView }: { value: number; inView: boolean }) {
@@ -16,9 +15,8 @@ function AnimatedNumber({ value, inView }: { value: number; inView: boolean }) {
 
   useEffect(() => {
     if (!inView) return
-
-    const duration = 1200
-    const steps = 40
+    const duration = 1000
+    const steps = 30
     const stepTime = duration / steps
     let current = 0
 
@@ -27,7 +25,6 @@ function AnimatedNumber({ value, inView }: { value: number; inView: boolean }) {
       const progress = current / steps
       const eased = 1 - Math.pow(1 - progress, 3)
       setDisplay(Math.round(eased * value))
-
       if (current >= steps) {
         setDisplay(value)
         clearInterval(timer)
@@ -45,39 +42,31 @@ export default function CompanyStatsSection() {
   const inView = useInView(ref, { once: true, margin: "-60px" })
 
   return (
-    <section
+    <div
       ref={ref}
-      className="w-full border-y py-12 sm:py-16"
-      style={{ borderColor: "rgba(55, 50, 47, 0.12)" }}
+      className="w-full border-b border-[rgba(55,50,47,0.12)] bg-white"
     >
-      <div className="mx-auto max-w-6xl px-6">
-        <ScrollReveal>
-          <div className="grid grid-cols-2 gap-y-10 md:grid-cols-4">
-            {stats.map((stat, i) => (
-              <div
-                key={stat.label}
-                className={`flex flex-col items-center text-center ${
-                  i < stats.length - 1
-                    ? "md:border-r md:border-[rgba(55,50,47,0.12)]"
-                    : ""
-                }`}
-              >
-                <motion.span
-                  className="text-4xl sm:text-5xl font-serif font-medium text-[#37322F]"
-                  initial={{ opacity: 0 }}
-                  animate={inView ? { opacity: 1 } : {}}
-                  transition={{ duration: 0.4, delay: i * 0.1 }}
-                >
-                  <AnimatedNumber value={stat.value} inView={inView} />
-                </motion.span>
-                <span className="text-sm text-[#605A57] font-sans mt-2">
-                  {stat.label}
-                </span>
-              </div>
-            ))}
-          </div>
-        </ScrollReveal>
+      <div className="max-w-[1060px] mx-auto grid grid-cols-2 md:grid-cols-4">
+        {stats.map((stat, i) => (
+          <motion.div
+            key={stat.label}
+            initial={{ opacity: 0, y: 16 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: i * 0.08 }}
+            className={`flex flex-col items-center justify-center py-10 sm:py-14 ${
+              i < stats.length - 1 ? "md:border-r border-[rgba(55,50,47,0.08)]" : ""
+            } ${i < 2 ? "border-b md:border-b-0 border-[rgba(55,50,47,0.08)]" : ""}`}
+          >
+            <span className="text-[#1a1715] text-[36px] sm:text-[48px] font-normal font-serif leading-none tracking-[-0.03em]">
+              <AnimatedNumber value={stat.value} inView={inView} />
+              {stat.suffix}
+            </span>
+            <span className="text-[#847971] text-[13px] font-medium font-sans mt-2 tracking-[0.02em]">
+              {stat.label}
+            </span>
+          </motion.div>
+        ))}
       </div>
-    </section>
+    </div>
   )
 }
