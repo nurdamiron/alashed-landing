@@ -2,7 +2,7 @@
 
 import Navbar from "@/components/navbar"
 import { HeroSection } from "@/components/hero-section"
-import VerticalsSection from "@/components/verticals-section"
+import ProductsShowcase from "@/components/products-showcase"
 import CompanyStatsSection from "@/components/company-stats-section"
 import ContactSection from "@/components/contact-section"
 import FooterSection from "@/components/footer-section"
@@ -19,7 +19,9 @@ export default function LandingPage() {
           <div className="self-stretch pt-[9px] flex flex-col items-center relative z-10">
             <Navbar />
             <HeroSection />
-            <VerticalsSection />
+            <div id="products" className="w-full">
+              <ProductsShowcase />
+            </div>
             <CompanyStatsSection />
             <ContactSection />
             <FooterSection />
