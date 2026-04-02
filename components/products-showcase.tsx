@@ -1,6 +1,7 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, useInView, AnimatePresence } from "framer-motion"
+import { useRef, useState, useEffect } from "react"
 import ScrollReveal from "@/components/motion/scroll-reveal"
 import {
   ArrowRight02Icon,
@@ -135,8 +136,20 @@ const products: Product[] = [
 /* ───────────────────── inline visual placeholders ───────────────────── */
 
 function UnitreeVisual() {
+  const ref = useRef<HTMLDivElement>(null)
+  const isInView = useInView(ref, { once: true, margin: "-50px" })
+
+  const specs = [
+    { label: "Go2", detail: "15kg", delay: 1.0 },
+    { label: "H1", detail: "Humanoid", delay: 1.6 },
+    { label: "G1", detail: "Industrial", delay: 2.2 },
+  ]
+
   return (
-    <div className="w-full h-full rounded-2xl overflow-hidden relative bg-gradient-to-br from-[#1a1715] via-[#2a2520] to-[#0d0c0b] flex items-center justify-center">
+    <div
+      ref={ref}
+      className="w-full h-full rounded-2xl overflow-hidden relative bg-gradient-to-br from-[#1a1715] via-[#2a2520] to-[#0d0c0b] flex items-center justify-center"
+    >
       {/* Grid pattern */}
       <div
         className="absolute inset-0 opacity-[0.06]"
@@ -149,24 +162,93 @@ function UnitreeVisual() {
       {/* Radial glow */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full pointer-events-none"
-        style={{ background: "radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%)" }}
+        style={{ background: "radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%)" }}
       />
-      <div className="relative flex flex-col items-center gap-4">
-        <div className="w-20 h-20 rounded-2xl bg-white/[0.06] border border-white/[0.08] flex items-center justify-center backdrop-blur-sm">
-          <StarIcon size={36} color="rgba(255,255,255,0.7)" strokeWidth={1.2} />
+
+      {/* Robot silhouette */}
+      <div className="relative flex flex-col items-center">
+        {/* Body */}
+        <motion.div
+          className="w-16 h-24 rounded-lg bg-white/[0.08] border border-white/[0.12] relative"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={isInView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          {/* Head */}
+          <motion.div
+            className="absolute -top-5 left-1/2 -translate-x-1/2 w-8 h-5 rounded-t-lg bg-white/[0.10] border border-white/[0.12] border-b-0"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ delay: 0.3, duration: 0.4 }}
+          />
+          {/* Eye dots */}
+          <motion.div
+            className="absolute -top-3 left-1/2 -translate-x-1/2 flex gap-2"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ delay: 0.5, duration: 0.3 }}
+          >
+            <div className="w-1.5 h-1.5 rounded-full bg-white/60" />
+            <div className="w-1.5 h-1.5 rounded-full bg-white/60" />
+          </motion.div>
+        </motion.div>
+
+        {/* Walking legs — 4 dots that alternate up/down */}
+        <div className="flex gap-3 mt-2">
+          {[0, 1, 2, 3].map((i) => (
+            <motion.div
+              key={i}
+              className="w-2 h-2 rounded-full bg-white/70"
+              animate={isInView ? {
+                y: [0, -8, 0, 8, 0],
+              } : {}}
+              transition={{
+                duration: 0.8,
+                repeat: Infinity,
+                delay: i * 0.2,
+                ease: "easeInOut",
+              }}
+            />
+          ))}
         </div>
-        <span className="text-white/80 text-[22px] font-bold tracking-[0.2em] uppercase font-sans">
-          Unitree
-        </span>
-        <span className="text-white/30 text-[11px] font-sans tracking-widest uppercase">
-          Robotics
-        </span>
+
+        {/* Ground line */}
+        <motion.div
+          className="w-32 h-px bg-white/10 mt-3"
+          initial={{ scaleX: 0 }}
+          animate={isInView ? { scaleX: 1 } : {}}
+          transition={{ delay: 0.4, duration: 0.6 }}
+        />
+
+        {/* Floating specs */}
+        <div className="flex gap-4 mt-6">
+          {specs.map((spec, i) => (
+            <motion.div
+              key={i}
+              className="flex flex-col items-center gap-0.5"
+              initial={{ opacity: 0, y: 10 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: spec.delay, duration: 0.5 }}
+            >
+              <span className="text-white/80 text-[11px] font-bold font-sans tracking-wide">
+                {spec.label}
+              </span>
+              <span className="text-white/30 text-[9px] font-sans">
+                {spec.detail}
+              </span>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </div>
   )
 }
 
 function ITVisual() {
+  const ref = useRef<HTMLDivElement>(null)
+  const isInView = useInView(ref, { once: true, margin: "-50px" })
+  const [showDeployed, setShowDeployed] = useState(false)
+
   const codePattern = [
     { text: "const ai = new AlashedAI({", color: "#C586C0" },
     { text: '  model: "gpt-4o",', color: "#CE9178" },
@@ -179,8 +261,17 @@ function ITVisual() {
     { text: "});", color: "#DCDCAA" },
   ]
 
+  useEffect(() => {
+    if (!isInView) return
+    const timer = setTimeout(() => setShowDeployed(true), (codePattern.length * 0.18 + 0.6) * 1000)
+    return () => clearTimeout(timer)
+  }, [isInView, codePattern.length])
+
   return (
-    <div className="w-full h-full rounded-2xl overflow-hidden relative bg-gradient-to-br from-[#312E81] via-[#3730A3] to-[#1E1B4B] flex flex-col">
+    <div
+      ref={ref}
+      className="w-full h-full rounded-2xl overflow-hidden relative bg-gradient-to-br from-[#312E81] via-[#3730A3] to-[#1E1B4B] flex flex-col"
+    >
       {/* Dot pattern */}
       <div
         className="absolute inset-0 opacity-[0.08]"
@@ -194,10 +285,16 @@ function ITVisual() {
         <CodeIcon size={14} color="rgba(255,255,255,0.5)" strokeWidth={1.5} />
         <span className="text-white/50 text-[10px] font-mono">integration.ts</span>
       </div>
-      {/* Code lines */}
+      {/* Code lines — typed in sequentially */}
       <div className="relative flex-1 p-4 flex flex-col gap-0.5">
         {codePattern.map((line, i) => (
-          <div key={i} className="flex items-center gap-3 h-[18px]">
+          <motion.div
+            key={i}
+            className="flex items-center gap-3 h-[18px]"
+            initial={{ opacity: 0, x: -8 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ delay: i * 0.18 + 0.3, duration: 0.3, ease: "easeOut" }}
+          >
             <span className="text-[9px] font-mono text-white/20 w-3 text-right select-none">
               {i + 1}
             </span>
@@ -208,13 +305,51 @@ function ITVisual() {
             ) : (
               <span>&nbsp;</span>
             )}
-          </div>
+            {/* Blinking cursor on the last line */}
+            {i === codePattern.length - 1 && !showDeployed && (
+              <motion.span
+                className="inline-block w-[6px] h-[12px] bg-white/70 ml-0.5"
+                animate={{ opacity: [1, 0, 1] }}
+                transition={{ duration: 1, repeat: Infinity, times: [0, 0.5, 1] }}
+              />
+            )}
+          </motion.div>
         ))}
+
+        {/* Deployed badge */}
+        <AnimatePresence>
+          {showDeployed && (
+            <motion.div
+              className="flex items-center gap-1.5 mt-3 px-2.5 py-1 rounded-md bg-[#10B981]/15 border border-[#10B981]/25 self-start"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4 }}
+            >
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <motion.path
+                  d="M2.5 6L5 8.5L9.5 3.5"
+                  stroke="#10B981"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
+                  transition={{ duration: 0.4, delay: 0.1 }}
+                />
+              </svg>
+              <span className="text-[#10B981] text-[10px] font-mono font-semibold">Deployed</span>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
       {/* Status bar */}
       <div className="relative flex items-center justify-between px-4 py-2 border-t border-white/[0.08]">
         <div className="flex items-center gap-1.5">
-          <div className="w-1.5 h-1.5 rounded-full bg-[#818CF8]" />
+          <motion.div
+            className="w-1.5 h-1.5 rounded-full bg-[#818CF8]"
+            animate={{ opacity: [1, 0.4, 1] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          />
           <span className="text-white/40 text-[9px] font-mono">AI Engine Ready</span>
         </div>
         <span className="text-white/30 text-[9px] font-mono">TypeScript</span>
@@ -224,36 +359,84 @@ function ITVisual() {
 }
 
 function TendonVisual() {
-  const columns = [
-    {
-      title: "To Do",
-      count: 3,
-      tasks: [
-        { text: "Настроить CI/CD", tag: "ops", tagColor: "#F59E0B" },
-        { text: "Ревью PR #42", tag: "review", tagColor: "#6366F1" },
-        { text: "Написать тесты", tag: "dev", tagColor: "#10B981" },
-      ],
-    },
-    {
-      title: "In Progress",
-      count: 2,
-      tasks: [
-        { text: "API интеграция", tag: "dev", tagColor: "#10B981" },
-        { text: "Стендап-бот", tag: "feature", tagColor: "#8B5CF6" },
-      ],
-    },
-    {
-      title: "Done",
-      count: 2,
-      tasks: [
-        { text: "Auth модуль", tag: "dev", tagColor: "#10B981" },
-        { text: "Деплой v2.1", tag: "ops", tagColor: "#F59E0B" },
-      ],
-    },
+  const ref = useRef<HTMLDivElement>(null)
+  const isInView = useInView(ref, { once: true, margin: "-50px" })
+  const [phase, setPhase] = useState(0) // 0: all in ToDo, 1: one moves to InProgress, 2: it moves to Done
+
+  interface Task {
+    id: string
+    text: string
+    tag: string
+    tagColor: string
+  }
+
+  const allTasks: Task[] = [
+    { id: "t1", text: "Настроить CI/CD", tag: "ops", tagColor: "#F59E0B" },
+    { id: "t2", text: "Ревью PR #42", tag: "review", tagColor: "#6366F1" },
+    { id: "t3", text: "Написать тесты", tag: "dev", tagColor: "#10B981" },
   ]
 
+  useEffect(() => {
+    if (!isInView) return
+    const timer1 = setTimeout(() => setPhase(1), 1500)
+    const timer2 = setTimeout(() => setPhase(2), 3000)
+    const timer3 = setTimeout(() => setPhase(0), 5000)
+    // Loop the animation
+    const interval = setInterval(() => {
+      setPhase(0)
+      setTimeout(() => setPhase(1), 1500)
+      setTimeout(() => setPhase(2), 3000)
+    }, 5000)
+    return () => {
+      clearTimeout(timer1)
+      clearTimeout(timer2)
+      clearTimeout(timer3)
+      clearInterval(interval)
+    }
+  }, [isInView])
+
+  const todoTasks = phase === 0 ? allTasks : phase === 1 ? [allTasks[1], allTasks[2]] : [allTasks[2]]
+  const inProgressTasks = phase === 1 ? [allTasks[0]] : []
+  const doneTasks = phase === 2 ? [allTasks[0], allTasks[1]] : []
+
+  const completedCount = doneTasks.length
+  const progressPercent = (completedCount / allTasks.length) * 100
+
+  const columns = [
+    { title: "To Do", tasks: todoTasks },
+    { title: "In Progress", tasks: inProgressTasks },
+    { title: "Done", tasks: doneTasks },
+  ]
+
+  function TaskCard({ task }: { task: Task }) {
+    return (
+      <motion.div
+        layout
+        layoutId={task.id}
+        className="px-2.5 py-2 rounded-lg bg-white/[0.04] border border-white/[0.06] flex flex-col gap-1"
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.95 }}
+        transition={{ type: "spring", stiffness: 300, damping: 25 }}
+      >
+        <span className="text-white/70 text-[9px] sm:text-[10px] font-sans leading-tight">
+          {task.text}
+        </span>
+        <span
+          className="text-[7px] font-bold uppercase tracking-wider self-start px-1.5 py-0.5 rounded"
+          style={{
+            color: task.tagColor,
+            backgroundColor: `${task.tagColor}15`,
+          }}
+        >
+          {task.tag}
+        </span>
+      </motion.div>
+    )
+  }
+
   return (
-    <div className="w-full h-full rounded-2xl overflow-hidden relative bg-[#0F0B1A] flex flex-col">
+    <div ref={ref} className="w-full h-full rounded-2xl overflow-hidden relative bg-[#0F0B1A] flex flex-col">
       {/* Header */}
       <div className="flex items-center justify-between px-4 py-3 border-b border-white/[0.06]">
         <div className="flex items-center gap-2">
@@ -265,6 +448,24 @@ function TendonVisual() {
           <span className="text-[8px] font-bold text-[#A78BFA] uppercase tracking-wider">Live</span>
         </div>
       </div>
+
+      {/* Progress bar */}
+      <div className="px-4 pt-2">
+        <div className="w-full h-1 rounded-full bg-white/[0.06] overflow-hidden">
+          <motion.div
+            className="h-full rounded-full bg-[#8B5CF6]"
+            animate={{ width: `${progressPercent}%` }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          />
+        </div>
+        <div className="flex justify-between mt-1">
+          <span className="text-white/25 text-[8px] font-mono">Progress</span>
+          <span className="text-[#A78BFA] text-[8px] font-mono font-semibold">
+            {completedCount}/{allTasks.length}
+          </span>
+        </div>
+      </div>
+
       {/* Columns */}
       <div className="flex-1 p-3 grid grid-cols-3 gap-2 overflow-hidden">
         {columns.map((col, ci) => (
@@ -273,27 +474,13 @@ function TendonVisual() {
               <span className="text-white/50 text-[9px] font-semibold font-sans uppercase tracking-wider">
                 {col.title}
               </span>
-              <span className="text-white/25 text-[9px] font-mono">{col.count}</span>
+              <span className="text-white/25 text-[9px] font-mono">{col.tasks.length}</span>
             </div>
-            {col.tasks.map((task, ti) => (
-              <div
-                key={ti}
-                className="px-2.5 py-2 rounded-lg bg-white/[0.04] border border-white/[0.06] flex flex-col gap-1"
-              >
-                <span className="text-white/70 text-[9px] sm:text-[10px] font-sans leading-tight">
-                  {task.text}
-                </span>
-                <span
-                  className="text-[7px] font-bold uppercase tracking-wider self-start px-1.5 py-0.5 rounded"
-                  style={{
-                    color: task.tagColor,
-                    backgroundColor: `${task.tagColor}15`,
-                  }}
-                >
-                  {task.tag}
-                </span>
-              </div>
-            ))}
+            <AnimatePresence mode="popLayout">
+              {col.tasks.map((task) => (
+                <TaskCard key={task.id} task={task} />
+              ))}
+            </AnimatePresence>
           </div>
         ))}
       </div>
@@ -302,6 +489,9 @@ function TendonVisual() {
 }
 
 function WikiVisual() {
+  const ref = useRef<HTMLDivElement>(null)
+  const isInView = useInView(ref, { once: true, margin: "-50px" })
+
   const docLines = [
     { type: "heading", text: "ESP32: Подключение датчика DHT22" },
     { type: "meta", text: "Обновлено 28.03.2026  ·  5 мин чтения" },
@@ -315,8 +505,19 @@ function WikiVisual() {
     { type: "code", text: "print(sensor.temperature())" },
   ]
 
+  // Stagger delays: heading first, then each line progressively
+  const getDelay = (i: number) => {
+    if (i === 0) return 0.2 // heading slides in first
+    if (i <= 2) return 0.3 + i * 0.15 // meta & text fade in
+    if (i === 3) return 0.8 // code-label
+    return 0.9 + (i - 4) * 0.12 // code block slides up line by line
+  }
+
   return (
-    <div className="w-full h-full rounded-2xl overflow-hidden relative bg-white border border-[rgba(55,50,47,0.08)] flex flex-col">
+    <div
+      ref={ref}
+      className="w-full h-full rounded-2xl overflow-hidden relative bg-white border border-[rgba(55,50,47,0.08)] flex flex-col"
+    >
       {/* Nav bar */}
       <div className="flex items-center justify-between px-4 py-2.5 border-b border-[rgba(55,50,47,0.06)] bg-[#FAFAF9]">
         <div className="flex items-center gap-2">
@@ -328,35 +529,67 @@ function WikiVisual() {
         </div>
       </div>
       {/* Content */}
-      <div className="flex-1 p-4 flex flex-col gap-2 overflow-hidden">
+      <div className="flex-1 p-4 flex flex-col gap-2 overflow-hidden relative">
         {docLines.map((line, i) => {
+          const delay = getDelay(i)
+
           if (line.type === "heading")
             return (
-              <h4 key={i} className="text-[13px] sm:text-[15px] font-semibold text-[#1a1715] font-sans leading-tight">
+              <motion.h4
+                key={i}
+                className="text-[13px] sm:text-[15px] font-semibold text-[#1a1715] font-sans leading-tight"
+                initial={{ opacity: 0, x: -16 }}
+                animate={isInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ delay, duration: 0.4, ease: "easeOut" }}
+              >
                 {line.text}
-              </h4>
+              </motion.h4>
             )
           if (line.type === "meta")
             return (
-              <p key={i} className="text-[9px] text-[#605A57]/60 font-sans -mt-1">
+              <motion.p
+                key={i}
+                className="text-[9px] text-[#605A57]/60 font-sans -mt-1"
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 1 } : {}}
+                transition={{ delay, duration: 0.3 }}
+              >
                 {line.text}
-              </p>
+              </motion.p>
             )
           if (line.type === "text")
             return (
-              <p key={i} className="text-[10px] sm:text-[11px] text-[#605A57] font-sans leading-relaxed mt-1">
+              <motion.p
+                key={i}
+                className="text-[10px] sm:text-[11px] text-[#605A57] font-sans leading-relaxed mt-1"
+                initial={{ opacity: 0, y: 6 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay, duration: 0.35 }}
+              >
                 {line.text}
-              </p>
+              </motion.p>
             )
           if (line.type === "code-label")
             return (
-              <p key={i} className="text-[9px] text-[#059669] font-semibold font-sans mt-1 uppercase tracking-wider">
+              <motion.p
+                key={i}
+                className="text-[9px] text-[#059669] font-semibold font-sans mt-1 uppercase tracking-wider"
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 1 } : {}}
+                transition={{ delay, duration: 0.3 }}
+              >
                 {line.text}
-              </p>
+              </motion.p>
             )
           if (line.type === "code")
             return (
-              <div key={i} className={`flex items-center gap-2 ${i === 4 ? "mt-0.5 px-3 py-0 rounded-t-lg bg-[#1a1715]" : "px-3 py-0 bg-[#1a1715]"} ${i === docLines.length - 1 ? "rounded-b-lg pb-1.5" : ""} ${i === 4 ? "pt-1.5" : ""}`}>
+              <motion.div
+                key={i}
+                className={`flex items-center gap-2 ${i === 4 ? "mt-0.5 px-3 py-0 rounded-t-lg bg-[#1a1715]" : "px-3 py-0 bg-[#1a1715]"} ${i === docLines.length - 1 ? "rounded-b-lg pb-1.5" : ""} ${i === 4 ? "pt-1.5" : ""}`}
+                initial={{ opacity: 0, y: 10 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay, duration: 0.3, ease: "easeOut" }}
+              >
                 <span className="text-[9px] font-mono text-white/20 w-2 text-right select-none">
                   {i - 3}
                 </span>
@@ -367,44 +600,130 @@ function WikiVisual() {
                 ) : (
                   <span className="h-[14px]">&nbsp;</span>
                 )}
-              </div>
+              </motion.div>
             )
           return null
         })}
+
+        {/* Scroll indicator */}
+        <motion.div
+          className="absolute right-2 top-1/3 flex flex-col items-center gap-0.5"
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ delay: 1.8, duration: 0.4 }}
+        >
+          <motion.div
+            className="w-1 h-6 rounded-full bg-[#059669]/20 relative overflow-hidden"
+          >
+            <motion.div
+              className="w-full h-2 rounded-full bg-[#059669]/50"
+              animate={isInView ? { y: [0, 16, 0] } : {}}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            />
+          </motion.div>
+        </motion.div>
       </div>
     </div>
   )
 }
 
 function BizVisual() {
+  const ref = useRef<HTMLDivElement>(null)
+  const isInView = useInView(ref, { once: true, margin: "-50px" })
+  const [typedText, setTypedText] = useState("")
+  const fullText = "Coming 2025"
+
+  useEffect(() => {
+    if (!isInView) return
+    let i = 0
+    const interval = setInterval(() => {
+      i++
+      setTypedText(fullText.slice(0, i))
+      if (i >= fullText.length) clearInterval(interval)
+    }, 100)
+    return () => clearInterval(interval)
+  }, [isInView])
+
+  // Generate floating particle positions (deterministic)
+  const particles = Array.from({ length: 12 }, (_, i) => ({
+    x: (i * 37 + 13) % 100,
+    y: (i * 53 + 7) % 100,
+    size: 2 + (i % 3),
+    delay: i * 0.3,
+    duration: 3 + (i % 3),
+  }))
+
   return (
-    <div className="w-full h-full rounded-2xl overflow-hidden relative bg-gradient-to-br from-[#FFFBEB] via-white to-[#FEF3C7] border border-[rgba(217,119,6,0.12)] flex items-center justify-center">
-      {/* Blur overlay */}
-      <div className="absolute inset-0 backdrop-blur-[2px] bg-white/40 z-10" />
-      {/* Faded mockup behind */}
-      <div className="absolute inset-4 rounded-xl border border-[rgba(217,119,6,0.08)] bg-white/60 flex flex-col overflow-hidden opacity-40">
-        <div className="px-4 py-3 border-b border-[rgba(217,119,6,0.06)] flex items-center gap-2">
-          <Briefcase01Icon size={14} color="#D97706" strokeWidth={1.5} />
-          <span className="text-[11px] font-semibold text-[#37322F]/60 font-sans">Alashed BIZ</span>
-        </div>
-        <div className="flex-1 p-3 grid grid-cols-2 gap-2">
-          {[1, 2, 3, 4].map((n) => (
-            <div key={n} className="rounded-lg bg-[#D97706]/[0.04] border border-[#D97706]/[0.06] h-16" />
-          ))}
-        </div>
+    <div
+      ref={ref}
+      className="w-full h-full rounded-2xl overflow-hidden relative bg-[#1a1510] flex items-center justify-center"
+    >
+      {/* Animated rotating border gradient */}
+      <div className="absolute inset-0 rounded-2xl p-px overflow-hidden">
+        <motion.div
+          className="absolute inset-[-50%] rounded-2xl"
+          style={{
+            background: "conic-gradient(from 0deg, transparent 0%, #D97706 25%, transparent 50%, #D97706 75%, transparent 100%)",
+          }}
+          animate={isInView ? { rotate: 360 } : {}}
+          transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+        />
+        <div className="absolute inset-[1px] rounded-2xl bg-[#1a1510]" />
       </div>
-      {/* Coming soon badge */}
-      <div className="relative z-20 flex flex-col items-center gap-3">
-        <div className="w-14 h-14 rounded-2xl bg-[#D97706]/10 border border-[#D97706]/20 flex items-center justify-center">
-          <Briefcase01Icon size={28} color="#D97706" strokeWidth={1.2} />
-        </div>
-        <div className="flex flex-col items-center gap-1">
-          <span className="text-[#D97706] text-[13px] font-bold font-sans tracking-wide">
-            Alashed BIZ
+
+      {/* Floating particles */}
+      {particles.map((p, i) => (
+        <motion.div
+          key={i}
+          className="absolute rounded-full bg-[#D97706]"
+          style={{
+            width: p.size,
+            height: p.size,
+            left: `${p.x}%`,
+            top: `${p.y}%`,
+            opacity: 0,
+          }}
+          animate={isInView ? {
+            opacity: [0, 0.4, 0],
+            y: [0, -20, 0],
+            x: [0, (i % 2 === 0 ? 8 : -8), 0],
+          } : {}}
+          transition={{
+            duration: p.duration,
+            repeat: Infinity,
+            delay: p.delay,
+            ease: "easeInOut",
+          }}
+        />
+      ))}
+
+      {/* Center content */}
+      <div className="relative z-10 flex flex-col items-center gap-4">
+        {/* BIZ text with pulse */}
+        <motion.div
+          className="text-[#D97706] text-[48px] font-bold font-sans tracking-[0.3em]"
+          animate={isInView ? {
+            textShadow: [
+              "0 0 20px rgba(217,119,6,0)",
+              "0 0 40px rgba(217,119,6,0.3)",
+              "0 0 20px rgba(217,119,6,0)",
+            ],
+          } : {}}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        >
+          BIZ
+        </motion.div>
+
+        {/* Typing effect for "Coming 2025" */}
+        <div className="flex items-center h-5">
+          <span className="text-[#D97706]/60 text-[12px] font-mono tracking-widest uppercase">
+            {typedText}
           </span>
-          <span className="px-3 py-1 rounded-full bg-[#D97706]/10 border border-[#D97706]/15 text-[#D97706] text-[10px] font-bold uppercase tracking-widest">
-            Скоро
-          </span>
+          <motion.span
+            className="inline-block w-[5px] h-[14px] bg-[#D97706]/60 ml-0.5"
+            animate={{ opacity: [1, 0, 1] }}
+            transition={{ duration: 0.8, repeat: Infinity, times: [0, 0.5, 1] }}
+          />
         </div>
       </div>
     </div>
