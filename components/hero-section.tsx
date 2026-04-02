@@ -27,16 +27,6 @@ export function HeroSection() {
 
       {/* Content */}
       <div className="w-full max-w-[860px] flex flex-col items-center relative z-10 px-4">
-        {/* Eyebrow */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          className="text-[#605A57] text-[13px] font-medium font-sans tracking-[0.08em] uppercase mb-6 sm:mb-8"
-        >
-          Образование · Робототехника · Бизнес
-        </motion.p>
-
         {/* Headline — large, serif, commanding */}
         <motion.h1
           initial={{ opacity: 0, y: 24 }}
