@@ -11,16 +11,18 @@ export default function AnnouncementBanner() {
   return (
     <div className="w-full bg-[#1A6FA8] px-4 py-2 flex justify-center items-center gap-3 relative">
       <div className="flex items-center gap-2 flex-wrap justify-center">
-        <span className="text-[#D6EFFE] text-xs font-semibold uppercase tracking-wide font-sans">Пилот 2025–2026</span>
+        <span className="text-[#D6EFFE] text-xs font-semibold uppercase tracking-wide font-sans">Новое</span>
         <span className="w-1 h-1 rounded-full bg-[#5BB8F5]/60" />
         <span className="text-white text-xs font-normal font-sans">
-          Принимаем заявки от школ Казахстана — полная STEM-экосистема для вашей школы
+          Unitree.kz — официальный дистрибьютор роботов Unitree в СНГ
         </span>
         <a
-          href="#contact"
+          href="https://unitree.kz"
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-[#D6EFFE] text-xs font-semibold font-sans underline underline-offset-2 hover:text-white transition-colors whitespace-nowrap"
         >
-          Подать заявку →
+          Узнать больше →
         </a>
       </div>
       <button

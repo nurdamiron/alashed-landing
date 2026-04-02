@@ -6,14 +6,15 @@ import ScrollReveal, { StaggerContainer, StaggerItem } from "@/components/motion
 const productLinks = [
   { label: "Alashed EDU", href: "https://edu.alashed.kz" },
   { label: "CodeStudio", href: "https://studio.alashed.kz" },
+  { label: "Электронный журнал", href: "https://edu.alashed.kz" },
+  { label: "Wiki", href: "https://wiki.alashed.kz" },
   { label: "Alash Electronics", href: "https://alash-electronics.kz" },
   { label: "Unitree.kz", href: "https://unitree.kz" },
-  { label: "Tendon", href: "https://tendon.alashed.kz" },
 ]
 
 const companyLinks = [
   { label: "Alashed IT", href: "https://it.alashed.kz" },
-  { label: "Wiki", href: "https://wiki.alashed.kz" },
+  { label: "Tendon", href: "https://tendon.alashed.kz" },
   { label: "Блог", href: "/blog" },
   { label: "Контакты", href: "/#contact" },
 ]
@@ -22,7 +23,7 @@ const resourceLinks = [
   { label: "Для учителей", href: "/for-teachers" },
   { label: "Для директоров", href: "/for-directors" },
   { label: "Для учеников", href: "/for-students" },
-  { label: "ГОСО 2026", href: "/blog/category/goso-2026" },
+  { label: "Соревнования", href: "/competitions" },
 ]
 
 export default function FooterSection() {

@@ -3,9 +3,8 @@
 import { motion } from "framer-motion"
 import {
   ArrowRight02Icon,
-  CheckmarkCircle02Icon,
   SparklesIcon,
-  Rocket01Icon,
+  CodeIcon,
   AiBrain01Icon,
   Atom01Icon,
 } from "hugeicons-react"
@@ -43,7 +42,7 @@ export function HeroSection() {
                 <SparklesIcon size={12} color="#2E9DE0" strokeWidth={2} />
                 <span className="text-[#2E9DE0] text-[11px] font-bold tracking-wider uppercase font-sans">Новое</span>
               </div>
-              <span className="text-[#49423D] text-[13px] font-medium font-sans">STEM-платформа для школ Казахстана</span>
+              <span className="text-[#49423D] text-[13px] font-medium font-sans">9 продуктов · 3 направления · 1 экосистема</span>
             </div>
           </motion.div>
 
@@ -76,7 +75,7 @@ export function HeroSection() {
             transition={{ duration: 0.7, delay: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
             className="w-full max-w-[520px] text-center text-[rgba(55,50,47,0.70)] text-[15px] sm:text-base md:text-lg leading-[1.6] font-sans px-4 md:px-0 font-medium"
           >
-            Образование, робототехника, дистрибуция, бизнес-инструменты — 9 продуктов в единой экосистеме.
+            Строим продукты в образовании, робототехнике и бизнесе — от AI-копилота для учителей до дистрибуции промышленных роботов
           </motion.p>
         </div>
       </div>
@@ -91,14 +90,14 @@ export function HeroSection() {
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-3.5 w-full sm:w-auto px-4 sm:px-0">
           <motion.a
-            href="https://edu.alashed.kz"
+            href="#products"
             whileHover={{ scale: 1.03, y: -1 }}
             whileTap={{ scale: 0.97 }}
             transition={{ type: "spring", stiffness: 400, damping: 20 }}
             className="group h-12 sm:h-[52px] px-7 sm:px-9 bg-[#37322F] hover:bg-[#1a1715] transition-all duration-200 rounded-[14px] flex items-center justify-center gap-2.5 shadow-[0_1px_2px_rgba(0,0,0,0.2),0_0_0_1px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.06)] w-full sm:w-auto"
           >
             <span className="text-white text-sm font-semibold font-sans">
-              Начать работу
+              Наши продукты
             </span>
             <div className="w-5 h-5 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
               <ArrowRight02Icon size={12} color="white" strokeWidth={2.5} />
@@ -111,8 +110,7 @@ export function HeroSection() {
             transition={{ type: "spring", stiffness: 400, damping: 20 }}
             className="h-12 sm:h-[52px] px-7 bg-white hover:bg-[#FAFAF9] text-[#37322F] rounded-[14px] font-semibold text-sm transition-all duration-200 flex items-center justify-center gap-2 shadow-[0_1px_3px_rgba(0,0,0,0.06),0_0_0_1px_rgba(55,50,47,0.1)] w-full sm:w-auto"
           >
-            <Rocket01Icon size={15} color="#37322F" strokeWidth={2} />
-            Запросить демо
+            Связаться с нами
           </motion.a>
         </div>
 
@@ -124,9 +122,9 @@ export function HeroSection() {
           className="flex flex-wrap justify-center items-center gap-3 sm:gap-5"
         >
           {[
-            { icon: <CheckmarkCircle02Icon size={14} color="#2E9DE0" strokeWidth={2} />, text: "ГОСО 2026" },
-            { icon: <AiBrain01Icon size={14} color="#2E9DE0" strokeWidth={2} />, text: "AI-powered" },
-            { icon: <Atom01Icon size={14} color="#2E9DE0" strokeWidth={2} />, text: "STEM" },
+            { icon: <CodeIcon size={14} color="#2E9DE0" strokeWidth={2} />, text: "9 продуктов" },
+            { icon: <AiBrain01Icon size={14} color="#2E9DE0" strokeWidth={2} />, text: "3 направления" },
+            { icon: <Atom01Icon size={14} color="#2E9DE0" strokeWidth={2} />, text: "Казахстан" },
           ].map((item, i) => (
             <motion.div
               key={i}

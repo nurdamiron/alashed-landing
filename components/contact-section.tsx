@@ -21,8 +21,8 @@ export default function ContactSection() {
           name: form.name,
           email: form.email,
           phone: form.phone,
-          subject: `Заявка на пилот — ${form.school} (${form.name})`,
-          message: `Школа: ${form.school}\nТелефон: ${form.phone}\nEmail: ${form.email}\n\n${form.message || "—"}`,
+          subject: `Заявка — ${form.school} (${form.name})`,
+          message: `Компания: ${form.school}\nТелефон: ${form.phone}\nEmail: ${form.email}\n\n${form.message || "—"}`,
         }),
       })
       if (res.ok) {
@@ -44,18 +44,18 @@ export default function ContactSection() {
           <div className="px-[14px] py-[6px] bg-[#EBF7FF] overflow-hidden rounded-[90px] flex items-center gap-[8px] border border-[#5BB8F5]/30">
             <Mail01Icon size={12} color="#2E9DE0" strokeWidth={1.2} />
             <span className="text-[#2E9DE0] text-xs font-semibold leading-3 font-sans tracking-wide uppercase">
-              Контакты
+              Связаться
             </span>
           </div>
         </ScrollReveal>
         <ScrollReveal delay={0.1}>
           <h2 className="text-[#49423D] text-xl sm:text-2xl md:text-[28px] font-semibold leading-tight font-sans tracking-tight">
-            Оставить заявку на пилот
+            Давайте обсудим
           </h2>
         </ScrollReveal>
         <ScrollReveal delay={0.2}>
           <p className="text-[#605A57] text-sm sm:text-base font-normal leading-7 font-sans max-w-[520px]">
-            Подключим вашу школу за 48 часов. Полный доступ ко всей экосистеме.
+            Расскажите о вашей задаче — мы подберём подходящее решение
           </p>
         </ScrollReveal>
       </div>
@@ -76,13 +76,13 @@ export default function ContactSection() {
               />
             </div>
             <div className="flex flex-col gap-1.5">
-              <label className="text-[11px] font-semibold text-[#605A57] uppercase tracking-wider font-sans">Школа</label>
+              <label className="text-[11px] font-semibold text-[#605A57] uppercase tracking-wider font-sans">Компания / Организация</label>
               <input
                 type="text"
                 required
                 value={form.school}
                 onChange={e => setForm(f => ({ ...f, school: e.target.value }))}
-                placeholder="НИШ г. Астана"
+                placeholder="Название компании или школы"
                 className="h-10 px-3 rounded-lg border border-[rgba(55,50,47,0.12)] bg-white text-sm text-[#37322F] font-sans placeholder:text-[rgba(55,50,47,0.3)] focus:outline-none focus:border-[#5BB8F5] focus:ring-1 focus:ring-[#5BB8F5]/30 transition-colors"
               />
             </div>
@@ -142,7 +142,7 @@ export default function ContactSection() {
             {status === "sent" ? "Заявка отправлена!" :
              status === "sending" ? "Отправка..." :
              status === "error" ? "Ошибка — попробовать снова" :
-             "Отправить заявку"}
+             "Отправить"}
           </motion.button>
 
           {status === "sent" && (
@@ -151,7 +151,7 @@ export default function ContactSection() {
               animate={{ opacity: 1, y: 0 }}
               className="text-center text-sm text-[#28C840] font-sans"
             >
-              Мы свяжемся с вами в течение 24 часов
+              Мы свяжемся с вами в ближайшее время
             </motion.p>
           )}
         </form>
