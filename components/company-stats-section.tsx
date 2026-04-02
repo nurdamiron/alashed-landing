@@ -5,7 +5,7 @@ import { motion, useInView } from "framer-motion"
 import ScrollReveal from "@/components/motion/scroll-reveal"
 
 const stats = [
-  { value: 9, label: "продуктов в экосистеме" },
+  { value: 8, label: "продуктов в экосистеме" },
   { value: 3, label: "направления бизнеса" },
   { value: 6, label: "доменов в продакшене" },
   { value: 2024, label: "год основания" },

@@ -59,11 +59,6 @@ const verticals: Vertical[] = [
         href: "https://studio.alashed.kz",
       },
       {
-        name: "Электронный журнал",
-        description: "Оценки, расписание, аналитика",
-        icon: <BookOpen01Icon size={16} color="#2E9DE0" strokeWidth={1.5} />,
-      },
-      {
         name: "Wiki",
         description: "Курсы и документация",
         icon: <BookOpen01Icon size={16} color="#2E9DE0" strokeWidth={1.5} />,

@@ -42,7 +42,7 @@ export function HeroSection() {
                 <SparklesIcon size={12} color="#2E9DE0" strokeWidth={2} />
                 <span className="text-[#2E9DE0] text-[11px] font-bold tracking-wider uppercase font-sans">Новое</span>
               </div>
-              <span className="text-[#49423D] text-[13px] font-medium font-sans">9 продуктов · 3 направления · 1 экосистема</span>
+              <span className="text-[#49423D] text-[13px] font-medium font-sans">8 продуктов · 3 направления · 1 экосистема</span>
             </div>
           </motion.div>
 
@@ -122,7 +122,7 @@ export function HeroSection() {
           className="flex flex-wrap justify-center items-center gap-3 sm:gap-5"
         >
           {[
-            { icon: <CodeIcon size={14} color="#2E9DE0" strokeWidth={2} />, text: "9 продуктов" },
+            { icon: <CodeIcon size={14} color="#2E9DE0" strokeWidth={2} />, text: "8 продуктов" },
             { icon: <AiBrain01Icon size={14} color="#2E9DE0" strokeWidth={2} />, text: "3 направления" },
             { icon: <Atom01Icon size={14} color="#2E9DE0" strokeWidth={2} />, text: "Казахстан" },
           ].map((item, i) => (
